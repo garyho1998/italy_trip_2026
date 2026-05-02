@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights | Italia Avventura 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+    <nav class="nav nav-sticky">
+        <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav-home">Home</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="map.html" data-i18n="nav-route">Route</a>
+            <a href="flights.html" class="active" data-i18n="nav-flights">Flights</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+        </div>
+        <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="map.html" data-i18n="nav-route">Route</a>
+        <a href="flights.html" class="active" data-i18n="nav-flights">Flights</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
+        <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+        <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+    </div>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header">
+                <span class="section-tag" data-i18n="flights-tag">✈️ Flight Options</span>
+                <h1 data-i18n="flights-title">Hong Kong to Italy</h1>
+                <p class="page-subtitle" data-i18n="flights-subtitle">Cathay Pacific Direct — HKG ↔ Rome Round Trip</p>
+            </div>
+
+            <div class="flights-grid">
+                <!-- Outbound Flight -->
+                <div class="flight-detail-card outbound">
+                    <div class="flight-direction">
+                        <span class="direction-label" data-i18n="flights-outbound">OUTBOUND ✅ CONFIRMED</span>
+                        <span class="flight-date-big" data-i18n="flights-outbound-date">June 3, 2026 (Wednesday)</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="airport">
+                            <span class="airport-code">HKG</span>
+                            <span class="airport-name">Hong Kong International<br>Terminal 1</span>
+                        </div>
+                        <div class="flight-arrow">
+                            <span class="plane-icon">✈️</span>
+                            <div class="arrow-line"></div>
+                            <span class="flight-duration" data-i18n="flights-out-duration">13 hours (Direct)</span>
+                        </div>
+                        <div class="airport">
+                            <span class="airport-code">FCO</span>
+                            <span class="airport-name">Rome Fiumicino<br>Terminal 3</span>
+                        </div>
+                    </div>
+                    <div class="flight-options">
+                        <h4 data-i18n="flights-recommended">✅ Confirmed Booking:</h4>
+                        <div class="airline-list">
+                            <div class="airline best-deal">
+                                <span class="airline-name" data-i18n="flights-best-deal">🛫 Cathay Pacific CX293 ✅ Booked</span>
+                                <span class="airline-route" data-i18n="flights-ce-route-out">Direct flight • No stops • Economy Light</span>
+                                <span class="airline-price">HKD 8,265 (round trip)</span>
+                            </div>
+                            <div class="airline">
+                                <span class="airline-name" data-i18n="flights-out-time">⏰ Depart 01:05 → Arrive 08:05</span>
+                                <span class="airline-route" data-i18n="flights-out-baggage">🧳 1 x 23kg checked bag + 7kg cabin</span>
+                                <span class="airline-price" data-i18n="flights-out-ref">📋 Ref: E22Y7L</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return Flight -->
+                <div class="flight-detail-card return">
+                    <div class="flight-direction">
+                        <span class="direction-label" data-i18n="flights-return">RETURN ✅ CONFIRMED</span>
+                        <span class="flight-date-big" data-i18n="flights-return-date">June 13, 2026 (Saturday)</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="airport">
+                            <span class="airport-code">FCO</span>
+                            <span class="airport-name">Rome Fiumicino<br>Terminal 3</span>
+                        </div>
+                        <div class="flight-arrow">
+                            <span class="plane-icon">✈️</span>
+                            <div class="arrow-line"></div>
+                            <span class="flight-duration" data-i18n="flights-ret-duration">11 hours (Direct)</span>
+                        </div>
+                        <div class="airport">
+                            <span class="airport-code">HKG</span>
+                            <span class="airport-name">Hong Kong International<br>Terminal 1</span>
+                        </div>
+                    </div>
+                    <div class="flight-options">
+                        <h4 data-i18n="flights-recommended-ret">✅ Confirmed Booking:</h4>
+                        <div class="airline-list">
+                            <div class="airline best-deal">
+                                <span class="airline-name" data-i18n="flights-cathay-ret">🛫 Cathay Pacific CX292 ✅ Booked</span>
+                                <span class="airline-route" data-i18n="flights-cathay-route-ret">Direct flight • No stops • Economy Light</span>
+                                <span class="airline-price" data-i18n="flights-ret-price">Included in round trip</span>
+                            </div>
+                            <div class="airline">
+                                <span class="airline-name" data-i18n="flights-ret-time">⏰ Depart 13:00 → Arrive 06:00+1 (June 14)</span>
+                                <span class="airline-route" data-i18n="flights-ret-baggage">🧳 1 x 23kg checked bag + 7kg cabin</span>
+                                <span class="airline-price" data-i18n="flights-ret-ref">📋 Ref: E22Y7L</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Internal Flight -->
+            <div class="booking-section" style="margin-bottom: 32px;">
+                <h3 data-i18n="flights-internal-title">🚄 No Internal Flights Needed!</h3>
+                <p data-i18n="flights-internal-desc">All travel within Italy is by train — Naples→Bari→Polignano (Day 8) and Bari→Rome (Day 10). Book on Trenitalia or Italo.</p>
+                <div class="booking-buttons">
+                    <a href="https://www.ryanair.com" target="_blank" class="booking-btn">
+                        <span class="btn-icon">✈️</span>
+                        <span>Ryanair (~€30-50)</span>
+                    </a>
+                    <a href="https://www.easyjet.com" target="_blank" class="booking-btn">
+                        <span class="btn-icon">✈️</span>
+                        <span>easyJet (~€40-60)</span>
+                    </a>
+                    <a href="https://www.ita-airways.com" target="_blank" class="booking-btn">
+                        <span class="btn-icon">✈️</span>
+                        <span>ITA Airways (~€50-80)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Booking Links -->
+            <div class="booking-section">
+                <h3 data-i18n="flights-compare-title">🔍 Compare & Book International Flights</h3>
+                <p data-i18n="flights-compare-desc">Search for the best prices across all airlines:</p>
+                <div class="booking-buttons">
+                    <a href="https://www.skyscanner.com.hk/transport/flights/hkg/rome/260603/?adults=6" target="_blank" class="booking-btn skyscanner">
+                        <span class="btn-icon">🔍</span>
+                        <span>Skyscanner</span>
+                    </a>
+                    <a href="https://www.google.com/travel/flights?q=Flights%20to%20Rome%20from%20Hong%20Kong%20on%202026-06-03" target="_blank" class="booking-btn google">
+                        <span class="btn-icon">✈️</span>
+                        <span>Google Flights</span>
+                    </a>
+                    <a href="https://www.kayak.com.hk/flights/HKG-FCO/2026-06-03/FCO-HKG/2026-06-13?sort=bestflight_a" target="_blank" class="booking-btn kayak">
+                        <span class="btn-icon">🎯</span>
+                        <span>Kayak</span>
+                    </a>
+                    <a href="https://www.trip.com/flights/?locale=en_hk" target="_blank" class="booking-btn trip">
+                        <span class="btn-icon">🌏</span>
+                        <span>Trip.com</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Flight Summary -->
+            <div class="flight-summary-box">
+                <div class="summary-header">
+                    <span class="summary-icon">💰</span>
+                    <h3 data-i18n="flights-summary-title">Flight Cost Summary (Lowest Prices)</h3>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="label" data-i18n="flights-sum-out">HKG ↔ Rome round trip (Cathay Pacific)</span>
+                        <span class="value">HKD 8,265</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label" data-i18n="flights-sum-internal">Internal Flights</span>
+                        <span class="value">HKD 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label" data-i18n="flights-sum-total">Total Flights per Person</span>
+                        <span class="value highlight">HKD 8,265</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label" data-i18n="flights-sum-group">Total for 6 People</span>
+                        <span class="value">HKD 49,590</span>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; opacity: 0.8;" data-i18n="flights-sum-note">
+                    💡 Cathay Pacific booked Feb 2026 • Internal flights from <a href="https://www.skyscanner.com.hk/" target="_blank" style="color: var(--tuscany-gold);">Skyscanner</a>
+                </p>
+            </div>
+
+            <!-- Booking Tips -->
+            <div class="booking-tips">
+                <h3 data-i18n="flights-tips-title">💡 Flight Booking Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip1-title">📅 Book Early</h4>
+                        <p data-i18n="flights-tip1-desc">Book 2-3 months in advance for best prices. June is peak season for Italy tourism.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip2-title">🔄 Multi-City Booking</h4>
+                        <p data-i18n="flights-tip2-desc">Round trip to/from Rome FCO. All internal travel by train (Naples→Puglia→Rome).</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip3-title">🧳 Baggage Policy</h4>
+                        <p data-i18n="flights-tip3-desc">Check baggage allowance - some airlines include 23kg checked bag, others charge extra.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip4-title">⏰ Connection Time</h4>
+                        <p data-i18n="flights-tip4-desc">Allow at least 2 hours for connections. Middle East hubs (Dubai, Doha, Istanbul) are efficient.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip5-title">🛩️ Internal Flight</h4>
+                        <p data-i18n="flights-tip5-desc">No internal flights needed! Book trains on Trenitalia or Italo for Naples→Bari and Bari→Rome.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="flights-tip6-title">🪑 Seat Selection</h4>
+                        <p data-i18n="flights-tip6-desc">Book seats together early, especially for groups of 6. Aisle + window pairs work well.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Airports -->
+            <div class="alternative-section">
+                <h3 data-i18n="flights-alt-title">🛬 Alternative Airport Options</h3>
+                <p data-i18n="flights-alt-desc">Flexibility with airports can save money:</p>
+                <div class="alternatives-grid">
+                    <div class="alternative-card">
+                        <h4 data-i18n="flights-alt1-title">Rome Ciampino (CIA)</h4>
+                        <p data-i18n="flights-alt1-desc">Budget airline hub (Ryanair)</p>
+                        <span class="alt-note" data-i18n="flights-alt1-note">Smaller, but often cheaper flights</span>
+                    </div>
+                    <div class="alternative-card">
+                        <h4 data-i18n="flights-alt2-title">Bari (BRI)</h4>
+                        <p data-i18n="flights-alt2-desc">Puglia's main airport</p>
+                        <span class="alt-note" data-i18n="flights-alt2-note">Alternative if you want to fly to/from Puglia</span>
+                    </div>
+                    <div class="alternative-card">
+                        <h4 data-i18n="flights-alt3-title">Milan (MXP)</h4>
+                        <p data-i18n="flights-alt3-desc">Major hub with more options</p>
+                        <span class="alt-note" data-i18n="flights-alt3-note">Only if significantly cheaper + train to Rome</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

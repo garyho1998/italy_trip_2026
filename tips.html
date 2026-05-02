@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips & Packing | Italia Avventura 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+    <nav class="nav nav-sticky">
+        <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav-home">Home</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="map.html" data-i18n="nav-route">Route</a>
+            <a href="flights.html" data-i18n="nav-flights">Flights</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" class="active" data-i18n="nav-tips">Tips & Packing</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+        </div>
+        <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="map.html" data-i18n="nav-route">Route</a>
+        <a href="flights.html" data-i18n="nav-flights">Flights</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
+        <a href="tips.html" class="active" data-i18n="nav-tips">Tips & Packing</a>
+        <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+    </div>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header">
+                <span class="section-tag" data-i18n="tips-tag">📋 Be Prepared</span>
+                <h1 data-i18n="tips-title">Tips & Packing List</h1>
+                <p class="page-subtitle" data-i18n="tips-subtitle">Everything you need to know before your Italian adventure</p>
+            </div>
+
+            <!-- Pre-Book Section -->
+            <section class="checklist-section">
+                <h2 data-i18n="tips-prebook-title">🎫 Must Pre-Book (Before You Go!)</h2>
+                <p class="section-intro" data-i18n="tips-prebook-intro">These attractions sell out quickly - book 2-4 weeks in advance!</p>
+                <div class="checklist-grid">
+                    <div class="checklist-item urgent">
+                        <input type="checkbox" id="book-vatican">
+                        <label for="book-vatican">
+                            <span class="checklist-title" data-i18n="tips-book-vatican">Vatican Museums + Sistine Chapel</span>
+                            <span class="checklist-detail" data-i18n="tips-book-vatican-detail">Skip-the-line essential! Book at museivaticani.va</span>
+                            <a href="https://www.museivaticani.va" target="_blank" class="checklist-link" data-i18n="tips-book-vatican-link">Book Now →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item urgent">
+                        <input type="checkbox" id="book-colosseum">
+                        <label for="book-colosseum">
+                            <span class="checklist-title" data-i18n="tips-book-colosseum">Colosseum + Roman Forum</span>
+                            <span class="checklist-detail" data-i18n="tips-book-colosseum-detail">Arena floor access requires advance booking</span>
+                            <a href="https://www.coopculture.it" target="_blank" class="checklist-link" data-i18n="tips-book-colosseum-link">Book Now →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item urgent">
+                        <input type="checkbox" id="book-segesta-tour">
+                        <label for="book-segesta-tour">
+                            <span class="checklist-title" data-i18n="tips-book-segesta">Polignano Boat Tour (Day 9)</span>
+                            <span class="checklist-detail" data-i18n="tips-book-segesta-detail">GetYourGuide sea caves & swimming tour — ~€25-35/person</span>
+                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/" target="_blank" class="checklist-link" data-i18n="tips-book-segesta-link">Book Tour →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item urgent">
+                        <input type="checkbox" id="book-etna-tour">
+                        <label for="book-etna-tour">
+                            <span class="checklist-title" data-i18n="tips-book-etna">Alberobello Guided Tour (Day 9)</span>
+                            <span class="checklist-detail" data-i18n="tips-book-etna-detail">GetYourGuide tour from Polignano — UNESCO trulli houses</span>
+                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/from-polignano-a-mare-alberobello-guided-tour-t570600/" target="_blank" class="checklist-link" data-i18n="tips-book-etna-link">Book Tour →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="book-trains">
+                        <label for="book-trains">
+                            <span class="checklist-title" data-i18n="tips-book-train">Train Tickets (Rome → Naples)</span>
+                            <span class="checklist-detail" data-i18n="tips-book-train-detail">Frecciarossa high-speed train</span>
+                            <a href="https://www.trenitalia.com/en.html" target="_blank" class="checklist-link" data-i18n="tips-book-train-link">Book Trains →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="book-internal-flight">
+                        <label for="book-internal-flight">
+                            <span class="checklist-title" data-i18n="tips-book-flight">Train Tickets (Naples→Bari, Bari→Rome)</span>
+                            <span class="checklist-detail" data-i18n="tips-book-flight-detail">Frecciarossa on Trenitalia — book early for best prices</span>
+                            <a href="https://www.trenitalia.com/en.html" target="_blank" class="checklist-link" data-i18n="tips-book-flight-link">Book Trains →</a>
+                        </label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="book-hotel">
+                        <label for="book-hotel">
+                            <span class="checklist-title" data-i18n="tips-book-hotel">Hotels (9 nights)</span>
+                            <span class="checklist-detail" data-i18n="tips-book-hotel-detail">Rome, Naples, Bari area</span>
+                            <a href="https://www.booking.com" target="_blank" class="checklist-link" data-i18n="tips-book-hotel-link">Search Hotels →</a>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Packing List -->
+            <section class="packing-section">
+                <h2 data-i18n="tips-packing-title">🧳 Packing Checklist</h2>
+                <p class="section-intro" data-i18n="tips-packing-intro">June in Italy: Warm days (25-30°C), cooler evenings. Pack light layers!</p>
+                
+                <div class="packing-grid">
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-clothing">👔 Clothing</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c1">Light summer clothes (5-6 outfits)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c2">Comfortable walking shoes (broken in!)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c3">Comfortable sneakers (lots of walking!)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c4">Sandals for casual wear</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c5">Light jacket/cardigan (cooler evenings)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c6">Rain jacket (compact, packable)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c7">Modest clothing for churches (cover shoulders/knees)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c8">Scarf/shawl (for Vatican)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c9">Swimwear (Capri, Cefalù beach)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c10">Sunglasses</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c11">Sun hat/cap</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-c12">Nice outfit for dinners</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-electronics">📱 Electronics</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e1">Phone & charger</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e2">EU power adapters (Type C/F) x2</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e3">Portable battery pack (10000mAh+)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e4">Camera & memory cards</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e5">Download offline maps (Google Maps)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e6">Portable speaker (optional, for train)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e7">Earbuds/headphones (for flights)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-e8">E-reader/tablet (optional)</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-documents">📄 Documents</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d1">Passport (valid 6+ months)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d2">GetYourGuide tour confirmations</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d3">Swimwear for Polignano beaches</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d4">Comfortable walking shoes for Pompeii</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d5">Train ticket (Rome → Naples)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d6">Travel insurance documents</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d7">Flight itineraries (printed)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d8">Hotel confirmations</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d9">eSIM/mobile data setup</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d10">Attraction tickets (downloaded/printed)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d11">Credit cards (Visa/Mastercard)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d12">Some Euro cash (€200-300)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-d13">Copies of important docs (digital backup)</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-toiletries">🧴 Toiletries & Health</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t1">Sunscreen SPF 50+</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t2">Prescription medications</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t3">Pain relievers (Advil/Panadol)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t4">Motion sickness pills (for boats)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t5">Band-aids & blister plasters</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t6">Hand sanitizer</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t7">Tissues/wet wipes</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t8">Lip balm with SPF</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t9">Insect repellent</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-t10">Basic toiletries (or buy there)</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-daytrip">🎒 Day Trip Essentials</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt1">Day backpack (lightweight)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt2">Reusable water bottle</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt3">Small umbrella</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt4">Snacks for trains/tours</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt5">Guidebook or downloaded maps</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dt6">Neck pillow (for flights/trains)</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="packing-category">
+                        <h4 data-i18n="tips-pack-digital">📲 Digital Prep</h4>
+                        <ul class="packing-list">
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg1">Download offline Google Maps (Italy)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg2">eSIM or roaming plan activated</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg3">Download Google Translate (Italian)</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg4">Save attraction tickets to wallet</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg5">Download this trip website offline</span></label></li>
+                            <li><label><input type="checkbox"> <span data-i18n="tips-pack-dg6">Add emergency contacts</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Travel Tips -->
+            <section class="travel-tips-section">
+                <h2 data-i18n="tips-essential-title">💡 Essential Travel Tips</h2>
+                
+                <div class="tips-categories">
+                    <div class="tip-category">
+                        <h3 data-i18n="tips-tours-title">🎫 Puglia Tour Tips (GetYourGuide)</h3>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">📋</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-tour1-title">Book Early</h4>
+                                    <p data-i18n="tips-tour1-desc">Book GetYourGuide tours 2-4 weeks ahead for best availability. June is peak season — popular tours sell out fast!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🔄</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-tour2-title">Free Cancellation</h4>
+                                    <p data-i18n="tips-tour2-desc">Most GetYourGuide tours offer free cancellation up to 24 hours before. Book now, adjust plans later if needed!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🚐</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-tour3-title">Hotel Pickup</h4>
+                                    <p data-i18n="tips-tour3-desc">Both tours include hotel pickup in an AC van — no need to arrange transport yourself. Confirm pickup location when booking.</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🌋</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-tour4-title">Polignano Dining</h4>
+                                    <p data-i18n="tips-tour4-desc">Try Donna Gina (Lama Monachile views) or Trattoria il Grottone (sea panorama) for cliff-edge seafood. Book ahead in summer!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🚄</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-tour5-title">Bari Base</h4>
+                                    <p data-i18n="tips-tour5-desc">2 nights in Bari — bus arrives directly, Alberobello tours depart from here, and Bari Centrale is your train to Rome. Polignano is just 20min by train for beach + boat tour!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-category">
+                        <h3 data-i18n="tips-train-title">🚄 Train Travel</h3>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">🎫</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-trn1-title">Book Trains Early</h4>
+                                    <p data-i18n="tips-trn1-desc">Frecciarossa high-speed trains are the best way Rome → Naples. Book 2-4 weeks ahead for cheapest "Super Economy" fares!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">📱</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-trn2-title">Digital Tickets</h4>
+                                    <p data-i18n="tips-trn2-desc">Download e-tickets to your phone. QR codes work for validation. Have screenshot backup in case of no signal at station.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-category">
+                        <h3 data-i18n="tips-food-title">🍕 Food & Dining</h3>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">☕</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-food1-title">Coffee Culture</h4>
+                                    <p data-i18n="tips-food1-desc">Stand at the bar (al banco) for 50% cheaper coffee. "Un caffè" = espresso. Cappuccino only before 11am! Never with pasta.</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🍕</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-food2-title">Naples = Pizza Paradise</h4>
+                                    <p data-i18n="tips-food2-desc">You're in the birthplace of pizza! Try L'Antica Pizzeria da Michele or Sorbillo. Margherita DOP costs only €5-8!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🍝</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-food3-title">Puglia Specialties</h4>
+                                    <p data-i18n="tips-food3-desc">Try arancini (fried rice balls), pasta alla Norma, cannoli, and granita con brioche for breakfast!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">💰</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-food4-title">Coperto & Servizio</h4>
+                                    <p data-i18n="tips-food4-desc">Coperto (€1-3 cover charge) is normal. "Servizio" is service charge - if included, no tip needed. Tipping isn't expected but appreciated.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-category">
+                        <h3 data-i18n="tips-church-title">⛪ Churches & Vatican</h3>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">👔</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-chr1-title">Dress Code</h4>
+                                    <p data-i18n="tips-chr1-desc">Cover shoulders and knees - no exceptions! Carry a scarf/shawl. You will be turned away otherwise, even at the Vatican.</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">📸</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-chr2-title">Photography</h4>
+                                    <p data-i18n="tips-chr2-desc">No flash in churches. No photos in Sistine Chapel. Silence phones. Some churches charge €1-3 for photos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-category">
+                        <h3 data-i18n="tips-grotto-title">🌊 Blue Grotto (藍洞) Tips</h3>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">🌊</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-grt1-title">Weather Dependent</h4>
+                                    <p data-i18n="tips-grt1-desc">The Blue Grotto closes in rough seas or high tides. Go early morning (9-10am) for best chance. If closed, Capri has other beautiful caves!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🚤</span>
+                                <div class="tip-content">
+                                    <h4 data-i18n="tips-grt2-title">What to Expect</h4>
+                                    <p data-i18n="tips-grt2-desc">Small rowboat enters through tiny opening (you lie flat!). Inside: magical blue light. Quick visit (~5 min inside) but unforgettable. Take motion sickness pills if sensitive.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emergency Info -->
+            <section class="emergency-section">
+                <h2 data-i18n="tips-emergency-title">🆘 Emergency Information</h2>
+                <div class="emergency-grid">
+                    <div class="emergency-card">
+                        <h4 data-i18n="tips-emg-emergency">🚨 Emergency Number</h4>
+                        <p class="emergency-number">112</p>
+                        <span data-i18n="tips-emg-emergency-note">EU-wide emergency (police, fire, ambulance)</span>
+                    </div>
+                    <div class="emergency-card">
+                        <h4 data-i18n="tips-emg-medical">🏥 Medical Emergency</h4>
+                        <p class="emergency-number">118</p>
+                        <span data-i18n="tips-emg-medical-note">Ambulance service in Italy</span>
+                    </div>
+                    <div class="emergency-card">
+                        <h4 data-i18n="tips-emg-police">👮 Police</h4>
+                        <p class="emergency-number">113</p>
+                        <span data-i18n="tips-emg-police-note">State Police (Polizia)</span>
+                    </div>
+                    <div class="emergency-card">
+                        <h4 data-i18n="tips-emg-consulate">🇭🇰 HK Consulate Rome</h4>
+                        <p class="emergency-number">+39 06 5826 2033</p>
+                        <span data-i18n="tips-emg-consulate-note">Via Aventina 7, Rome</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Useful Phrases -->
+            <section class="phrases-section">
+                <h2 data-i18n="tips-phrases-title">🗣️ Useful Italian Phrases</h2>
+                <div class="phrases-grid">
+                    <div class="phrase-card">
+                        <span class="italian">Buongiorno</span>
+                        <span class="english" data-i18n="tips-phrase1-en">Good morning/Hello</span>
+                        <span class="pronunciation">bwon-JORE-no</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Grazie</span>
+                        <span class="english" data-i18n="tips-phrase2-en">Thank you</span>
+                        <span class="pronunciation">GRAH-tsee-eh</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Per favore</span>
+                        <span class="english" data-i18n="tips-phrase3-en">Please</span>
+                        <span class="pronunciation">per fa-VOH-reh</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Scusi</span>
+                        <span class="english" data-i18n="tips-phrase4-en">Excuse me</span>
+                        <span class="pronunciation">SKOO-zee</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Il conto, per favore</span>
+                        <span class="english" data-i18n="tips-phrase5-en">The bill, please</span>
+                        <span class="pronunciation">eel KON-toh</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Dov'è il bagno?</span>
+                        <span class="english" data-i18n="tips-phrase6-en">Where is the bathroom?</span>
+                        <span class="pronunciation">doh-VEH eel BAN-yoh</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Quanto costa?</span>
+                        <span class="english" data-i18n="tips-phrase7-en">How much?</span>
+                        <span class="pronunciation">KWAN-toh KOS-ta</span>
+                    </div>
+                    <div class="phrase-card">
+                        <span class="italian">Un tavolo per sei</span>
+                        <span class="english" data-i18n="tips-phrase8-en">A table for six</span>
+                        <span class="pronunciation">oon TA-vo-lo per say</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

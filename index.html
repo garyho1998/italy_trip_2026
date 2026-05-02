@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italia Avventura 2026 | 11-Day Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <nav class="nav">
+            <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
+            <div class="nav-links">
+                <a href="index.html" class="active" data-i18n="nav-home">Home</a>
+                <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                <a href="map.html" data-i18n="nav-route">Route</a>
+                <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+                <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="active" data-i18n="nav-home">Home</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="map.html" data-i18n="nav-route">Route</a>
+            <a href="flights.html" data-i18n="nav-flights">Flights</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+        </div>
+        <div class="hero-content">
+            <p class="hero-subtitle" data-i18n="hero-subtitle">June 3 - 13, 2026</p>
+            <h1 class="hero-title" data-i18n="hero-title">La Dolce Vita</h1>
+            <p class="hero-tagline" data-i18n="hero-tagline">Rome • Naples • Puglia | 11-Day Italian Adventure</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label" data-i18n="stat-travelers">Travelers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">11</span>
+                    <span class="stat-label" data-i18n="stat-days">Days</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label" data-i18n="stat-regions">Regions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">🚄✈️🎫</span>
+                    <span class="stat-label" data-i18n="stat-transport">Train+Fly+Tour</span>
+                </div>
+            </div>
+            <div class="hero-highlights">
+                <span class="hero-badge" data-i18n="hero-badge-rome">⛪ Rome & Vatican</span>
+                <span class="hero-badge" data-i18n="hero-badge-grotto">🌊 藍洞 Blue Grotto</span>
+                <span class="hero-badge" data-i18n="hero-badge-naples">🍕 Naples</span>
+                <span class="hero-badge" data-i18n="hero-badge-sicily">🏖️ Puglia</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="itinerary.html" class="cta-button" data-i18n="hero-btn-itinerary">View Itinerary</a>
+                <a href="map.html" class="cta-button secondary" data-i18n="hero-btn-route">See Route</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span data-i18n="scroll-explore">Scroll to explore</span>
+        </div>
+    </header>
+
+    <!-- Quick Overview Section -->
+    <section class="overview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="overview-tag">The Journey</span>
+                <h2 data-i18n="overview-title">Rome • Naples • Puglia</h2>
+            </div>
+            
+            <div class="quick-route">
+                <div class="route-card highlight">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=200&h=200&fit=crop" alt="Colosseum Rome" class="route-thumb">
+                    <div class="route-day" data-i18n="overview-day1-3">Day 1-3</div>
+                    <h4 data-i18n="overview-rome">Rome + Vatican</h4>
+                    <p data-i18n="overview-rome-desc">Ancient & Holy</p>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-card highlight">
+                    <img src="https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=200&h=200&fit=crop" alt="Blue Grotto Capri" class="route-thumb">
+                    <div class="route-day" data-i18n="overview-day4-6">Day 4-6</div>
+                    <h4 data-i18n="overview-naples">Naples + Capri + Amalfi</h4>
+                    <p data-i18n="overview-naples-desc">Pizza, Blue Grotto & Amalfi</p>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-card highlight">
+                    <img src="https://images.unsplash.com/photo-1531075693709-e11db6e39107?w=200&h=200&fit=crop" alt="Polignano a Mare" class="route-thumb">
+                    <div class="route-day" data-i18n="overview-day7-9">Day 8-9</div>
+                    <h4 data-i18n="overview-sicily">Puglia</h4>
+                    <p data-i18n="overview-sicily-desc">Polignano, Alberobello & Caves</p>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-card">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=200&h=200&fit=crop" alt="Rome" class="route-thumb">
+                    <div class="route-day" data-i18n="overview-day10-11">Day 10-11</div>
+                    <h4 data-i18n="overview-return">Rome</h4>
+                    <p data-i18n="overview-return-desc">Fly Home</p>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="map.html" class="quick-link-card">
+                    <span class="quick-link-icon">🗺️</span>
+                    <div>
+                        <h4 data-i18n="qlink-map-title">Route Map</h4>
+                        <p data-i18n="qlink-map-desc">Train + Flight + Tour</p>
+                    </div>
+                </a>
+                <a href="flights.html" class="quick-link-card">
+                    <span class="quick-link-icon">✈️</span>
+                    <div>
+                        <h4 data-i18n="qlink-flights-title">Flight Options</h4>
+                        <p data-i18n="qlink-flights-desc">Compare airlines & prices</p>
+                    </div>
+                </a>
+                <a href="budget.html" class="quick-link-card">
+                    <span class="quick-link-icon">💰</span>
+                    <div>
+                        <h4 data-i18n="qlink-budget-title">Trip Budget</h4>
+                        <p data-i18n="qlink-budget-desc">Cost breakdown per person</p>
+                    </div>
+                </a>
+                <a href="tips.html" class="quick-link-card">
+                    <span class="quick-link-icon">📋</span>
+                    <div>
+                        <h4 data-i18n="qlink-packing-title">Packing & Tips</h4>
+                        <p data-i18n="qlink-packing-desc">What to bring & know</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where We're Staying -->
+    <section class="stays-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="stays-tag">🏠 Accommodation</span>
+                <h2 data-i18n="stays-title">Where We're Staying</h2>
+            </div>
+            <div class="stays-grid">
+                <div class="stay-card">
+                    <span class="stay-day" data-i18n="stay-card-rome-day">Day 1–3 · 3 nights</span>
+                    <div class="stay-city" data-i18n="stay-card-rome-city">🏛️ Rome</div>
+                    <div class="stay-name" data-i18n="stay-card-rome-name">Airbnb · Santa Croce in Gerusalemme</div>
+                    <p class="stay-addr" data-i18n="stay-card-rome-addr">Piazza di Santa Croce in Gerusalemme, 1<br>Roma, Lazio 00185, Italia</p>
+                    <a class="stay-map-link" href="https://www.google.com/maps/search/?api=1&query=Piazza+di+Santa+Croce+in+Gerusalemme+1+Roma+00185" target="_blank" rel="noopener" data-i18n="stay-card-map">📍 Open in Maps →</a>
+                </div>
+                <div class="stay-card">
+                    <span class="stay-day" data-i18n="stay-card-naples-day">Day 4–7 · 4 nights</span>
+                    <div class="stay-city" data-i18n="stay-card-naples-city">🍕 Naples</div>
+                    <div class="stay-name" data-i18n="stay-card-naples-name">Airbnb · Spaccanapoli historic center</div>
+                    <p class="stay-addr" data-i18n="stay-card-naples-addr">Via San Biagio dei Librai, 8 (3rd floor)<br>Napoli, Campania 80138, Italia</p>
+                    <a class="stay-map-link" href="https://www.google.com/maps/search/?api=1&query=Via+San+Biagio+dei+Librai+8+Napoli+80138" target="_blank" rel="noopener" data-i18n="stay-card-map">📍 Open in Maps →</a>
+                </div>
+                <div class="stay-card">
+                    <span class="stay-day" data-i18n="stay-card-bari-day">Day 8–9 · 2 nights</span>
+                    <div class="stay-city" data-i18n="stay-card-bari-city">🏖️ Bari</div>
+                    <div class="stay-name" data-i18n="stay-card-bari-name">Airbnb · Picone-Poggiofranco</div>
+                    <p class="stay-addr" data-i18n="stay-card-bari-addr">Via Giulio Petroni, 14/E<br>Bari, Puglia 70100, Italia</p>
+                    <a class="stay-map-link" href="https://www.google.com/maps/search/?api=1&query=Via+Giulio+Petroni+14%2FE+Bari+70100" target="_blank" rel="noopener" data-i18n="stay-card-map">📍 Open in Maps →</a>
+                </div>
+                <div class="stay-card">
+                    <span class="stay-day" data-i18n="stay-card-rome2-day">Day 10 · 1 night</span>
+                    <div class="stay-city" data-i18n="stay-card-rome2-city">🏛️ Rome (return)</div>
+                    <div class="stay-name" data-i18n="stay-card-rome2-name">Champagne Palace Hotel</div>
+                    <p class="stay-addr" data-i18n="stay-card-rome2-addr">Near Roma Termini · easy airport access for Day 11 departure</p>
+                    <a class="stay-map-link" href="https://www.google.com/maps/search/?api=1&query=Champagne+Palace+Hotel+Roma" target="_blank" rel="noopener" data-i18n="stay-card-map">📍 Open in Maps →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Preview -->
+    <section class="highlights-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="highlights-tag">Trip Highlights</span>
+                <h2 data-i18n="highlights-title">Unforgettable Experiences</h2>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-card large" style="background-image: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800')">
+                    <div class="highlight-overlay"></div>
+                    <div class="highlight-content">
+                        <span class="highlight-tag" data-i18n="highlight-rome-tag">Day 1-3</span>
+                        <h3 data-i18n="highlight-rome-title">🏛️ Rome & Vatican</h3>
+                        <p data-i18n="highlight-rome-desc">Colosseum, Sistine Chapel, Trevi Fountain</p>
+                    </div>
+                </div>
+                <div class="highlight-card" style="background-image: url('https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=800')">
+                    <div class="highlight-overlay"></div>
+                    <div class="highlight-content">
+                        <span class="highlight-tag" data-i18n="highlight-grotto-tag">Day 5</span>
+                        <h3 data-i18n="highlight-grotto-title">🌊 藍洞 Blue Grotto</h3>
+                        <p data-i18n="highlight-grotto-desc">Magical blue sea cave</p>
+                    </div>
+                </div>
+                <div class="highlight-card" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800')">
+                    <div class="highlight-overlay"></div>
+                    <div class="highlight-content">
+                        <span class="highlight-tag" data-i18n="highlight-pizza-tag">Day 4</span>
+                        <h3 data-i18n="highlight-pizza-title">🍕 Naples Pizza</h3>
+                        <p data-i18n="highlight-pizza-desc">Birthplace of pizza</p>
+                    </div>
+                </div>
+                <div class="highlight-card" style="background-image: url('https://images.unsplash.com/photo-1727951234567-a72b4ea09c82?w=800')">
+                    <div class="highlight-overlay"></div>
+                    <div class="highlight-content">
+                        <span class="highlight-tag" data-i18n="highlight-sicily-tag">Day 7-9</span>
+                        <h3 data-i18n="highlight-sicily-title">🏖️ Puglia</h3>
+                        <p data-i18n="highlight-sicily-desc">Polignano, Alberobello & Caves</p>
+                    </div>
+                </div>
+            </div>
+            <div class="center-button">
+                <a href="itinerary.html" class="cta-button" data-i18n="highlights-btn">View Full Itinerary →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Budget -->
+    <section class="quick-budget">
+        <div class="container">
+            <div class="budget-summary-card">
+                <div class="budget-summary-left">
+                    <span class="section-tag" data-i18n="budget-tag">Estimated Budget</span>
+                    <h2 data-i18n="budget-per-person">Per Person Cost</h2>
+                    <p class="budget-big-number" data-i18n="budget-big-number">~HKD 22,200</p>
+                    <p class="budget-note" data-i18n="budget-note">Includes flights, hotels, trains, tours, food & activities</p>
+                </div>
+                <div class="budget-summary-right">
+                    <div class="budget-mini">
+                        <span data-i18n="budget-flights">✈️ Flights</span>
+                        <span>HKD 8,515</span>
+                    </div>
+                    <div class="budget-mini">
+                        <span data-i18n="budget-hotels">🏨 Hotels</span>
+                        <span>HKD 7,000</span>
+                    </div>
+                    <div class="budget-mini">
+                        <span data-i18n="budget-transport">🚄✈️🎫 Transport</span>
+                        <span>HKD 1,500</span>
+                    </div>
+                    <div class="budget-mini">
+                        <span data-i18n="budget-food">🍝 Food</span>
+                        <span>HKD 5,000</span>
+                    </div>
+                    <a href="budget.html" class="budget-link" data-i18n="budget-link">View Full Budget →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

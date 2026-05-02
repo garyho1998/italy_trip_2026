@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary | Italia Avventura 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+    <nav class="nav nav-sticky">
+        <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav-home">Home</a>
+            <a href="itinerary.html" class="active" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="map.html" data-i18n="nav-route">Route</a>
+            <a href="flights.html" data-i18n="nav-flights">Flights</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+        </div>
+        <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="itinerary.html" class="active" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="map.html" data-i18n="nav-route">Route</a>
+        <a href="flights.html" data-i18n="nav-flights">Flights</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
+        <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+        <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+    </div>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header">
+                <span class="section-tag" data-i18n="itin-tag">📅 Day by Day</span>
+                <h1 data-i18n="itin-title">Your Italian Journey</h1>
+                <p class="page-subtitle" data-i18n="itin-subtitle">11 days exploring Rome, Naples & Puglia</p>
+            </div>
+
+            <!-- Instagram-worthy Italy Photo -->
+            <div class="itinerary-hero-image">
+                <img src="images/positano-beach3.jpg" alt="Positano Beach - Amalfi Coast, Italy">
+                <div class="image-caption">
+                    <span data-i18n="itin-photo-caption">📸 Positano, Amalfi Coast</span>
+                    <span class="caption-tag">#ItalyInstagram</span>
+                </div>
+            </div>
+
+            <!-- Interactive Route Map -->
+            <div class="route-map-container">
+                <h3 data-i18n="itin-map-title">🗺️ Your Route Through Italy</h3>
+                <p class="map-subtitle" data-i18n="itin-map-subtitle">Rome → Naples → Puglia</p>
+                <iframe 
+                    src="https://maps.google.com/maps?saddr=Rome,Italy&daddr=Naples,Italy+to:Polignano+a+Mare,Italy+to:Rome,Italy&output=embed"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                <p class="map-note" data-i18n="itin-map-note">🚄 Train: Rome→Naples | 🚌 Bus: Naples→Bari + 🚄 Train→Polignano | 🚄 Train: Bari→Rome</p>
+            </div>
+
+            <div class="days-container">
+                <!-- Day 1 -->
+                <article class="day-card" data-day="1">
+                    <div class="day-header">
+                        <div class="day-number">01</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d1-title">First Day in Rome</h3>
+                            <span class="day-date" data-i18n="d1-date">June 3, Wednesday</span>
+                        </div>
+                        <div class="day-city">Roma</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="accommodation-info">
+                            <span class="accom-icon">🏠</span>
+                            <div class="accom-body">
+                                <span class="accom-label" data-i18n="stay-label-rome">Tonight's Stay · Rome (3 nights)</span>
+                                <span class="accom-name" data-i18n="stay-rome-name">Rome Airbnb · near Santa Croce in Gerusalemme</span>
+                                <span class="accom-address"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+di+Santa+Croce+in+Gerusalemme+1+Roma+00185" target="_blank" rel="noopener">Piazza di Santa Croce in Gerusalemme, 1, Roma, Lazio 00185, Italia</a></span>
+                            </div>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">09:00</span>
+                                <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?w=120&h=120&fit=crop" alt="Trevi Fountain" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-trevi">Trevi Fountain</h4>
+                                    <p data-i18n="d1-trevi-desc">Throw a coin, make a wish to return to Rome! Visit early to beat the crowds</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">10:00</span>
+                                <img src="https://images.unsplash.com/photo-1663143146856-683650ffee76?w=120&h=120&fit=crop" alt="Spanish Steps" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-spanish">Spanish Steps & Piazza di Spagna</h4>
+                                    <p data-i18n="d1-spanish-desc">Stroll the elegant shopping district. Stop by Antico Caffè Greco (Via dei Condotti 86) — 200+ year-old café, perfect for a rest</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">11:30</span>
+                                <img src="https://images.unsplash.com/photo-1635416180743-c336b4abdd20?w=120&h=120&fit=crop" alt="Piazza del Popolo" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-popolo">Piazza del Popolo & Pincian Hill</h4>
+                                    <p data-i18n="d1-popolo-desc">Grand piazza with twin churches, then climb Pincian Hill for panoramic views over Rome</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">13:00</span>
+                                <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=120&h=120&fit=crop" alt="Roman Lunch" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-lunch">Lunch near Piazza di Spagna</h4>
+                                    <p data-i18n="d1-lunch-desc">Traditional Roman trattoria — try cacio e pepe or amatriciana</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">15:00</span>
+                                <img src="https://images.unsplash.com/photo-1691178174391-279820f14b36?w=120&h=120&fit=crop" alt="Villa Borghese" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-borghese">Villa Borghese Gardens</h4>
+                                    <p data-i18n="d1-borghese-desc">Leisurely stroll through Rome's most beautiful park — rent a rowboat on the lake or just relax in the shade</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">17:00</span>
+                                <img src="https://images.unsplash.com/photo-1652794691816-65da24a9f476?w=120&h=120&fit=crop" alt="Trastevere" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-trastevere">Explore Trastevere</h4>
+                                    <p data-i18n="d1-trastevere-desc">Charming cobblestone lanes, ivy-covered facades, and local artisan shops in Rome's most photogenic neighborhood</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Italian Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d1-dinner">Welcome Dinner in Trastevere</h4>
+                                    <p data-i18n="d1-dinner-desc">Try La Gattabuia — 1600s papal prison turned restaurant! Must-order: carbonara, stewed oxtail, roast lamb, Roman artichoke</p>
+                                    <p class="activity-detail" data-i18n="d1-dinner-detail">🍧 Grab a Grattachecca (Roman shaved ice) at Sora Mirella nearby!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d1-hl-trevi">⛲ Trevi Fountain</span>
+                            <span class="highlight" data-i18n="d1-hl-borghese">🌿 Villa Borghese</span>
+                            <span class="highlight" data-i18n="d1-hl-dinner">🍝 Roman Dinner</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 2 - VATICAN CITY (Friday - less crowded than weekends) -->
+                <article class="day-card featured" data-day="2">
+                    <div class="day-header vatican">
+                        <div class="day-number">02</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d3-title">⛪ Vatican City</h3>
+                            <span class="day-date" data-i18n="d2-date">June 4, Thursday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d3-city">Città del Vaticano</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item featured-activity">
+                                <span class="time">08:00</span>
+                                <img src="https://images.unsplash.com/photo-1722441521673-3e8601897460?w=120&h=120&fit=crop" alt="Vatican Museums" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-museum">⭐ Vatican Museums (Early Entry)</h4>
+                                    <p data-i18n="d3-museum-desc">Early entry guided tour — get inside before 8am public opening, experience Sistine Chapel nearly empty!</p>
+                                    <span class="drive-info" data-i18n="d3-museum-info">🎫 <a href="https://www.getyourguide.com/rome-l33/early-morning-vatican-sistine-chapel-before-the-crowds-t50951" target="_blank">Book on GetYourGuide</a> — Early Entry + Guide, ~€50-75/person, ~3h</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">10:30</span>
+                                <img src="https://images.unsplash.com/photo-1681671416148-4a6d342896bc?w=120&h=120&fit=crop" alt="Sistine Chapel" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-sistine">⭐ Sistine Chapel</h4>
+                                    <p data-i18n="d3-sistine-desc">Michelangelo's ceiling masterpiece - The Creation of Adam</p>
+                                    <p class="activity-detail" data-i18n="d3-sistine-detail">📸 No photos allowed inside, but memories last forever</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">11:30</span>
+                                <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop" alt="St Peters Basilica" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-peters">⭐ St. Peter's Basilica</h4>
+                                    <p data-i18n="d3-peters-desc">World's largest church - Michelangelo's Pietà</p>
+                                    <p class="activity-detail" data-i18n="d3-peters-detail">🗼 Climb the dome for panoramic Rome views (551 steps!)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">14:00</span>
+                                <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=120&h=120&fit=crop" alt="Roman Trattoria" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-lunch">Lunch near Vatican</h4>
+                                    <p data-i18n="d3-lunch-desc">Traditional Roman trattoria in Prati neighborhood. Then coffee at Sant'Eustachio Il Caffè — famous for unique brewing methods, a must for coffee lovers</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">16:00</span>
+                                <img src="https://images.unsplash.com/photo-1764377847707-023f792e90ec?w=120&h=120&fit=crop" alt="Castel Sant'Angelo" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-castle">Castel Sant'Angelo</h4>
+                                    <p data-i18n="d3-castle-desc">Papal fortress with Tiber river views</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">18:00</span>
+                                <img src="https://images.unsplash.com/photo-1635416180743-c336b4abdd20?w=120&h=120&fit=crop" alt="Tiber River" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-stroll">Evening Stroll</h4>
+                                    <p data-i18n="d3-stroll-desc">Walk along the Tiber, enjoy Rome at dusk</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Roman Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d3-farewell">Farewell Rome Dinner</h4>
+                                    <p data-i18n="d3-farewell-desc">Last Roman feast before heading south!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d3-hl-sistine">🎨 Sistine Chapel</span>
+                            <span class="highlight" data-i18n="d3-hl-peters">⛪ St. Peter's</span>
+                            <span class="highlight" data-i18n="d3-hl-castle">🏰 Castel Sant'Angelo</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 3 - ANCIENT ROME -->
+                <article class="day-card featured" data-day="3">
+                    <div class="day-header">
+                        <div class="day-number">03</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d2-title">🏛️ Ancient Rome</h3>
+                            <span class="day-date" data-i18n="d3-date">June 5, Friday</span>
+                        </div>
+                        <div class="day-city">Roma</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item featured-activity">
+                                <span class="time">08:30</span>
+                                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=120&h=120&fit=crop" alt="Colosseum" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-colosseum">⭐ Colosseum</h4>
+                                    <p data-i18n="d2-colosseum-desc">Skip-the-line guided tour with arena floor access — no queuing in the June sun!</p>
+                                    <span class="drive-info" data-i18n="d2-colosseum-info">🎫 <a href="https://www.getyourguide.com/colosseum-l2619/" target="_blank">Book on GetYourGuide</a> — Skip-the-line + Arena Floor, ~€38-48/person, 2.5-3h</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">11:30</span>
+                                <img src="https://images.unsplash.com/photo-1624392234319-f0700ec01b5c?w=120&h=120&fit=crop" alt="Roman Forum" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-forum">Roman Forum & Palatine Hill</h4>
+                                    <p data-i18n="d2-forum-desc">Walk through ancient Roman ruins — included with Colosseum tour ticket</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">14:00</span>
+                                <img src="https://images.unsplash.com/photo-1652794691816-65da24a9f476?w=120&h=120&fit=crop" alt="Campo de Fiori" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-lunch">Lunch in Jewish Quarter (Ghetto)</h4>
+                                    <p data-i18n="d2-lunch-desc">Historic Roman-Jewish cuisine near Campo de' Fiori. Must-try: giant runny-egg tortello, fried artichoke (Rome's best!), fried zucchini flowers</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">16:00</span>
+                                <img src="https://images.unsplash.com/photo-1714687399142-ea5ff3fb038e?w=120&h=120&fit=crop" alt="Pantheon" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-pantheon">Pantheon</h4>
+                                    <p data-i18n="d2-pantheon-desc">Best preserved ancient Roman building - free entry!</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">18:00</span>
+                                <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop" alt="Piazza Navona" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-navona">Piazza Navona</h4>
+                                    <p data-i18n="d2-navona-desc">Bernini's fountains, street artists, evening vibes</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=120&h=120&fit=crop" alt="Aperitivo" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d2-aperitivo">Aperitivo & Dinner</h4>
+                                    <p data-i18n="d2-aperitivo-desc">Seek out Nabil Hassen's restaurant for Rome's best carbonara — ultra-creamy with crispy guanciale. End with Maritozzo (Roman cream bun) for dessert!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d2-hl-colosseum">🏛️ Colosseum</span>
+                            <span class="highlight" data-i18n="d2-hl-pantheon">🏛️ Pantheon</span>
+                            <span class="highlight" data-i18n="d2-hl-navona">⛲ Piazza Navona</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 4 - NAPLES -->
+                <article class="day-card featured" data-day="4">
+                    <div class="day-header naples">
+                        <div class="day-number">04</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d4-title">🍕 Train to Naples</h3>
+                            <span class="day-date" data-i18n="d4-date">June 6, Saturday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d4-city">Roma → Napoli</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="accommodation-info">
+                            <span class="accom-icon">🏠</span>
+                            <div class="accom-body">
+                                <span class="accom-label" data-i18n="stay-label-naples">Tonight's Stay · Naples (4 nights)</span>
+                                <span class="accom-name" data-i18n="stay-naples-name">Naples Airbnb · Spaccanapoli historic center</span>
+                                <span class="accom-address"><a href="https://www.google.com/maps/search/?api=1&query=Via+San+Biagio+dei+Librai+8+Napoli+80138" target="_blank" rel="noopener">Via San Biagio dei Librai, 8 (3rd floor, first door right) · Napoli, Campania 80138, Italia</a></span>
+                            </div>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">09:00</span>
+                                <img src="https://images.unsplash.com/photo-1760509094375-c7a601b77de0?w=120&h=120&fit=crop" alt="Termini Station" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-checkout">Check-out Rome Airbnb</h4>
+                                    <p data-i18n="d4-checkout-desc">Pack up, head to Roma Termini station (~15 min taxi from Santa Croce in Gerusalemme)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">10:00</span>
+                                <img src="https://images.unsplash.com/photo-1768213021718-9f738eabb363?w=120&h=120&fit=crop" alt="Italian Train" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-train">🚄 High-Speed Train to Naples</h4>
+                                    <p data-i18n="d4-train-desc">Frecciarossa - only 1 hour 10 minutes!</p>
+                                    <span class="drive-info" data-i18n="d4-train-info">🎫 ~€45-70 per person</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">11:15</span>
+                                <div class="activity">
+                                    <h4 data-i18n="d4-arrive">Arrive Napoli Centrale & Check-in</h4>
+                                    <p data-i18n="d4-arrive-desc">Taxi or Metro Line 1 to Spaccanapoli (~10 min). Check-in at Via San Biagio dei Librai 8 — right in the heart of old Naples, walk to everything</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">12:30</span>
+                                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=120&h=120&fit=crop" alt="Naples Pizza" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-pizza">⭐ Authentic Neapolitan Pizza</h4>
+                                    <p data-i18n="d4-pizza-desc">Naples = birthplace of pizza! Try L'Antica Pizzeria da Michele or Sorbillo</p>
+                                    <p class="activity-detail" data-i18n="d4-pizza-detail">🍕 Margherita DOP - the original and the best!</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">14:30</span>
+                                <img src="https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop" alt="Naples Archaeological Museum" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-museum">⭐ Naples Archaeological Museum 考古博物館</h4>
+                                    <p data-i18n="d4-museum-desc">One of the world's great museums — Pompeii mosaics, Farnese Collection, ancient Roman sculptures</p>
+                                    <span class="drive-info" data-i18n="d4-museum-info">🎫 Covered by <a href="https://www.campaniartecard.it/en/" target="_blank">Campania Artecard 3-day pass</a> (includes 2 attractions + transport)</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">17:00</span>
+                                <img src="https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop" alt="Naples Historic Center" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-historic">Naples Historic Center</h4>
+                                    <p data-i18n="d4-historic-desc">Spaccanapoli street — the vibrant heart of Naples</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">19:00</span>
+                                <img src="https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop" alt="Castel Sant'Elmo" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-santelmo">⭐ Castel Sant'Elmo 聖埃爾莫城堡 — Night View</h4>
+                                    <p data-i18n="d4-santelmo-desc">Medieval hilltop fortress with 360° panoramic views of Naples, Vesuvius, and the bay — stunning at sunset</p>
+                                    <span class="drive-info" data-i18n="d4-santelmo-info">🎫 €5 per person | Take Funicular Centrale up</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">21:00</span>
+                                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop" alt="Seafood Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d4-seafood">Seafood Dinner</h4>
+                                    <p data-i18n="d4-seafood-desc">Fresh Mediterranean seafood, Neapolitan style</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d4-hl-train">🚄 Train</span>
+                            <span class="highlight" data-i18n="d4-hl-pizza">🍕 Original Pizza</span>
+                            <span class="highlight" data-i18n="d4-hl-museum">🏛️ Archaeological Museum</span>
+                            <span class="highlight" data-i18n="d4-hl-santelmo">🏰 Castel Sant'Elmo</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 5 - BLUE GROTTO -->
+                <article class="day-card featured" data-day="5">
+                    <div class="day-header capri">
+                        <div class="day-number">05</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d5-title">🌊 Capri & 藍洞 Blue Grotto</h3>
+                            <span class="day-date" data-i18n="d5-date">June 7, Sunday</span>
+                        </div>
+                        <div class="day-city">Capri</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">07:30</span>
+                                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Porto_di_Marina_Grande_-_Isola_di_Capri.jpg?width=240" alt="Marina Grande Capri" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-ferry">Ferry to Capri</h4>
+                                    <p data-i18n="d5-ferry-desc">High-speed ferry from Naples Port (Molo Beverello)</p>
+                                    <span class="drive-info" data-i18n="d5-ferry-info">⛴️ ~50 min, €25-40 per person round trip</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">08:30</span>
+                                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blue_grotto_in_capri_arp.jpg?width=240" alt="Blue Grotto Capri" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-grotto">⭐ 藍洞 Grotta Azzurra (Blue Grotto)</h4>
+                                    <p data-i18n="d5-grotto-desc">World-famous sea cave with magical blue light</p>
+                                    <p class="activity-detail" data-i18n="d5-grotto-detail">🌊 Boat from Marina Grande → queue at cave entrance → small rowboat into the grotto. Allow 3+ hours for the full excursion</p>
+                                    <span class="drive-info" data-i18n="d5-grotto-info">🚤 Boat from Marina Grande: ~€18 + €4 entry</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">12:30</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Capri Lunch" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-lunch">Lunch with a View</h4>
+                                    <p data-i18n="d5-lunch-desc">Fresh seafood, ravioli capresi, limoncello</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">14:00</span>
+                                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Capri-marina_piccola.jpg?width=240" alt="Capri Town" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-town">Capri Town & Piazzetta</h4>
+                                    <p data-i18n="d5-town-desc">Glamorous town square, luxury shopping, people watching</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">15:30</span>
+                                <img src="https://images.unsplash.com/photo-1688141307495-9003d5a2ee25?w=120&h=120&fit=crop" alt="Monte Solaro View" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-chairlift">Chairlift to Monte Solaro</h4>
+                                    <p data-i18n="d5-chairlift-desc">Highest point of Capri (589m) - 360° views of the bay & Faraglioni rocks</p>
+                                    <span class="drive-info" data-i18n="d5-chairlift-info">🚡 Chairlift: ~€12 round trip, 13 min each way</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">17:00</span>
+                                <img src="https://images.unsplash.com/photo-1629301987816-f07b24a87ce3?w=120&h=120&fit=crop" alt="Anacapri" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-anacapri">Anacapri & Villa San Michele</h4>
+                                    <p data-i18n="d5-anacapri-desc">Beautiful gardens with panoramic views</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">18:30</span>
+                                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Porto_di_Marina_Grande_-_Isola_di_Capri.jpg?width=240" alt="Ferry back" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-return">Ferry back to Naples</h4>
+                                    <p data-i18n="d5-return-desc">Return to mainland</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop" alt="Naples Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d5-dinner">Dinner in Naples</h4>
+                                    <p data-i18n="d5-dinner-desc">More pizza? Why not! Or try sfogliatella pastry</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d5-hl-grotto">🌊 藍洞 Blue Grotto</span>
+                            <span class="highlight" data-i18n="d5-hl-capri">🏝️ Capri Island</span>
+                            <span class="highlight" data-i18n="d5-hl-limoncello">🍋 Limoncello</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 6 - AMALFI COAST -->
+                <article class="day-card featured" data-day="6">
+                    <div class="day-header naples">
+                        <div class="day-number">06</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d6-title">🏖️ Amalfi Coast Day Trip</h3>
+                            <span class="day-date" data-i18n="d6-date">June 8, Monday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d6-city">Positano / Amalfi / Ravello</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">08:00</span>
+                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop" alt="Breakfast" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-breakfast">Hotel Breakfast</h4>
+                                    <p data-i18n="d6-breakfast-desc">Fuel up for a full day on the stunning Amalfi Coast</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">09:00</span>
+                                <img src="https://images.unsplash.com/photo-1628082824320-e02368bc5c8f?w=120&h=120&fit=crop" alt="Amalfi Coast Road" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-depart">🚗 Private Driver Pickup</h4>
+                                    <p data-i18n="d6-depart-desc">Private day tour along the scenic Amalfi Coast — driver picks up from Naples hotel</p>
+                                    <span class="drive-info" data-i18n="d6-depart-info">🎫 <a href="https://www.viator.com/tours/Naples/Positano-Amalfi-Ravello-by-Car/d508-116146P13" target="_blank">Book on Viator</a> — Private tour, 8-9h, free cancellation 24h before</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">10:30</span>
+                                <img src="https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop" alt="Positano" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-positano">⭐ Positano</h4>
+                                    <p data-i18n="d6-positano-desc">Iconic pastel clifftop village — stroll down to Spiaggia Grande beach, browse ceramic shops</p>
+                                    <p class="activity-detail" data-i18n="d6-positano-detail">📸 Best photo spot: lookout above the church dome with sea backdrop</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">12:30</span>
+                                <img src="images/positano-beach3.jpg" alt="Fiordo di Furore" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-furore">Fiordo di Furore</h4>
+                                    <p data-i18n="d6-furore-desc">Quick stop at the dramatic hidden fjord — stunning cliffs, emerald water & iconic stone bridge</p>
+                                    <span class="drive-info" data-i18n="d6-furore-info">📸 15-20 min viewpoint stop between Positano & Amalfi (ask driver)</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">13:00</span>
+                                <img src="https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=120&h=120&fit=crop" alt="Amalfi Town" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-amalfi">Amalfi Town</h4>
+                                    <p data-i18n="d6-amalfi-desc">Visit the magnificent Amalfi Cathedral (Duomo), explore narrow alleyways</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">13:30</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Seafood Lunch" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-lunch">Lunch in Amalfi</h4>
+                                    <p data-i18n="d6-lunch-desc">Fresh seafood with lemon from local groves — try scialatielli ai frutti di mare</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">15:00</span>
+                                <img src="https://images.unsplash.com/photo-1586712794363-4b4b2b11faa2?w=120&h=120&fit=crop" alt="Ravello Gardens" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-ravello">⭐ Ravello</h4>
+                                    <p data-i18n="d6-ravello-desc">Hilltop town with breathtaking gardens and panoramic coastal views</p>
+                                    <p class="activity-detail" data-i18n="d6-ravello-detail">🌿 Villa Rufolo gardens — inspiration for Wagner's Parsifal</p>
+                                    <span class="drive-info" data-i18n="d6-ravello-info">🎫 Villa Rufolo: ~€10 per person</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">17:30</span>
+                                <img src="https://images.unsplash.com/photo-1628082824320-e02368bc5c8f?w=120&h=120&fit=crop" alt="Return journey" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-return">Return to Naples</h4>
+                                    <p data-i18n="d6-return-desc">Scenic drive back along the coast — arrive by evening</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop" alt="Naples Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d6-dinner">Last Naples Dinner</h4>
+                                    <p data-i18n="d6-dinner-desc">Final evening in Naples — try frittura di mare and sfogliatella for dessert!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d6-hl-positano">🏖️ Positano</span>
+                            <span class="highlight" data-i18n="d6-hl-furore">🏔️ Fiordo di Furore</span>
+                            <span class="highlight" data-i18n="d6-hl-amalfi">⛪ Amalfi Cathedral</span>
+                            <span class="highlight" data-i18n="d6-hl-ravello">🌿 Ravello Gardens</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 7 - Pompeii Day Trip -->
+                <article class="day-card" data-day="7">
+                    <div class="day-header naples">
+                        <div class="day-number">07</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d7-title">🏛️ Pompeii Day Trip</h3>
+                            <span class="day-date" data-i18n="d7-date">June 9, Tuesday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d7-city">Napoli</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">08:30</span>
+                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop" alt="Breakfast" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-breakfast">Hotel Breakfast</h4>
+                                    <p data-i18n="d7-breakfast-desc">Fuel up for a full day of ancient history</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">09:30</span>
+                                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=120&h=120&fit=crop" alt="Circumvesuviana Train" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-train">🚄 Circumvesuviana to Pompeii</h4>
+                                    <p data-i18n="d7-train-desc">Local train from Napoli Centrale to Pompeii Scavi station</p>
+                                    <span class="drive-info" data-i18n="d7-train-info">🚄 ~40 min, ~€4 one-way | Departs every 30 min</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">10:30</span>
+                                <img src="https://images.unsplash.com/photo-1657354371984-ef2f1a59cf80?w=120&h=120&fit=crop" alt="Pompeii Ruins" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-pompeii">⭐ Pompeii Archaeological Park</h4>
+                                    <p data-i18n="d7-pompeii-desc">Walk the streets of the ancient Roman city frozen in time by Mount Vesuvius in 79 AD — remarkably preserved houses, temples, theatres, and frescoes</p>
+                                    <p class="activity-detail" data-i18n="d7-pompeii-detail">🏛️ Must-sees: Forum, House of the Faun, amphitheatre, Villa of the Mysteries. Allow 3-4 hours minimum!</p>
+                                    <span class="drive-info" data-i18n="d7-pompeii-info">🎫 <a href="https://parcocolosseo.it/en/" target="_blank">Book tickets</a> — ~€18/person, book ahead to skip queues</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">14:00</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Lunch" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-lunch">Lunch near Pompeii</h4>
+                                    <p data-i18n="d7-lunch-desc">Local trattoria outside the park — try fresh buffalo mozzarella from nearby farms</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">16:00</span>
+                                <img src="https://images.unsplash.com/photo-1632778140142-d62dee6e124c?w=120&h=120&fit=crop" alt="Spaccanapoli" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-spaccanapoli">Spaccanapoli & Naples Old Town</h4>
+                                    <p data-i18n="d7-spaccanapoli-desc">Back in Naples — wander the narrow streets of the historic center, browse artisan shops, and soak in the atmosphere</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop" alt="Naples Pizza" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d7-dinner">Last Naples Pizza Night</h4>
+                                    <p data-i18n="d7-dinner-desc">Final night in Naples — one more round of the world's best pizza! Try a fritta (fried pizza) for something different</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d7-hl-pompeii">🏛️ Pompeii</span>
+                            <span class="highlight" data-i18n="d7-hl-spaccanapoli">🏘️ Spaccanapoli</span>
+                            <span class="highlight" data-i18n="d7-hl-pizza">🍕 Last Pizza Night</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 8 - Train to Puglia -->
+                <article class="day-card" data-day="8">
+                    <div class="day-header">
+                        <div class="day-number">08</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d8-title">🚄 Train to Puglia</h3>
+                            <span class="day-date" data-i18n="d8-date">June 10, Wednesday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d8-city">Napoli → Bari</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="accommodation-info">
+                            <span class="accom-icon">🏠</span>
+                            <div class="accom-body">
+                                <span class="accom-label" data-i18n="stay-label-bari">Tonight's Stay · Bari (2 nights)</span>
+                                <span class="accom-name" data-i18n="stay-bari-name">Bari Airbnb · Picone-Poggiofranco</span>
+                                <span class="accom-address"><a href="https://www.google.com/maps/search/?api=1&query=Via+Giulio+Petroni+14%2FE+Bari+70100" target="_blank" rel="noopener">Via Giulio Petroni, 14/E · Bari, Puglia 70100, Italia (~3 km SE of Bari Centrale)</a></span>
+                            </div>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">08:00</span>
+                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop" alt="Breakfast" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-checkout">Check-out Naples Airbnb</h4>
+                                    <p data-i18n="d8-checkout-desc">Pack up, walk/taxi to Napoli bus station (Metropark Centrale, ~10 min)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">08:30</span>
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop" alt="Bus to Puglia" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-train">🚌 Bus to Bari (FlixBus / Itabus)</h4>
+                                    <p data-i18n="d8-train-desc">Budget bus across southern Italy to Puglia</p>
+                                    <span class="drive-info" data-i18n="d8-train-info">🚌 ~3h, €11-20 | Arrive Bari ~11:30</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">12:00</span>
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop" alt="Polignano Hotel" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-checkin">Check-in Bari Airbnb & Lunch</h4>
+                                    <p data-i18n="d8-checkin-desc">Taxi from bus station to Via Giulio Petroni 14/E (~10 min, ~€10). Drop luggage, then taxi/bus 2 to Bari Vecchia for a quick lunch in the old town</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">15:00</span>
+                                <img src="https://images.unsplash.com/photo-1531075693709-e11db6e39107?w=120&h=120&fit=crop" alt="Polignano a Mare Old Town" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-oldtown">⭐ Train to Polignano → Old Town</h4>
+                                    <p data-i18n="d8-oldtown-desc">20min train from Bari → explore the dramatic clifftop old town — whitewashed buildings over the turquoise Adriatic. Visit the Domenico Modugno (Volare!) statue</p>
+                                    <span class="drive-info" data-i18n="d8-oldtown-info">🚄 Bari→Polignano: €3-4, every 30min, ~20min</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">17:00</span>
+                                <img src="https://images.unsplash.com/photo-1607212108450-a98c71171d4c?w=120&h=120&fit=crop" alt="Lama Monachile Beach" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-beach">⭐ Lama Monachile Beach</h4>
+                                    <p data-i18n="d8-beach-desc">The iconic beach between two cliffs — swim in crystal clear water under the historic Roman bridge. One of Italy's most photographed spots!</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop" alt="Puglia Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d8-dinner">Cliff-edge Seafood Dinner in Polignano</h4>
+                                    <p data-i18n="d8-dinner-desc">Stay in Polignano for sunset dinner! Try orecchiette, raw sea urchin, and local Primitivo wine. Donna Gina (Lama Monachile views) or Trattoria il Grottone (sea panorama). Train back to Bari after (~20min)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d8-hl-train">🚄 Train</span>
+                            <span class="highlight" data-i18n="d8-hl-polignano">🏘️ Polignano a Mare</span>
+                            <span class="highlight" data-i18n="d8-hl-beach">🏖️ Lama Monachile</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 9 - Boat Tour + Alberobello -->
+                <article class="day-card featured" data-day="9">
+                    <div class="day-header">
+                        <div class="day-number">09</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d9-title">⛵ Boat Tour & Alberobello</h3>
+                            <span class="day-date" data-i18n="d9-date">June 11, Thursday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d9-city">Bari (base)</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">08:30</span>
+                                <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=120&h=120&fit=crop" alt="Breakfast" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-breakfast">Puglia Breakfast</h4>
+                                    <p data-i18n="d9-breakfast-desc">Pasticciotto (Puglia's famous custard pastry) and espresso</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">10:00</span>
+                                <img src="https://images.unsplash.com/photo-1721824755049-e5e4947bc37e?w=120&h=120&fit=crop" alt="Polignano Boat Tour" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-boat">⭐ Train to Polignano → Boat Tour (Sea Caves & Swimming)</h4>
+                                    <p data-i18n="d9-boat-desc">Train from Bari (~20min), then explore Polignano's stunning sea caves from the water — swim in hidden coves and see Lama Monachile from the sea!</p>
+                                    <span class="drive-info" data-i18n="d9-boat-info">🎫 <a href="https://www.getyourguide.com/polignano-a-mare-l96415/" target="_blank">Book on GetYourGuide</a> — ~1.5h boat tour, ~€25-35/person</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">12:00</span>
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop" alt="Lunch" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-lunch">Lunch in Polignano</h4>
+                                    <p data-i18n="d9-lunch-desc">Fresh seafood at a cliff-edge restaurant — try the famous raw prawns of Polignano!</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">14:00</span>
+                                <img src="https://images.unsplash.com/photo-1680713096427-76ce2c636800?w=120&h=120&fit=crop" alt="Alberobello Trulli" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-alberobello">⭐ Alberobello Guided Tour from Bari (UNESCO Trulli Houses)</h4>
+                                    <p data-i18n="d9-alberobello-desc">Unique whitewashed cone-roof trulli houses — nowhere else in the world looks like this! UNESCO World Heritage Site</p>
+                                    <span class="drive-info" data-i18n="d9-alberobello-info">🎫 <a href="https://www.getyourguide.com/alberobello-l800/alberobello-half-day-trip-from-bari-t873193/" target="_blank">Book on GetYourGuide</a> — Half-day tour from Bari | Or FSE bus ~1h, €5-10</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">17:30</span>
+                                <img src="https://images.unsplash.com/photo-1712481852095-4ed21c5af1ba?w=120&h=120&fit=crop" alt="Trulli District" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-trulli">Explore Rione Monti (Trulli District)</h4>
+                                    <p data-i18n="d9-trulli-desc">Wander the iconic trulli streets, browse handmade souvenirs, taste local olive oil and wine</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:00</span>
+                                <img src="https://images.unsplash.com/photo-1600835768553-0cc19062f912?w=120&h=120&fit=crop" alt="Farewell Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d9-dinner">Farewell Puglia Dinner in Bari</h4>
+                                    <p data-i18n="d9-dinner-desc">Bari Vecchia old town — orecchiette alle cime di rapa, burrata, focaccia barese, and taralli with a glass of Negroamaro. Puglia does food right!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d9-hl-boat">⛵ Boat Tour</span>
+                            <span class="highlight" data-i18n="d9-hl-alberobello">🏘️ Alberobello</span>
+                            <span class="highlight" data-i18n="d9-hl-farewell">🍝 Farewell Dinner</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 10 - Train to Rome -->
+                <article class="day-card" data-day="10">
+                    <div class="day-header">
+                        <div class="day-number">10</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d10-title">🚄 Train Back to Rome</h3>
+                            <span class="day-date" data-i18n="d10-date">June 12, Friday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d10-city">Bari → Roma</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="accommodation-info">
+                            <span class="accom-icon">🏨</span>
+                            <div class="accom-body">
+                                <span class="accom-label" data-i18n="stay-label-rome2">Tonight's Stay · Rome (1 night)</span>
+                                <span class="accom-name" data-i18n="stay-rome2-name">Champagne Palace Hotel · near Roma Termini</span>
+                                <span class="accom-address"><a href="https://www.google.com/maps/search/?api=1&query=Champagne+Palace+Hotel+Roma" target="_blank" rel="noopener">Champagne Palace Hotel · Rome (close to Termini for easy airport access)</a></span>
+                            </div>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">09:00</span>
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop" alt="Italian Coffee" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-breakfast">Relaxed Breakfast</h4>
+                                    <p data-i18n="d10-breakfast-desc">Last morning in Bari — enjoy a coffee in the old town one more time</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">10:00</span>
+                                <img src="https://images.unsplash.com/photo-1691557126778-c547794344d5?w=120&h=120&fit=crop" alt="Bari Old Town" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-free">Bari Vecchia Walk & Souvenirs</h4>
+                                    <p data-i18n="d10-free-desc">Stroll through Bari's old town, pick up olive oil and taralli as souvenirs, watch the nonne making orecchiette</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item featured-activity">
+                                <span class="time">11:30</span>
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop" alt="Train to Rome" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-train">🚄 Frecciarossa Bari → Rome</h4>
+                                    <p data-i18n="d10-train-desc">Check-out, taxi from Via Giulio Petroni to Bari Centrale (~10 min, ~€10). Direct Frecciarossa to Rome (~4h)</p>
+                                    <span class="drive-info" data-i18n="d10-train-info">🚄 Arrive Rome ~16:00 | Bari→Roma €40-60</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">16:00</span>
+                                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=120&h=120&fit=crop" alt="Rome" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-rome">Arrive Rome & Check-in Champagne Palace Hotel</h4>
+                                    <p data-i18n="d10-rome-desc">Short walk/taxi from Roma Termini to Champagne Palace Hotel — drop bags, freshen up before evening</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">18:00</span>
+                                <img src="https://images.unsplash.com/photo-1635416180743-c336b4abdd20?w=120&h=120&fit=crop" alt="Rome Evening" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-evening">Evening Stroll in Rome</h4>
+                                    <p data-i18n="d10-evening-desc">Revisit your favourite Roman spots — a final gelato at the Trevi Fountain or a passeggiata along the Tiber</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">20:30</span>
+                                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop" alt="Rome Dinner" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d10-dinner">Final Italian Dinner</h4>
+                                    <p data-i18n="d10-dinner-desc">Cacio e pepe, carbonara one last time — say arrivederci to Italian cuisine!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d10-hl-train">🚄 Train to Rome</span>
+                            <span class="highlight" data-i18n="d10-hl-rome">🏛️ Back in Rome</span>
+                            <span class="highlight" data-i18n="d10-hl-farewell">🍝 Final Dinner</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Day 11 - Departure from Rome -->
+                <article class="day-card" data-day="11">
+                    <div class="day-header">
+                        <div class="day-number">11</div>
+                        <div class="day-info">
+                            <h3 data-i18n="d11-title">Departure from Rome</h3>
+                            <span class="day-date" data-i18n="d11-date">June 13, Saturday</span>
+                        </div>
+                        <div class="day-city" data-i18n="d11-city">Arrivederci!</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="time">08:00</span>
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop" alt="Italian Coffee" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d11-breakfast">Breakfast & Last Stroll</h4>
+                                    <p data-i18n="d11-breakfast-desc">Last Italian cappuccino & cornetto — afternoon flight means a relaxed morning!</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">10:00</span>
+                                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=120&h=120&fit=crop" alt="Taxi to Airport" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d11-airport">🚕 Head to Rome Fiumicino (FCO)</h4>
+                                    <p data-i18n="d11-airport-desc">Allow time for duty-free shopping — limoncello, olive oil, Italian chocolates!</p>
+                                    <span class="drive-info" data-i18n="d11-airport-info">🚄 Leonardo Express to FCO: €14, 32min from Termini</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">13:00</span>
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop" alt="Flight Home" class="spot-thumb">
+                                <div class="activity">
+                                    <h4 data-i18n="d11-depart">✈️ Cathay Pacific CX292</h4>
+                                    <p data-i18n="d11-depart-desc">Rome (FCO) → Hong Kong (HKG) • Direct 11h</p>
+                                    <span class="drive-info" data-i18n="d11-depart-info">✈️ Arrive HK 06:00, June 14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-highlights">
+                            <span class="highlight" data-i18n="d11-hl-coffee">☕ Last Cappuccino</span>
+                            <span class="highlight" data-i18n="d11-hl-fly">✈️ Fly Home</span>
+                            <span class="highlight" data-i18n="d11-hl-memories">💭 Amazing Memories</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="itinerary-footer">
+                <a href="map.html" class="cta-button" data-i18n="itin-btn-map">🗺️ View Route Map</a>
+                <a href="budget.html" class="cta-button secondary" data-i18n="itin-btn-budget">💰 See Budget Breakdown</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox for full-size images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Lightbox functionality
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            // Get high-res version by changing w parameter
+            const highResUrl = img.src.replace('w=120', 'w=1200').replace('h=120', 'h=1200');
+            lightboxImg.src = highResUrl;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Add click handlers to all spot thumbnails
+        document.querySelectorAll('.spot-thumb').forEach(img => {
+            img.onclick = function(e) {
+                e.stopPropagation();
+                openLightbox(this);
+            };
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

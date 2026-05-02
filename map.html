@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Map | Italia Avventura 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+    <nav class="nav nav-sticky">
+        <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav-home">Home</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="map.html" class="active" data-i18n="nav-route">Route</a>
+            <a href="flights.html" data-i18n="nav-flights">Flights</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+        </div>
+        <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="map.html" class="active" data-i18n="nav-route">Route</a>
+        <a href="flights.html" data-i18n="nav-flights">Flights</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
+        <a href="tips.html" data-i18n="nav-tips">Tips & Packing</a>
+        <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+    </div>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header">
+                <span class="section-tag" data-i18n="map-tag">🗺️ Travel Route</span>
+                <h1 data-i18n="map-title">Your Journey Through Italy</h1>
+                <p class="page-subtitle" data-i18n="map-subtitle">Train • Flight • Guided Tours | The perfect mix!</p>
+            </div>
+
+            <!-- Route Overview -->
+            <div class="route-overview">
+                <div class="route-visual">
+                    <div class="route-stop">
+                        <div class="stop-marker start">🛬</div>
+                        <div class="stop-info">
+                            <h4>Rome (FCO)</h4>
+                            <span data-i18n="map-rome-arrival">Day 1 Arrival</span>
+                        </div>
+                    </div>
+                    <div class="route-connector train">
+                        <span class="connector-icon">🚄</span>
+                        <span class="connector-text" data-i18n="map-train-label">Train 1h10m</span>
+                    </div>
+                    <div class="route-stop">
+                        <div class="stop-marker">🍕</div>
+                        <div class="stop-info">
+                            <h4>Naples</h4>
+                            <span data-i18n="map-naples-days">Day 4-7</span>
+                        </div>
+                    </div>
+                    <div class="route-connector train">
+                        <span class="connector-icon">🚌</span>
+                        <span class="connector-text" data-i18n="map-flight-label">Bus ~3h</span>
+                    </div>
+                    <div class="route-stop">
+                        <div class="stop-marker">🏖️</div>
+                        <div class="stop-info">
+                            <h4>Bari</h4>
+                            <span data-i18n="map-puglia-days">Day 8-9</span>
+                        </div>
+                    </div>
+                    <div class="route-connector train">
+                        <span class="connector-icon">🚄</span>
+                        <span class="connector-text" data-i18n="map-train3-label">Train ~4h</span>
+                    </div>
+                    <div class="route-stop">
+                        <div class="stop-marker end">🏛️</div>
+                        <div class="stop-info">
+                            <h4>Rome</h4>
+                            <span data-i18n="map-rome-return">Day 10 Return</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Details -->
+            <div class="transport-cards">
+                <!-- Train Segment -->
+                <div class="route-card train-card">
+                    <div class="card-header">
+                        <span class="transport-icon">🚄</span>
+                        <h3 data-i18n="map-train-title">Rome → Naples by Train</h3>
+                        <span class="day-tag" data-i18n="map-train-day">Day 4</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="route-stats">
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-distance">Distance</span>
+                                <span class="stat-value">~230 km</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-duration">Duration</span>
+                                <span class="stat-value">1h 10min</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-cost">Cost</span>
+                                <span class="stat-value">€45-70</span>
+                            </div>
+                        </div>
+                        <div class="route-details">
+                            <p><strong data-i18n="map-train-route">Roma Termini → Napoli Centrale</strong></p>
+                            <p data-i18n="map-train-desc">High-speed Frecciarossa or Italo trains depart every 15-30 minutes. Super comfortable with AC, wifi, and cafe car.</p>
+                        </div>
+                        <div class="booking-links">
+                            <a href="https://www.trenitalia.com/en.html" target="_blank" class="booking-link">
+                                🚄 Trenitalia
+                            </a>
+                            <a href="https://www.italotreno.it/en" target="_blank" class="booking-link">
+                                🚄 Italo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Naples to Puglia Bus -->
+                <div class="route-card train-card">
+                    <div class="card-header">
+                        <span class="transport-icon">🚌</span>
+                        <h3 data-i18n="map-flight-title">Naples → Polignano a Mare by Bus + Train</h3>
+                        <span class="day-tag" data-i18n="map-flight-day">Day 8</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="route-stats">
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-distance">Distance</span>
+                                <span class="stat-value">~270 km</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-duration">Duration</span>
+                                <span class="stat-value">~3.5 hours</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label" data-i18n="map-cost">Cost</span>
+                                <span class="stat-value">€11-20</span>
+                            </div>
+                        </div>
+                        <div class="route-details">
+                            <p><strong data-i18n="map-flight-route">Napoli (bus) → Bari → Polignano a Mare (train)</strong></p>
+                            <p data-i18n="map-flight-desc">Budget bus to Bari (~3h, FlixBus/Itabus/Marino), then regional train to Polignano (~20min). Much cheaper than high-speed train!</p>
+                        </div>
+                        <div class="booking-links">
+                            <a href="https://www.flixbus.com/bus-routes/bus-naples-bari" target="_blank" class="booking-link">
+                                🚌 FlixBus
+                            </a>
+                            <a href="https://www.itabus.it/en/tratte-bus/naples-bari" target="_blank" class="booking-link">
+                                🚌 Itabus
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puglia Tours -->
+                <div class="route-card" style="margin-top: 32px; border-left: 4px solid var(--tuscany-gold);">
+                    <div class="card-header">
+                        <span class="transport-icon">🎫</span>
+                        <h3 data-i18n="map-tours-title">Puglia Tours (GetYourGuide)</h3>
+                        <span class="day-tag" data-i18n="map-tours-day">Day 9</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="route-details">
+                            <p><strong data-i18n="map-tour1-name">Day 9 AM: Polignano Boat Tour (Sea Caves & Swimming)</strong></p>
+                            <p data-i18n="map-tour1-desc">Explore sea caves from the water, swim in hidden coves, see Lama Monachile from the sea. ~1.5h, ~€25-35/person.</p>
+                        </div>
+                        <div class="route-details" style="margin-top: 16px;">
+                            <p><strong data-i18n="map-tour2-name">Day 9 PM: Alberobello Guided Tour (UNESCO Trulli Houses)</strong></p>
+                            <p data-i18n="map-tour2-desc">Unique whitewashed cone-roof trulli houses — UNESCO World Heritage Site. Guided tour from Polignano a Mare, ~3h.</p>
+                        </div>
+                        <div class="booking-links">
+                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/" target="_blank" class="booking-link">
+                                ⛵ Polignano Boat Tour
+                            </a>
+                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/from-polignano-a-mare-alberobello-guided-tour-t570600/" target="_blank" class="booking-link">
+                                🏘️ Alberobello Tour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capri Day Trip -->
+            <div class="route-card ferry-card" style="margin-top: 32px;">
+                <div class="card-header">
+                    <span class="transport-icon">⛴️</span>
+                    <h3 data-i18n="map-ferry-title">Naples → Capri (Day Trip)</h3>
+                    <span class="day-tag" data-i18n="map-ferry-day">Day 5</span>
+                </div>
+                <div class="card-content">
+                    <div class="route-stats">
+                        <div class="stat">
+                            <span class="stat-label" data-i18n="map-distance">Distance</span>
+                            <span class="stat-value">~30 km</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label" data-i18n="map-duration">Duration</span>
+                            <span class="stat-value">~50 min</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label" data-i18n="map-cost">Cost</span>
+                            <span class="stat-value">€25-40 RT</span>
+                        </div>
+                    </div>
+                    <div class="route-details">
+                        <p><strong data-i18n="map-ferry-route">Molo Beverello (Naples) → Marina Grande (Capri)</strong></p>
+                        <p data-i18n="map-ferry-desc">High-speed ferry for the Blue Grotto day trip. Book morning departure for best chance of entering the grotto!</p>
+                    </div>
+                    <div class="booking-links">
+                        <a href="https://www.caremar.it/" target="_blank" class="booking-link">
+                            ⛴️ Caremar
+                        </a>
+                        <a href="https://www.snav.it/" target="_blank" class="booking-link">
+                            ⛴️ SNAV
+                        </a>
+                        <a href="https://www.capri.com/en/ferry-schedule" target="_blank" class="booking-link">
+                            ⛴️ Capri.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Tips -->
+            <div class="transport-tips">
+                <h3 data-i18n="map-tips-title">💡 Transport Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip1-title">🚄 Train Booking</h4>
+                        <p data-i18n="map-tip1-desc">Book trains 2-4 weeks ahead for "Super Economy" fares. Tickets on Trenitalia/Italo apps.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip2-title">✈️ Budget Airlines</h4>
+                        <p data-i18n="map-tip2-desc">Ryanair/easyJet have strict baggage rules. Book carry-on only or pay for checked bag.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip3-title">🎫 GetYourGuide Tours</h4>
+                        <p data-i18n="map-tip3-desc">Book Puglia tours on GetYourGuide 2-4 weeks ahead. Free cancellation 24h before. Hotel pickup included!</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip4-title">⛴️ Blue Grotto</h4>
+                        <p data-i18n="map-tip4-desc">Weather dependent! Go early morning for calmer seas. Closed if waves are too high.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip5-title">🏘️ Alberobello</h4>
+                        <p data-i18n="map-tip5-desc">Day trip from Polignano — GetYourGuide tour includes transport (~30-40min each way). Or take regional train via Bari.</p>
+                    </div>
+                    <div class="tip-card-small">
+                        <h4 data-i18n="map-tip6-title">🚕 Puglia Transport</h4>
+                        <p data-i18n="map-tip6-desc">Polignano is walkable! Regional trains connect to Bari (~20min). Taxis available for Alberobello if not doing a tour.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="route-summary">
+                <h3 data-i18n="map-summary-title">📊 Transport Cost Summary (Per Person)</h3>
+                <div class="summary-table">
+                    <div class="summary-row">
+                        <span data-i18n="map-sum-train">🚄 Rome → Naples (Frecciarossa)</span>
+                        <span>€50-70 (~HKD 430-600)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-i18n="map-sum-flight">🚌 Naples → Bari (Bus) + Polignano (Train)</span>
+                        <span>€11-20 (~HKD 95-170)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-i18n="map-sum-train3">🚄 Bari → Rome (Frecciarossa)</span>
+                        <span>€40-60 (~HKD 340-500)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-i18n="map-sum-ferry">⛴️ Capri Ferry (Round Trip)</span>
+                        <span>€25-40 (~HKD 200-350)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-i18n="map-sum-local">🚕 Local Transport (taxis, buses)</span>
+                        <span>€15-25 (~HKD 130-210)</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span data-i18n="map-sum-total">Total Transport (Per Person)</span>
+                        <span>~HKD 1,050-1,800</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
