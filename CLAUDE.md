@@ -87,7 +87,7 @@ Rome (3 nights) → Naples (4 nights) + Capri + Amalfi Coast + Pompeii → Bari/
 - **GetYourGuide tour**: Polignano boat tour — sea caves & swimming (~€25-35/person)
 - **GetYourGuide tour**: Alberobello guided tour from Polignano — UNESCO trulli houses (~€25-35/person)
 - **Ferry**: Naples → Capri (day trip for Blue Grotto)
-- **Bus/driver**: Naples → Amalfi Coast (day trip: Positano, Amalfi, Ravello)
+- **TRAMVIA Beducci bus tour**: Naples → Amalfi Coast (day trip: Positano + Amalfi free time, ✓ booked via GetYourGuide GYGLMR2W6BK5, 9:00 pickup at C.So Arnaldo Lucci, 17:30 return from Amalfi). Note: this tour does NOT visit Ravello.
 - **Campania Artecard**: 3-day pass covering 2 attractions + transport in Campania region
 
 ### Day-by-Day Overview
@@ -96,7 +96,7 @@ Rome (3 nights) → Naples (4 nights) + Capri + Amalfi Coast + Pompeii → Bari/
 - Day 3 (June 5, Fri): Rome — Colosseum, Roman Forum, Pantheon
 - Day 4 (June 6, Sat): Train to Naples — Archaeological Museum, Castel Sant'Elmo night view
 - Day 5 (June 7, Sun): Naples — Blue Grotto 藍洞 day trip (Capri)
-- Day 6 (June 8, Mon): Naples — Amalfi Coast day trip (Positano, Amalfi, Ravello)
+- Day 6 (June 8, Mon): Naples — Amalfi Coast TRAMVIA bus tour (9:00 pickup C.So Arnaldo Lucci → Positano + Amalfi free time → 17:30 return)
 - Day 7 (June 9, Tue): Naples — Pompeii day trip, Spaccanapoli, last pizza night
 - Day 8 (June 10, Wed): Bus to Bari, train to Polignano — old town, Lama Monachile beach, cliff-edge dinner
 - Day 9 (June 11, Thu): Puglia — Boat tour (sea caves) + Alberobello trulli (UNESCO)
@@ -108,7 +108,7 @@ Rome (3 nights) → Naples (4 nights) + Capri + Amalfi Coast + Pompeii → Bari/
 - 🏛️ Colosseum & Roman Forum
 - 🏛️ Naples Archaeological Museum + Castel Sant'Elmo
 - 🌊 Blue Grotto 藍洞 (Capri)
-- 🏖️ Amalfi Coast (Positano, Amalfi, Ravello)
+- 🏖️ Amalfi Coast (Positano, Amalfi — booked tour does not include Ravello)
 - 🍕 Naples authentic pizza
 - 🏛️ Pompeii Archaeological Park
 - 🏖️ Polignano a Mare — Lama Monachile beach, sea caves
