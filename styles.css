@@ -943,6 +943,31 @@ section {
     background: linear-gradient(135deg, #1A5F7A 0%, #2E8BC0 100%);
 }
 
+/* City-themed day headers (current trip palette) */
+.day-header.rome {
+    background: linear-gradient(135deg, #C65D3B 0%, #E08A5E 100%);
+}
+
+.day-header.rome:hover {
+    background: linear-gradient(135deg, #E08A5E 0%, #C65D3B 100%);
+}
+
+.day-header.napoli {
+    background: linear-gradient(135deg, #1A5F7A 0%, #2E8BC0 100%);
+}
+
+.day-header.napoli:hover {
+    background: linear-gradient(135deg, #2E8BC0 0%, #1A5F7A 100%);
+}
+
+.day-header.puglia {
+    background: linear-gradient(135deg, #5D3F6B 0%, #8B5FA8 100%);
+}
+
+.day-header.puglia:hover {
+    background: linear-gradient(135deg, #8B5FA8 0%, #5D3F6B 100%);
+}
+
 .day-card.featured .day-header::after {
     content: '⭐';
     margin-left: 16px;
