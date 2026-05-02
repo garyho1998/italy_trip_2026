@@ -113,7 +113,7 @@ const TRANSLATIONS = {
     // Quick Budget
     "budget-tag": "預算估算",
     "budget-per-person": "每人費用",
-    "budget-big-number": "~HKD 22,200",
+    "budget-big-number": "~HKD 22,000",
     "budget-note": "包括機票、酒店、火車、導賞團、餐飲及活動",
     "budget-flights": "✈️ 機票",
     "budget-hotels": "🏨 酒店",
@@ -490,7 +490,7 @@ const TRANSLATIONS = {
     "budg-title": "費用明細",
     "budg-subtitle": "11天每人預算估算",
     "budg-hero-label": "每人預算總計",
-    "budg-hero-euro": "~€2,610",
+    "budg-hero-euro": "~€2,585",
     "budg-group-label": "6人總計",
 
     // Budget Cards
@@ -499,11 +499,14 @@ const TRANSLATIONS = {
     "budg-intl-note": "💡 國泰航空已確認預訂（2026年2月）• 編號：E22Y7L",
 
     "budg-transport": "內部交通",
-    "budg-tr-train": "火車 羅馬 → 拿坡里",
-    "budg-tr-flight": "火車 拿坡里 → Bari → Polignano",
-    "budg-tr-return": "火車 Bari → 羅馬",
-    "budg-tr-ferry": "渡輪 拿坡里 ↔ 卡普里",
-    "budg-tr-local": "當地交通（的士、巴士）",
+    "budg-tr-train": "🚄 羅馬 → 拿坡里（Intercity 727）✓ 已預訂",
+    "budg-tr-puglia": "🚌 拿坡里 → 巴里（MarinoBus）✓ 已預訂",
+    "budg-tr-polignano": "🚄 巴里 ↔ Polignano（區域火車，來回）",
+    "budg-tr-return": "🚄 巴里 → 羅馬（Frecciarossa）— 待預訂",
+    "budg-tr-ferry": "⛴️ 渡輪 拿坡里 ↔ 卡普里 — 待預訂",
+    "budg-tr-fco": "🚆 朋友 Leonardo Express FCO → Termini",
+    "budg-tr-local": "🚕 當地交通（第4/8/10日的士）",
+    "budg-tr-note": "💡 5段交通已預訂2段：每人 €36.73 已鎖定。總計每人約 €130-180（約 HKD 1,100-1,550）",
 
     "budg-hotel": "住宿（10晚）",
     "budg-hotel-rome": "羅馬 — 如 Relais Monti（3晚）",
@@ -539,7 +542,7 @@ const TRANSLATIONS = {
     "budg-th-person": "每人 (HKD)",
     "budg-th-group": "6人 (HKD)",
     "budg-row-flights": "✈️ 國際機票",
-    "budg-row-transport": "🚄✈️🚕 內部交通",
+    "budg-row-transport": "🚄🚌🚕 內部交通",
     "budg-row-hotel": "🏨 住宿",
     "budg-row-food": "🍝 餐飲",
     "budg-row-activities": "🎫 景點活動",
@@ -583,23 +586,32 @@ const TRANSLATIONS = {
     "map-naples-days": "第4-7天",
     "map-puglia-days": "第8-9天",
     "map-rome-return": "第10-11天",
-    "map-train-label": "火車 1小時10分",
-    "map-flight-label": "巴士 約3小時",
+    "map-train-label": "IC 2小時8分",
+    "map-flight-label": "巴士 3小時25分",
 
     // Train Card
-    "map-train-title": "羅馬 → 拿坡里 火車",
+    "map-train-title": "羅馬 → 拿坡里（Intercity 727）",
     "map-train-day": "第4天",
+    "map-booked": "✓ 已預訂",
     "map-distance": "距離",
     "map-duration": "時長",
     "map-cost": "費用",
-    "map-train-route": "Roma Termini → Napoli Centrale",
-    "map-train-desc": "高速 Frecciarossa 或 Italo 列車每15-30分鐘一班。超舒適，配備冷氣、WiFi 和餐車。",
+    "map-train-route": "Roma Termini（11:26）→ Napoli Centrale（13:34）",
+    "map-train-desc": "Trenitalia Intercity 727，6月6日（六）。第7號車廂，第5-6排。二等 Economy 票價 — 每人 €21.90。",
+    "map-train-booked": "<strong>✓ 已預訂</strong> — 6個鄰座位置，Trenitalia 預訂編號。第4天",
 
     // Train to Puglia Card
-    "map-flight-title": "拿坡里 → Polignano a Mare 巴士+火車",
+    "map-flight-title": "拿坡里 → 巴里（MarinoBus）",
     "map-flight-day": "第8天",
-    "map-flight-route": "Napoli（巴士）→ Bari → Polignano a Mare（火車）",
-    "map-flight-desc": "廉價巴士到 Bari（約3小時，FlixBus/Itabus/Marino），再轉區間車到 Polignano（約20分鐘）。比高速列車便宜得多！",
+    "map-flight-route": "Napoli Metropark（09:15）→ Bari Via Capruzzi（12:40）",
+    "map-flight-desc": "MarinoBus 直達巴士，6月10日（三）。6位乘客，每人 €14.83 — 從 €168 標準價的優惠價。然後乘 Trenitalia 區間車 Bari → Polignano（約25分鐘，每人 €3-4）。",
+    "map-bus-booked": "<strong>✓ 已預訂</strong> — 直達巴士，電子票已寄出。第8天",
+
+    // Bari to Rome Train (TO BOOK)
+    "map-train3-title": "巴里 → 羅馬（Frecciarossa）",
+    "map-train3-day": "第10天 · 待預訂",
+    "map-train3-route": "Bari Centrale → Roma Termini",
+    "map-train3-desc": "高速 Frecciarossa，6月12日（五）。直達車約4小時。提前2-4週預訂 Economy 票價最划算。",
 
     // Tours Card
     "map-tours-title": "普利亞導賞團（GetYourGuide）",
@@ -632,11 +644,12 @@ const TRANSLATIONS = {
 
     // Summary
     "map-summary-title": "📊 交通費用摘要（每人）",
-    "map-sum-train": "🚄 羅馬 → 拿坡里（Frecciarossa）",
-    "map-sum-flight": "🚌 拿坡里 → Bari（巴士）+ Polignano（火車）",
-    "map-sum-train3": "🚄 Bari → 羅馬（Frecciarossa）",
-    "map-sum-ferry": "⛴️ 卡普里渡輪（來回）",
-    "map-sum-local": "🚕 當地交通（的士、巴士）",
+    "map-sum-train": "🚄 羅馬 → 拿坡里（Intercity 727）✓ 已預訂",
+    "map-sum-flight": "🚌 拿坡里 → 巴里（MarinoBus）✓ 已預訂",
+    "map-sum-polignano": "🚄 巴里 ↔ Polignano（區域火車，來回）",
+    "map-sum-train3": "🚄 巴里 → 羅馬（Frecciarossa）— 待預訂",
+    "map-sum-ferry": "⛴️ 卡普里渡輪（來回）— 待預訂",
+    "map-sum-local": "🚕 當地交通（的士、巴士、FCO）",
     "map-sum-total": "交通總計（每人）",
 
     // ================================

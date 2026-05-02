@@ -2301,3 +2301,374 @@ section {
         padding: 10px 8px;
     }
 }
+
+/* ================================
+   MAP / ROUTE PAGE
+   ================================ */
+
+/* Route Overview — horizontal trip visualization */
+.route-overview {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+    overflow-x: auto;
+}
+
+.route-visual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 700px;
+}
+
+.route-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 110px;
+}
+
+.stop-marker {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--parchment);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 3px solid white;
+    margin-bottom: 12px;
+}
+
+.stop-marker.start {
+    background: linear-gradient(135deg, #C65D3B 0%, #E08A5E 100%);
+}
+
+.stop-marker.end {
+    background: linear-gradient(135deg, #C65D3B 0%, #E08A5E 100%);
+}
+
+.stop-info {
+    text-align: center;
+}
+
+.stop-info h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+}
+
+.stop-info span {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+}
+
+.route-connector {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 4px;
+    min-width: 70px;
+}
+
+.route-connector::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--terracotta) 20%, var(--terracotta) 80%, transparent);
+    z-index: 0;
+}
+
+.connector-icon {
+    font-size: 1.5rem;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 16px;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 6px;
+}
+
+.connector-text {
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    background: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 1;
+    margin-top: 36px;
+    white-space: nowrap;
+}
+
+/* Transport Cards Grid */
+.transport-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.transport-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    border-top: 4px solid var(--venetian-blue);
+    transition: var(--transition-smooth);
+}
+
+.transport-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.transport-card.train-card {
+    border-top-color: var(--terracotta);
+}
+
+.transport-card.ferry-card {
+    border-top-color: #1A5F7A;
+}
+
+.transport-card.tour-card {
+    border-top-color: var(--tuscany-gold);
+}
+
+.transport-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 24px;
+    background: var(--parchment);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.transport-card .transport-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.transport-card .card-header h3 {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--venetian-blue);
+    margin: 0;
+}
+
+.transport-card .day-tag {
+    background: var(--venetian-blue);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.transport-card .card-content {
+    padding: 24px;
+}
+
+.route-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+    background: var(--cream);
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.route-stats .stat {
+    text-align: center;
+}
+
+.route-stats .stat-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--warm-gray);
+    margin-bottom: 4px;
+}
+
+.route-stats .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.route-details p {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
+.route-details strong {
+    color: var(--venetian-blue);
+    font-weight: 600;
+}
+
+.booking-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.booking-link {
+    display: inline-block;
+    padding: 8px 14px;
+    background: var(--parchment);
+    color: var(--venetian-blue);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.booking-link:hover {
+    background: var(--terracotta);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Booked badge */
+.booked-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #2D7A3F 0%, #4FAB60 100%);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
+    border-radius: 12px;
+    margin-left: 10px;
+    box-shadow: 0 2px 6px rgba(45, 122, 63, 0.3);
+}
+
+.booking-confirmed {
+    background: rgba(45, 122, 63, 0.08);
+    border-left: 4px solid #2D7A3F;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+}
+
+.booking-confirmed strong {
+    color: #2D7A3F;
+}
+
+/* Transport Tips Section */
+.transport-tips {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.transport-tips h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--venetian-blue);
+    margin-bottom: 20px;
+}
+
+/* Route Cost Summary */
+.route-summary {
+    background: linear-gradient(135deg, var(--venetian-blue) 0%, var(--venetian-blue-light) 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 40px;
+    box-shadow: 0 8px 32px rgba(30, 58, 95, 0.2);
+}
+
+.route-summary h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--tuscany-gold);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-table {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-row span:last-child {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--tuscany-gold);
+}
+
+.summary-row.total {
+    border-top: 2px solid var(--tuscany-gold);
+    border-bottom: none;
+    margin-top: 8px;
+    padding-top: 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.summary-row.total span:last-child {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .transport-cards {
+        grid-template-columns: 1fr;
+    }
+    .route-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .transport-card .card-header {
+        flex-wrap: wrap;
+    }
+    .route-summary {
+        padding: 24px 18px;
+    }
+    .summary-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
