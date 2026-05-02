@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initNavScroll();
     initLanguage();
+    initDayCardCollapse();
 });
 
 // ================================
@@ -230,6 +231,44 @@ function initCountdown() {
     
     updateCountdown();
     setInterval(updateCountdown, 3600000); // Update every hour
+}
+
+// ================================
+// Collapsible Day Cards (Itinerary)
+// ================================
+function initDayCardCollapse() {
+    const dayCards = document.querySelectorAll('.day-card');
+    if (dayCards.length === 0) return;
+
+    dayCards.forEach(card => {
+        const header = card.querySelector('.day-header');
+        if (!header) return;
+
+        if (!header.querySelector('.day-toggle-icon')) {
+            const icon = document.createElement('span');
+            icon.className = 'day-toggle-icon';
+            icon.setAttribute('aria-hidden', 'true');
+            icon.textContent = '▾';
+            header.appendChild(icon);
+        }
+
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+
+        const toggle = () => {
+            const isExpanded = card.classList.toggle('expanded');
+            header.setAttribute('aria-expanded', String(isExpanded));
+        };
+
+        header.addEventListener('click', toggle);
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
+        });
+    });
 }
 
 // ================================
