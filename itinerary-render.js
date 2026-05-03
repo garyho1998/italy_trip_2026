@@ -21,6 +21,37 @@
         return field[lang] || field.en || '';
     };
 
+    // Build a Google Maps search URL using place keywords ONLY — never AI-generated
+    // coords (which can be wrong by hundreds of meters). Returns '' if no keyword
+    // is available; callers should hide the link in that case.
+    const buildMapsUrl = (location, day) => {
+        if (!location) return '';
+        const en = (f) => {
+            if (f == null) return '';
+            if (typeof f === 'string') return f;
+            return f.en || f.zh || '';
+        };
+        let q = en(location.mapsQuery);
+        if (!q && location.address) {
+            const name = en(location.name);
+            const addr = en(location.address);
+            q = name ? `${name}, ${addr}` : addr;
+        }
+        if (!q) {
+            const name = en(location.name);
+            const city = day ? en(day.city) : '';
+            if (name && city && !name.includes(city)) {
+                q = `${name}, ${city}`;
+            } else if (name) {
+                q = name;
+            }
+        }
+        // Strip parentheticals like "(lunch area)" that confuse geocoding
+        q = q.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+        if (!q) return '';
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+    };
+
     const escapeAttr = (s) => String(s ?? '')
         .replace(/&/g, '&amp;')
         .replace(/"/g, '&quot;')
@@ -71,15 +102,10 @@
         `;
     }
 
-    function renderStay(stay, lang) {
+    function renderStay(stay, lang, day) {
         if (!stay) return '';
         const addr = stay.address || '';
-        let query = '';
-        if (stay.coords && stay.coords.lat != null) {
-            query = `https://www.google.com/maps/search/?api=1&query=${stay.coords.lat},${stay.coords.lng}`;
-        } else if (stay.mapsQuery) {
-            query = `https://www.google.com/maps/search/?api=1&query=${stay.mapsQuery}`;
-        }
+        const query = buildMapsUrl(stay, day);
         const addrHtml = query
             ? `<a href="${escapeAttr(query)}" target="_blank" rel="noopener">${escapeAttr(addr)}</a>`
             : escapeAttr(addr);
@@ -116,20 +142,15 @@
         return '';
     }
 
-    function renderLocation(location, lang) {
+    function renderLocation(location, lang, day) {
         if (!location) return '';
         const name = t(location.name, lang);
-        let url = '';
-        if (location.coords && location.coords.lat != null && location.coords.lng != null) {
-            url = `https://www.google.com/maps/search/?api=1&query=${location.coords.lat},${location.coords.lng}`;
-        } else if (location.mapsQuery) {
-            url = `https://www.google.com/maps/search/?api=1&query=${location.mapsQuery}`;
-        }
-        if (!url) return '';
+        const url = buildMapsUrl(location, day);
+        if (!url || !name) return '';
         return `<a class="activity-location" href="${escapeAttr(url)}" target="_blank" rel="noopener">📍 ${escapeAttr(name)}</a>`;
     }
 
-    function renderTimelineItem(item, lang) {
+    function renderTimelineItem(item, lang, day) {
         const featuredClass = item.featured ? ' featured-activity' : '';
         const picture = item.picture
             ? `<img src="${escapeAttr(item.picture.src)}" alt="${escapeAttr(item.picture.alt || '')}" class="spot-thumb">`
@@ -138,7 +159,7 @@
             ? `<p class="activity-detail">${t(item.comment, lang)}</p>`
             : '';
         const driveInfo = renderDriveInfo(item, lang);
-        const locationLink = renderLocation(item.location, lang);
+        const locationLink = renderLocation(item.location, lang, day);
         return `
             <div class="timeline-item${featuredClass}">
                 <span class="time">${escapeAttr(item.time)}</span>
@@ -166,9 +187,9 @@
         const featuredClass = day.featured ? ' featured' : '';
         const themeClass = day.theme ? ` ${escapeAttr(day.theme)}` : '';
         const numberPadded = String(day.number).padStart(2, '0');
-        const stayHtml = renderStay(day.stay, lang);
+        const stayHtml = renderStay(day.stay, lang, day);
         const timelineHtml = (day.timeline || [])
-            .map(item => renderTimelineItem(item, lang))
+            .map(item => renderTimelineItem(item, lang, day))
             .join('');
         const highlightsHtml = renderHighlights(day.highlights, lang);
         return `
@@ -254,8 +275,9 @@
             const photo = p.picture
                 ? `<img class="pin-photo" src="${escapeAttr(p.picture.src.replace('w=120', 'w=400').replace('h=120', 'h=400'))}" alt="${escapeAttr(p.picture.alt || '')}">`
                 : '';
-            const mapLink = p.location && p.location.coords
-                ? `<a class="pin-maps-link" href="https://www.google.com/maps/search/?api=1&query=${p.location.coords.lat},${p.location.coords.lng}" target="_blank" rel="noopener">📍 Open in Google Maps</a>`
+            const mapsUrl = buildMapsUrl(p.location, day);
+            const mapLink = mapsUrl
+                ? `<a class="pin-maps-link" href="${escapeAttr(mapsUrl)}" target="_blank" rel="noopener">📍 Open in Google Maps</a>`
                 : '';
             pinCard = `
                 <div class="pin-card">
