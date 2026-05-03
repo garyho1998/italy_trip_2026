@@ -90,7 +90,8 @@
             "coords": {
               "lat": 41.8154,
               "lng": 12.2265
-            }
+            },
+            "mapsQuery": "Rome Fiumicino Airport"
           }
         },
         {
@@ -119,7 +120,8 @@
             "coords": {
               "lat": 41.9006,
               "lng": 12.5025
-            }
+            },
+            "mapsQuery": "Roma Termini Station"
           }
         },
         {
@@ -135,31 +137,6 @@
           "info": {
             "en": "Coordinate with Airbnb host to drop luggage early (room may not be ready until 15:00). Grab a cappuccino + cornetto nearby to wake up after the long flight",
             "zh": "同 Airbnb 房東協調早啲放行李（房間通常要15:00先準備好）。喺附近飲杯 cappuccino 配 cornetto，醒下個瞓"
-          }
-        },
-        {
-          "time": "10:30",
-          "picture": {
-            "src": "https://images.unsplash.com/photo-1525874684015-58379d421a52?w=120&h=120&fit=crop",
-            "alt": "Trevi Fountain"
-          },
-          "activity": {
-            "en": "Trevi Fountain",
-            "zh": "許願池"
-          },
-          "info": {
-            "en": "Throw a coin, make a wish to return to Rome! Mid-morning is busy but manageable",
-            "zh": "投一枚硬幣，許願重返羅馬！上午稍晚雖然有人，但仍可應付"
-          },
-          "location": {
-            "name": {
-              "en": "Trevi Fountain",
-              "zh": "特雷維噴泉"
-            },
-            "coords": {
-              "lat": 41.901,
-              "lng": 12.4833
-            }
           }
         },
         {
@@ -184,7 +161,8 @@
             "coords": {
               "lat": 41.9056,
               "lng": 12.4823
-            }
+            },
+            "mapsQuery": "Spanish Steps, Roma"
           }
         },
         {
@@ -209,7 +187,8 @@
             "coords": {
               "lat": 41.9056,
               "lng": 12.4823
-            }
+            },
+            "mapsQuery": "Piazza di Spagna , Roma"
           }
         },
         {
@@ -234,7 +213,34 @@
             "coords": {
               "lat": 41.9144,
               "lng": 12.4848
-            }
+            },
+            "mapsQuery": "Villa Borghese Gardens, Roma"
+          }
+        },
+        {
+          "time": "16:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1554080354-ab1ca08fd64d?w=120&h=120&fit=crop",
+            "alt": "Piazza del Popolo, Rome"
+          },
+          "activity": {
+            "en": "Piazza del Popolo (Pincio walkdown)",
+            "zh": "人民廣場（從平喬山步行而下）"
+          },
+          "info": {
+            "en": "Walk down from Pincio terrace into the oval Piazza del Popolo — twin churches, central obelisk. Easy stop on the way to Spanish Steps / Trastevere.",
+            "zh": "從平喬觀景台步行而下，進入橢圓形的人民廣場 — 雙子教堂與中央方尖碑。前往西班牙階梯／特拉斯提弗列途中的輕鬆停留。"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza del Popolo",
+              "zh": "人民廣場"
+            },
+            "coords": {
+              "lat": 41.9107,
+              "lng": 12.4764
+            },
+            "mapsQuery": "Piazza del Popolo, Roma"
           }
         },
         {
@@ -259,7 +265,8 @@
             "coords": {
               "lat": 41.8895,
               "lng": 12.4703
-            }
+            },
+            "mapsQuery": "Piazza Santa Maria in Trastevere, Roma"
           }
         },
         {
@@ -288,7 +295,8 @@
             "coords": {
               "lat": 41.8864,
               "lng": 12.4771
-            }
+            },
+            "mapsQuery": "La Gattabuia · Via del Porto 1, Roma"
           }
         }
       ],
@@ -549,34 +557,75 @@
       "city": "Roma",
       "timeline": [
         {
-          "time": "08:30",
+          "time": "06:30",
           "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1525874684015-58379d421a52?w=120&h=120&fit=crop",
+            "alt": "Trevi Fountain at sunrise"
+          },
+          "activity": {
+            "en": "⭐ Trevi Fountain (sunrise, empty)",
+            "zh": "⭐ 特雷維噴泉（日出時分，無人）"
+          },
+          "info": {
+            "en": "Arrive early to a near-empty piazza and golden-hour light on the Baroque marble. Toss a coin (right hand over left shoulder) — Roman tradition says you'll return.",
+            "zh": "提早抵達幾乎無人的廣場，享受巴洛克大理石上的黃金時刻光線。投入一枚硬幣（右手越過左肩）— 羅馬傳說你將會再來。"
+          },
+          "comment": {
+            "en": "📸 By 8am the piazza fills with tour groups — stay before 7:30 for clean photos.",
+            "zh": "📸 早上8點後廣場會擠滿旅行團 — 7:30前離開可拍到乾淨照片。"
+          },
+          "location": {
+            "name": {
+              "en": "Trevi Fountain",
+              "zh": "特雷維噴泉"
+            },
+            "coords": {
+              "lat": 41.901,
+              "lng": 12.4833
+            },
+            "mapsQuery": "Trevi Fountain, Roma"
+          }
+        },
+        {
+          "time": "07:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop",
+            "alt": "Piazza Navona"
+          },
+          "activity": {
+            "en": "Breakfast at Piazza Navona",
+            "zh": "納沃納廣場早餐"
+          },
+          "info": {
+            "en": "Café tables under awnings around Bernini's Fountain of the Four Rivers. Cornetto + cappuccino at a sleepy outdoor table — Rome at its best.",
+            "zh": "貝尼尼的四河噴泉周圍咖啡座。在悠閒的戶外桌享用可頌與卡布奇諾 — 羅馬最美的時刻。"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza Navona",
+              "zh": "納沃納廣場"
+            },
+            "coords": {
+              "lat": 41.8989,
+              "lng": 12.4731
+            },
+            "mapsQuery": "Piazza Navona, Roma"
+          }
+        },
+        {
+          "time": "08:30",
           "picture": {
             "src": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=120&h=120&fit=crop",
             "alt": "Colosseum"
           },
           "activity": {
-            "en": "⭐ Colosseum",
-            "zh": "⭐ 鬥獸場"
+            "en": "Colosseum (exterior + Arch of Constantine)",
+            "zh": "羅馬鬥獸場（外觀 + 君士坦丁凱旋門）"
           },
           "info": {
-            "en": "Skip-the-line guided tour with arena floor access — no queuing in the June sun!",
-            "zh": "免排隊導覽團連競技場地板 — 無需在六月烈日下排隊！"
-          },
-          "link": {
-            "url": "https://www.getyourguide.com/colosseum-l2619/",
-            "label": {
-              "en": "Book on GetYourGuide",
-              "zh": "在 GetYourGuide 預訂"
-            }
-          },
-          "price": {
-            "amount": "€38-48",
-            "perPerson": true,
-            "note": {
-              "en": "Skip-the-line + Arena Floor, 2.5-3h",
-              "zh": "免排隊 + 競技場地板，2.5-3小時"
-            }
+            "en": "Photos from outside. Walk the perimeter, pose at the Arch of Constantine right next door. Skip the interior — saves 90 min and €18, and we head straight into the Forum next.",
+            "zh": "外觀拍照。繞外圍一圈，到旁邊的君士坦丁凱旋門合照。跳過內部 — 省下90分鐘和€18，緊接著進羅馬廣場。"
           },
           "location": {
             "name": {
@@ -591,7 +640,7 @@
           }
         },
         {
-          "time": "11:30",
+          "time": "09:00",
           "picture": {
             "src": "https://images.unsplash.com/photo-1624392234319-f0700ec01b5c?w=120&h=120&fit=crop",
             "alt": "Roman Forum"
@@ -617,7 +666,90 @@
           }
         },
         {
-          "time": "14:00",
+          "time": "11:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1580916861017-ad6dec90fdb1?w=120&h=120&fit=crop",
+            "alt": "Piazza del Campidoglio"
+          },
+          "activity": {
+            "en": "Capitoline Hill + Vittoriano",
+            "zh": "卡比托利歐山 + 維托里亞諾紀念堂"
+          },
+          "info": {
+            "en": "Climb Michelangelo's Cordonata staircase up to Piazza del Campidoglio (free) for a top-down view of the Forum behind you. Walk past the massive Vittoriano (Wedding Cake) on Piazza Venezia.",
+            "zh": "登上米開朗基羅設計的科爾多納塔階梯前往卡比托利歐廣場（免費），可俯瞰身後的羅馬廣場。經過威尼斯廣場上巨大的維托里亞諾紀念堂（婚禮蛋糕）。"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza del Campidoglio",
+              "zh": "卡比托利歐廣場"
+            },
+            "coords": {
+              "lat": 41.8932,
+              "lng": 12.483
+            },
+            "mapsQuery": "Piazza del Campidoglio, Roma"
+          }
+        },
+        {
+          "time": "11:50",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1551018612-9715965c6742?w=120&h=120&fit=crop",
+            "alt": "Roman cat"
+          },
+          "activity": {
+            "en": "Largo di Torre Argentina (cat sanctuary)",
+            "zh": "阿根廷塔廣場（貓咪保護區）"
+          },
+          "info": {
+            "en": "Sunken Republican-era ruins where Caesar was assassinated, now a famous Roman cat sanctuary. 5-min stop from street level — peek down, wave at the cats, move on.",
+            "zh": "下沉式的共和時期遺跡，凱撒遇刺之地，現為著名的羅馬貓咪保護區。從街道層觀看 — 探頭看看，跟貓咪揮揮手，繼續前進。"
+          },
+          "location": {
+            "name": {
+              "en": "Largo di Torre Argentina",
+              "zh": "阿根廷塔廣場"
+            },
+            "coords": {
+              "lat": 41.896,
+              "lng": 12.4768
+            },
+            "mapsQuery": "Largo di Torre Argentina, Roma"
+          }
+        },
+        {
+          "time": "12:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1714687399142-ea5ff3fb038e?w=120&h=120&fit=crop",
+            "alt": "Pantheon"
+          },
+          "activity": {
+            "en": "⭐ Pantheon interior (god-light beam ☀️)",
+            "zh": "⭐ 萬神殿內部（神聖光柱 ☀️）"
+          },
+          "info": {
+            "en": "Solar noon (~13:08) lands the oculus beam near the floor center — visit between 11:45 and 13:00 for the strongest 'god light' on the dome's coffered interior.",
+            "zh": "太陽正午（約13:08）光柱落在地板中央附近 — 在11:45至13:00之間造訪，可看到最強烈的「神聖光柱」打在穹頂藻井內部。"
+          },
+          "location": {
+            "name": {
+              "en": "Pantheon",
+              "zh": "萬神殿"
+            },
+            "coords": {
+              "lat": 41.8986,
+              "lng": 12.4768
+            },
+            "mapsQuery": "Pantheon, Roma"
+          },
+          "comment": {
+            "en": "🍦 Right next door: Sant'Eustachio Il Caffè or Tazza d'Oro for legendary coffee, Giolitti for Rome's best gelato. Walk by on the way out.",
+            "zh": "🍦 緊鄰萬神殿：Sant'Eustachio 咖啡館或金杯咖啡（Tazza d'Oro）有傳奇咖啡，喬利蒂（Giolitti）有羅馬最棒的冰淇淋。離開時順道一訪。"
+          },
+          "featured": true
+        },
+        {
+          "time": "13:00",
           "picture": {
             "src": "https://images.unsplash.com/photo-1652794691816-65da24a9f476?w=120&h=120&fit=crop",
             "alt": "Campo de Fiori"
@@ -643,70 +775,18 @@
           }
         },
         {
-          "time": "16:00",
-          "picture": {
-            "src": "https://images.unsplash.com/photo-1714687399142-ea5ff3fb038e?w=120&h=120&fit=crop",
-            "alt": "Pantheon"
-          },
-          "activity": {
-            "en": "Pantheon",
-            "zh": "萬神殿"
-          },
-          "info": {
-            "en": "Best preserved ancient Roman building - free entry!",
-            "zh": "保存最完好的古羅馬建築 - 免費入場！"
-          },
-          "location": {
-            "name": {
-              "en": "Pantheon",
-              "zh": "萬神殿"
-            },
-            "coords": {
-              "lat": 41.8986,
-              "lng": 12.4768
-            },
-            "mapsQuery": "Pantheon, Roma"
-          }
-        },
-        {
-          "time": "18:00",
-          "picture": {
-            "src": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop",
-            "alt": "Piazza Navona"
-          },
-          "activity": {
-            "en": "Piazza Navona",
-            "zh": "納沃納廣場"
-          },
-          "info": {
-            "en": "Bernini's fountains, street artists, evening vibes",
-            "zh": "貝尼尼噴泉、街頭藝人、夜晚氛圍"
-          },
-          "location": {
-            "name": {
-              "en": "Piazza Navona",
-              "zh": "納沃納廣場"
-            },
-            "coords": {
-              "lat": 41.8989,
-              "lng": 12.4731
-            },
-            "mapsQuery": "Piazza Navona, Roma"
-          }
-        },
-        {
-          "time": "20:00",
+          "time": "15:30",
           "picture": {
             "src": "https://images.unsplash.com/photo-1560512823-829485b8bf24?w=120&h=120&fit=crop",
             "alt": "Aperitivo"
           },
           "activity": {
-            "en": "Aperitivo & Dinner",
-            "zh": "開胃酒與晚餐"
+            "en": "Campo de' Fiori (afternoon stroll)",
+            "zh": "鮮花廣場（午後漫步）"
           },
           "info": {
-            "en": "Seek out Nabil Hassen's restaurant for Rome's best carbonara — ultra-creamy with crispy guanciale. End with Maritozzo (Roman cream bun) for dessert!",
-            "zh": "推薦大廚 Nabil Hassen 的餐廳 — 全羅馬最好吃培根蛋麵，醬汁極濃稠配脆風乾豬頰肉。甜品試生乳包 Maritozzo！"
+            "en": "Late-afternoon market wind-down, flower stalls and locals at the bars. Great spot for a sit-down spritz before the evening dinner.",
+            "zh": "傍晚市集收攤時分，花攤與酒吧裡的當地人。晚餐前坐下來喝杯氣泡飲料的絕佳地點。"
           },
           "location": {
             "name": {
