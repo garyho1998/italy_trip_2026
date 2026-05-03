@@ -2718,9 +2718,49 @@ section {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
     }
-    /* Allow the mobile-nav overlay to still display when toggled */
+    /* Floating dropdown menu anchored to the ☰ button — matches cream/terracotta palette */
     body.itinerary-page > .mobile-nav.active {
         display: flex !important;
+        top: 68px;
+        right: 14px;
+        left: auto;
+        width: auto;
+        min-width: 200px;
+        max-width: calc(100vw - 28px);
+        background: rgba(253, 246, 227, 0.98);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(30, 58, 95, 0.08);
+        border-radius: 16px;
+        padding: 8px;
+        gap: 2px;
+        box-shadow: 0 12px 32px rgba(30, 58, 95, 0.18);
+        z-index: 199;
+    }
+    body.itinerary-page > .mobile-nav.active a {
+        color: var(--venetian-blue);
+        padding: 10px 16px;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 10px;
+        text-align: left;
+        white-space: nowrap;
+    }
+    body.itinerary-page > .mobile-nav.active a.active,
+    body.itinerary-page > .mobile-nav.active a:hover {
+        background: var(--terracotta);
+        color: #fff;
+    }
+    body.itinerary-page > .mobile-nav.active .lang-toggle {
+        align-self: stretch;
+        margin: 4px 8px 4px;
+        background: transparent;
+        border: 1px solid var(--venetian-blue);
+        color: var(--venetian-blue);
+    }
+    body.itinerary-page > .mobile-nav.active .lang-toggle:hover {
+        background: var(--venetian-blue);
+        color: #fff;
     }
 
     /* Hide chrome that distracts from the map experience */
