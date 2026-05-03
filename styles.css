@@ -3121,36 +3121,49 @@ section {
         color: #fff;
     }
 
-    /* Mobile-style metaphor: map is full-viewport background, date bar and
-       active-day card float on top. Body doesn't scroll — only the middle
-       card scrolls internally. */
+    /* 3-column layout fills the viewport; body itself doesn't scroll —
+       each column is full-height and the middle column scrolls internally. */
     body.itinerary-page {
         overflow: hidden;
+    }
+    body.itinerary-page .page-main {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
     }
     body.itinerary-page #itinerary-app {
         max-width: none;
         width: 100%;
         padding: 0;
+        height: 100vh;
     }
     .itinerary-layout {
-        display: block;
-        position: relative;
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1.15fr) minmax(0, 1fr);
+        grid-template-rows: 1fr;
+        gap: 0;
+        padding: 0;
+        height: 100vh;
+        box-sizing: border-box;
+        align-items: stretch;
+        background: #fff;
     }
 
-    /* ----- Left: date bar (fixed, floats on map) ----- */
+    /* ----- Left: date bar (edge-to-edge column, scrolls if needed) ----- */
     .itinerary-date-strip {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        position: fixed;
-        top: 20px;
-        left: 24px;
-        width: 100px;
-        max-height: calc(100vh - 40px);
+        position: static;
+        height: 100%;
+        max-height: none;
         overflow-y: auto;
-        padding: 4px;
-        z-index: 100;
+        padding: 16px 12px;
+        background: var(--cream, #FDF6E3);
+        border-right: 1px solid rgba(30, 58, 95, 0.08);
         scrollbar-width: thin;
+        grid-column: 1;
+        grid-row: 1;
     }
     .itinerary-date-strip .date-pill {
         display: flex;
@@ -3195,22 +3208,21 @@ section {
         opacity: 1;
     }
 
-    /* ----- Middle: active-day card (fixed, floats on map, scrolls internally) ----- */
+    /* ----- Middle: active-day content (edge-to-edge white, scrolls internally) ----- */
     .itinerary-sheet {
         display: block;
-        position: fixed;
-        top: 20px;
-        left: 148px; /* 24 page padding + 100 date bar + 24 gap */
-        width: 700px;
-        max-width: calc(100vw - 172px - 24px); /* leave at least 24px gap on right edge */
-        height: calc(100vh - 40px);
+        position: static;
+        width: 100%;
+        height: 100%;
+        max-height: none;
         transform: none !important;
-        background: transparent;
+        background: #fff;
         box-shadow: none;
         border-radius: 0;
         overflow-y: auto;
-        z-index: 90;
         scrollbar-width: thin;
+        grid-column: 2;
+        grid-row: 1;
     }
     .itinerary-sheet .sheet-handle,
     .itinerary-sheet .pin-peek-line,
@@ -3224,12 +3236,10 @@ section {
     }
     .itinerary-sheet .sheet-day-view {
         display: block;
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 16px;
-        padding: 28px 32px;
-        box-shadow: 0 8px 32px rgba(30, 58, 95, 0.18);
+        background: transparent;
+        border-radius: 0;
+        padding: 28px 36px 36px;
+        box-shadow: none;
     }
     .itinerary-sheet .sheet-day-header h2 {
         margin: 0 0 6px;
@@ -3242,11 +3252,14 @@ section {
         transition: outline-color 0.15s ease;
     }
 
-    /* ----- Map as full-viewport background ----- */
+    /* ----- Right: map (edge-to-edge full height) ----- */
     .itinerary-map-wrap {
-        position: fixed;
-        inset: 0;
-        z-index: 1;
+        position: static;
+        width: 100%;
+        height: 100%;
+        grid-column: 3;
+        grid-row: 1;
+        border-left: 1px solid rgba(30, 58, 95, 0.08);
     }
     .itinerary-map {
         width: 100%;
