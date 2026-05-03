@@ -2675,8 +2675,9 @@ section {
 
 /* ================================
    Itinerary Layout — days + per-day map
-   Mobile (<1024px): full-screen map, left date strip, draggable bottom sheet.
-   Desktop (≥1024px): days list left + sticky map right.
+   Mobile (<1280px): full-screen map, left date strip, draggable bottom sheet.
+   Desktop (≥1280px): 3-column rearrangement of mobile —
+       date bar (left, anchored) | active-day content (middle) | sticky map (right).
    ================================ */
 
 /* Date strip + sheet are mobile-only; hidden on desktop by default. */
@@ -2690,8 +2691,8 @@ section {
     display: none;
 }
 
-/* ---------- MOBILE (<1024px) ---------- */
-@media (max-width: 1023px) {
+/* ---------- MOBILE / TABLET (<1280px) ---------- */
+@media (max-width: 1279px) {
     /* Hide entire site nav on itinerary page (replaced by floating button) */
     body.itinerary-page > .nav,
     body.itinerary-page > .mobile-nav {
@@ -3038,39 +3039,227 @@ section {
     }
 }
 
-/* ---------- DESKTOP (≥1024px) ---------- */
-@media (min-width: 1024px) {
+/* ---------- DESKTOP (≥1280px) ---------- */
+@media (min-width: 1280px) {
+    /* Hide the regular site nav on the itinerary page — replaced by floating ☰ */
+    body.itinerary-page > .nav,
+    body.itinerary-page > .mobile-nav {
+        display: none;
+    }
+    /* Hide intro chrome — middle column shows only the active day's content (mobile parity) */
+    body.itinerary-page #itinerary-app > .page-header,
+    body.itinerary-page .itinerary-days,
+    body.itinerary-page .itinerary-footer,
+    body.itinerary-page .footer {
+        display: none;
+    }
+
+    /* Floating ☰ button — same as mobile, top-right corner */
+    body.itinerary-page .floating-nav-btn {
+        display: flex;
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 200;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        border: 0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: var(--venetian-blue, #1E3A5F);
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    /* Floating dropdown menu (cream card, anchored under ☰) */
+    body.itinerary-page > .mobile-nav.active {
+        display: flex !important;
+        position: fixed;
+        top: 68px;
+        right: 14px;
+        left: auto;
+        width: auto;
+        min-width: 200px;
+        max-width: calc(100vw - 28px);
+        background: rgba(253, 246, 227, 0.98);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(30, 58, 95, 0.08);
+        border-radius: 16px;
+        padding: 8px;
+        gap: 2px;
+        box-shadow: 0 12px 32px rgba(30, 58, 95, 0.18);
+        z-index: 199;
+    }
+    body.itinerary-page > .mobile-nav.active a {
+        color: var(--venetian-blue);
+        padding: 10px 16px;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 10px;
+        text-align: left;
+        white-space: nowrap;
+    }
+    body.itinerary-page > .mobile-nav.active a.active,
+    body.itinerary-page > .mobile-nav.active a:hover {
+        background: var(--terracotta);
+        color: #fff;
+    }
+    body.itinerary-page > .mobile-nav.active .lang-toggle {
+        align-self: stretch;
+        margin: 4px 8px 4px;
+        background: transparent;
+        border: 1px solid var(--venetian-blue);
+        color: var(--venetian-blue);
+    }
+    body.itinerary-page > .mobile-nav.active .lang-toggle:hover {
+        background: var(--venetian-blue);
+        color: #fff;
+    }
+
+    /* Mobile-style metaphor: map is full-viewport background, date bar and
+       active-day card float on top. Body doesn't scroll — only the middle
+       card scrolls internally. */
+    body.itinerary-page {
+        overflow: hidden;
+    }
+    body.itinerary-page #itinerary-app {
+        max-width: none;
+        width: 100%;
+        padding: 0;
+    }
     .itinerary-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-        align-items: start;
-        gap: 32px;
-        margin-top: 30px;
-        margin-bottom: 40px;
+        display: block;
+        position: relative;
     }
-    .itinerary-days {
-        min-width: 0;
-        order: 1;
+
+    /* ----- Left: date bar (fixed, floats on map) ----- */
+    .itinerary-date-strip {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: fixed;
+        top: 20px;
+        left: 24px;
+        width: 100px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        padding: 4px;
+        z-index: 100;
+        scrollbar-width: thin;
     }
+    .itinerary-date-strip .date-pill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 4px;
+        background: #fff;
+        border: 1px solid rgba(30, 58, 95, 0.08);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        font-family: var(--font-body);
+    }
+    .itinerary-date-strip .date-pill .date-month {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--venetian-blue);
+        opacity: 0.6;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    .itinerary-date-strip .date-pill .date-day {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--venetian-blue);
+        line-height: 1;
+        margin-top: 2px;
+    }
+    .itinerary-date-strip .date-pill:hover {
+        background: rgba(198, 93, 59, 0.08);
+        border-color: rgba(198, 93, 59, 0.2);
+    }
+    .itinerary-date-strip .date-pill.active {
+        background: var(--terracotta);
+        border-color: var(--terracotta);
+        box-shadow: 0 4px 12px rgba(198, 93, 59, 0.25);
+    }
+    .itinerary-date-strip .date-pill.active .date-month,
+    .itinerary-date-strip .date-pill.active .date-day {
+        color: #fff;
+        opacity: 1;
+    }
+
+    /* ----- Middle: active-day card (fixed, floats on map, scrolls internally) ----- */
+    .itinerary-sheet {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 148px; /* 24 page padding + 100 date bar + 24 gap */
+        width: 700px;
+        max-width: calc(100vw - 172px - 24px); /* leave at least 24px gap on right edge */
+        height: calc(100vh - 40px);
+        transform: none !important;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        overflow-y: auto;
+        z-index: 90;
+        scrollbar-width: thin;
+    }
+    .itinerary-sheet .sheet-handle,
+    .itinerary-sheet .pin-peek-line,
+    .itinerary-sheet .sheet-pin-view {
+        display: none;
+    }
+    .itinerary-sheet .sheet-content {
+        padding: 0;
+        overflow: visible;
+        max-height: none;
+    }
+    .itinerary-sheet .sheet-day-view {
+        display: block;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 16px;
+        padding: 28px 32px;
+        box-shadow: 0 8px 32px rgba(30, 58, 95, 0.18);
+    }
+    .itinerary-sheet .sheet-day-header h2 {
+        margin: 0 0 6px;
+    }
+    /* Persistent pin-target highlight: terracotta border on the matching timeline item */
+    .itinerary-sheet .timeline-item.pin-scroll-target {
+        outline: 2px solid var(--terracotta);
+        outline-offset: 4px;
+        border-radius: 12px;
+        transition: outline-color 0.15s ease;
+    }
+
+    /* ----- Map as full-viewport background ----- */
     .itinerary-map-wrap {
-        position: sticky;
-        order: 2;
-        top: 90px;
-        height: calc(100vh - 110px);
-        z-index: 10;
+        position: fixed;
+        inset: 0;
+        z-index: 1;
     }
     .itinerary-map {
         width: 100%;
         height: 100%;
-        border-radius: 14px;
-        box-shadow: 0 6px 24px rgba(30, 58, 95, 0.15);
+        border-radius: 0;
+        box-shadow: none;
         overflow: hidden;
         background: #e6eef4;
     }
     .itinerary-map .leaflet-container {
         width: 100%;
         height: 100%;
-        border-radius: 14px;
+        border-radius: 0;
         font-family: var(--font-body);
     }
 }

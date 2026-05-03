@@ -153,8 +153,9 @@
         return `<a class="activity-location" href="${escapeAttr(url)}" target="_blank" rel="noopener">📍 ${escapeAttr(name)}</a>`;
     }
 
-    function renderTimelineItem(item, lang, day) {
+    function renderTimelineItem(item, lang, day, pinIdx) {
         const featuredClass = item.featured ? ' featured-activity' : '';
+        const pinAttr = (pinIdx != null) ? ` data-pin-idx="${pinIdx}"` : '';
         const picture = item.picture
             ? `<img src="${escapeAttr(item.picture.src)}" alt="${escapeAttr(item.picture.alt || '')}" class="spot-thumb">`
             : '';
@@ -164,7 +165,7 @@
         const driveInfo = renderDriveInfo(item, lang);
         const locationLink = renderLocation(item.location, lang, day);
         return `
-            <div class="timeline-item${featuredClass}">
+            <div class="timeline-item${featuredClass}"${pinAttr}>
                 <span class="time">${escapeAttr(item.time)}</span>
                 ${picture}
                 <div class="activity">
@@ -305,10 +306,16 @@
         }
 
         // Full day list — shown in full state
-        const stayHtml = day.stay ? renderStay(day.stay, lang) : '';
+        const stayHtml = day.stay ? renderStay(day.stay, lang, day) : '';
         const highlightsHtml = renderHighlights(day.highlights, lang);
+        let pinCounter = 0;
         const timelineHtml = (day.timeline || [])
-            .map(item => renderTimelineItem(item, lang))
+            .map(item => {
+                const isPin = !!(item.location && item.location.coords);
+                const html = renderTimelineItem(item, lang, day, isPin ? pinCounter : null);
+                if (isPin) pinCounter += 1;
+                return html;
+            })
             .join('');
         const fullList = `
             <div class="sheet-day-view">
@@ -469,6 +476,10 @@
             marker.on('click', () => {
                 activePinIndex = g.firstPinIndex;
                 refreshActivePin(day, lang);
+                // Desktop: scroll the matching timeline item into view + persistent border
+                if (window.matchMedia('(min-width: 1280px)').matches) {
+                    scrollToPinTarget(g.firstPinIndex);
+                }
             });
             mapMarkers.push(marker);
         }
@@ -567,6 +578,23 @@
         const pins = getPinsForDay(day);
         if (activePinIndex >= pins.length) activePinIndex = Math.max(0, pins.length - 1);
         sheetContent.innerHTML = renderSheetContent(day, pins, activePinIndex, lang);
+    }
+
+    // Desktop: scroll the matching timeline item into view and apply a
+    // persistent terracotta border. Re-rendering wipes prior highlights.
+    function scrollToPinTarget(pinIdx) {
+        const sheet = document.getElementById('itinerary-sheet');
+        if (!sheet) return;
+        sheet.querySelectorAll('.timeline-item.pin-scroll-target').forEach(el => {
+            el.classList.remove('pin-scroll-target');
+        });
+        const target = sheet.querySelector(`.timeline-item[data-pin-idx="${pinIdx}"]`);
+        if (target) {
+            target.classList.add('pin-scroll-target');
+            try {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (e) { /* no-op */ }
+        }
     }
 
     // ================================
