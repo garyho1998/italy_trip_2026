@@ -77,6 +77,11 @@ def collect_targets(itin):
     out = []
     for day in itin.get("days", []):
         city = en(day.get("city"))
+        # Some "city" fields on transition days are like "Roma → Napoli" — strip those
+        # to the leading or trailing piece so the geocode query stays unambiguous.
+        if "→" in city:
+            # Use trailing piece (destination)
+            city = city.split("→")[-1].strip()
         if day.get("stay") and day["stay"].get("coords"):
             s = day["stay"]
             out.append({
@@ -85,6 +90,7 @@ def collect_targets(itin):
                 "name": en(s.get("name")) or en(s.get("address")) or "?",
                 "address": en(s.get("address")),
                 "city": city,
+                "mapsQuery": en(s.get("mapsQuery")),
                 "coords": s["coords"],
             })
         for item in day.get("timeline", []):
@@ -97,6 +103,7 @@ def collect_targets(itin):
                 "name": en(loc.get("name")) or en(item.get("activity")) or "?",
                 "address": en(loc.get("address")),
                 "city": city,
+                "mapsQuery": en(loc.get("mapsQuery")),
                 "coords": loc["coords"],
             })
     return out
@@ -116,8 +123,11 @@ def main():
 
     results = []
     for i, t in enumerate(targets, 1):
-        # Generate query variants from broadest to simplest
+        # Generate query variants from broadest to simplest.
+        # Highest priority: explicit mapsQuery written by the populator (or by hand).
         queries = []
+        if t.get("mapsQuery"):
+            queries.append(t["mapsQuery"])
         bare = strip_parenthetical(t["name"]).strip()
         if t["address"]:
             full_addr = f"{t['address']}, {t['city']}" if t["city"] else t["address"]

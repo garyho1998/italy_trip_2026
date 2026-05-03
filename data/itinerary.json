@@ -350,6 +350,17 @@
               "en": "Early Entry + Guide, ~3h",
               "zh": "早鳥入場 + 導遊，約3小時"
             }
+          },
+          "location": {
+            "name": {
+              "en": "Vatican Museums",
+              "zh": "梵蒂岡博物館"
+            },
+            "coords": {
+              "lat": 41.905,
+              "lng": 12.4547
+            },
+            "mapsQuery": "Vatican Museums, Vatican City"
           }
         },
         {
@@ -370,6 +381,17 @@
           "comment": {
             "en": "📸 No photos allowed inside, but memories last forever",
             "zh": "📸 教堂內不准拍照，但回憶永存"
+          },
+          "location": {
+            "name": {
+              "en": "Sistine Chapel",
+              "zh": "西斯汀禮拜堂"
+            },
+            "coords": {
+              "lat": 41.9029,
+              "lng": 12.4544
+            },
+            "mapsQuery": "Sistine Chapel, Vatican City"
           }
         },
         {
@@ -390,6 +412,17 @@
           "comment": {
             "en": "🗼 Climb the dome for panoramic Rome views (551 steps!)",
             "zh": "🗼 登上圓頂俯瞰羅馬全景（551級階梯！）"
+          },
+          "location": {
+            "name": {
+              "en": "St. Peter's Basilica",
+              "zh": "聖伯多祿大殿"
+            },
+            "coords": {
+              "lat": 41.9022,
+              "lng": 12.4537
+            },
+            "mapsQuery": "St. Peter's Basilica, Vatican City"
           }
         },
         {
@@ -405,6 +438,17 @@
           "info": {
             "en": "Traditional Roman trattoria in Prati neighborhood. Then coffee at Sant'Eustachio Il Caffè — famous for unique brewing methods, a must for coffee lovers",
             "zh": "Prati 區的傳統羅馬小餐館。飯後到 Sant'Eustachio Il Caffè 嘆咖啡 — 以獨特沖煮方法聞名，咖啡愛好者必訪"
+          },
+          "location": {
+            "name": {
+              "en": "Borgo Pio (lunch area)",
+              "zh": "博爾戈皮奧（午餐區）"
+            },
+            "coords": {
+              "lat": 41.9038,
+              "lng": 12.4609
+            },
+            "mapsQuery": "Borgo Pio, Roma"
           }
         },
         {
@@ -420,6 +464,17 @@
           "info": {
             "en": "Papal fortress with Tiber river views",
             "zh": "教皇堡壘，可欣賞台伯河景色"
+          },
+          "location": {
+            "name": {
+              "en": "Castel Sant'Angelo",
+              "zh": "聖天使城堡"
+            },
+            "coords": {
+              "lat": 41.9031,
+              "lng": 12.4663
+            },
+            "mapsQuery": "Castel Sant'Angelo, Roma"
           }
         },
         {
@@ -435,6 +490,17 @@
           "info": {
             "en": "Walk along the Tiber, enjoy Rome at dusk",
             "zh": "沿台伯河漫步，欣賞黃昏羅馬"
+          },
+          "location": {
+            "name": {
+              "en": "Ponte Sant'Angelo",
+              "zh": "聖天使橋"
+            },
+            "coords": {
+              "lat": 41.9019,
+              "lng": 12.4665
+            },
+            "mapsQuery": "Ponte Sant'Angelo, Roma"
           }
         },
         {
@@ -511,6 +577,17 @@
               "en": "Skip-the-line + Arena Floor, 2.5-3h",
               "zh": "免排隊 + 競技場地板，2.5-3小時"
             }
+          },
+          "location": {
+            "name": {
+              "en": "Colosseum",
+              "zh": "羅馬鬥獸場"
+            },
+            "coords": {
+              "lat": 41.8909,
+              "lng": 12.4919
+            },
+            "mapsQuery": "Colosseum, Roma"
           }
         },
         {
@@ -526,6 +603,17 @@
           "info": {
             "en": "Walk through ancient Roman ruins — included with Colosseum tour ticket",
             "zh": "漫步古羅馬遺跡 — 鬥獸場導覽門票已包含"
+          },
+          "location": {
+            "name": {
+              "en": "Roman Forum & Palatine Hill",
+              "zh": "古羅馬廣場與帕拉蒂諾山"
+            },
+            "coords": {
+              "lat": 41.8916,
+              "lng": 12.4867
+            },
+            "mapsQuery": "Roman Forum, Roma"
           }
         },
         {
@@ -541,6 +629,17 @@
           "info": {
             "en": "Historic Roman-Jewish cuisine near Campo de' Fiori. Must-try: giant runny-egg tortello, fried artichoke (Rome's best!), fried zucchini flowers",
             "zh": "鮮花廣場附近的羅馬猶太傳統美食。必試：巨大流心蛋餃子 (Tortello)、炸朝鮮薊（羅馬最好吃！）、炸節瓜花"
+          },
+          "location": {
+            "name": {
+              "en": "Jewish Ghetto (Trastevere)",
+              "zh": "猶太區（特拉斯提弗列）"
+            },
+            "coords": {
+              "lat": 41.8938,
+              "lng": 12.4778
+            },
+            "mapsQuery": "Jewish Ghetto, Roma"
           }
         },
         {
@@ -556,6 +655,17 @@
           "info": {
             "en": "Best preserved ancient Roman building - free entry!",
             "zh": "保存最完好的古羅馬建築 - 免費入場！"
+          },
+          "location": {
+            "name": {
+              "en": "Pantheon",
+              "zh": "萬神殿"
+            },
+            "coords": {
+              "lat": 41.8986,
+              "lng": 12.4768
+            },
+            "mapsQuery": "Pantheon, Roma"
           }
         },
         {
@@ -571,6 +681,17 @@
           "info": {
             "en": "Bernini's fountains, street artists, evening vibes",
             "zh": "貝尼尼噴泉、街頭藝人、夜晚氛圍"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza Navona",
+              "zh": "納沃納廣場"
+            },
+            "coords": {
+              "lat": 41.8989,
+              "lng": 12.4731
+            },
+            "mapsQuery": "Piazza Navona, Roma"
           }
         },
         {
@@ -586,6 +707,17 @@
           "info": {
             "en": "Seek out Nabil Hassen's restaurant for Rome's best carbonara — ultra-creamy with crispy guanciale. End with Maritozzo (Roman cream bun) for dessert!",
             "zh": "推薦大廚 Nabil Hassen 的餐廳 — 全羅馬最好吃培根蛋麵，醬汁極濃稠配脆風乾豬頰肉。甜品試生乳包 Maritozzo！"
+          },
+          "location": {
+            "name": {
+              "en": "Campo de' Fiori (aperitivo area)",
+              "zh": "鮮花廣場（餐前酒區）"
+            },
+            "coords": {
+              "lat": 41.8956,
+              "lng": 12.4722
+            },
+            "mapsQuery": "Campo de' Fiori, Roma"
           }
         }
       ],
@@ -677,6 +809,17 @@
           "info": {
             "en": "Taxi or Metro Line 1 to Spaccanapoli (~10 min). Check-in at Via San Biagio dei Librai 8 — right in the heart of old Naples, walk to everything",
             "zh": "乘的士或地鐵1號線前往 Spaccanapoli（約10分鐘），入住 Via San Biagio dei Librai 8 — 位於拿坡里舊城區心臟，步行可達各景點"
+          },
+          "location": {
+            "name": {
+              "en": "Napoli Centrale Station",
+              "zh": "那不勒斯中央車站"
+            },
+            "coords": {
+              "lat": 40.853,
+              "lng": 14.2731
+            },
+            "mapsQuery": "Napoli Centrale, Napoli"
           }
         },
         {
@@ -697,6 +840,17 @@
           "comment": {
             "en": "🍕 Margherita DOP - the original and the best!",
             "zh": "🍕 Margherita DOP - 原創經典，無可比擬！"
+          },
+          "location": {
+            "name": {
+              "en": "L'Antica Pizzeria da Michele",
+              "zh": "古老的米歇爾披薩店"
+            },
+            "coords": {
+              "lat": 40.8497,
+              "lng": 14.2634
+            },
+            "mapsQuery": "L'Antica Pizzeria da Michele, Napoli"
           }
         },
         {
@@ -717,6 +871,17 @@
           "note": {
             "en": "🎫 Covered by <a href=\"https://www.campaniartecard.it/en/\" target=\"_blank\">Campania Artecard 3-day pass</a> (includes 2 attractions + transport)",
             "zh": "🎫 可使用 <a href=\"https://www.campaniartecard.it/en/\" target=\"_blank\">Campania Artecard 三日券</a>（包含2個景點 + 交通）"
+          },
+          "location": {
+            "name": {
+              "en": "Naples National Archaeological Museum",
+              "zh": "那不勒斯國立考古博物館"
+            },
+            "coords": {
+              "lat": 40.8536,
+              "lng": 14.2512
+            },
+            "mapsQuery": "Naples National Archaeological Museum, Napoli"
           }
         },
         {
@@ -732,6 +897,17 @@
           "info": {
             "en": "Spaccanapoli street — the vibrant heart of Naples",
             "zh": "Spaccanapoli 街 — 拿坡里的活力心臟"
+          },
+          "location": {
+            "name": {
+              "en": "Spaccanapoli (Historic Centre)",
+              "zh": "斯帕卡那不勒斯（歷史中心）"
+            },
+            "coords": {
+              "lat": 40.85,
+              "lng": 14.2603
+            },
+            "mapsQuery": "Spaccanapoli, Napoli"
           }
         },
         {
@@ -752,6 +928,17 @@
           "note": {
             "en": "🎫 €5 per person | Take Funicular Centrale up",
             "zh": "🎫 每人 €5 | 乘 Funicular Centrale 纜車上山"
+          },
+          "location": {
+            "name": {
+              "en": "Castel Sant'Elmo",
+              "zh": "聖埃爾莫城堡"
+            },
+            "coords": {
+              "lat": 40.8437,
+              "lng": 14.2393
+            },
+            "mapsQuery": "Castel Sant'Elmo, Napoli"
           }
         },
         {
@@ -820,6 +1007,17 @@
           "note": {
             "en": "⛴️ ~50 min, €25-40 per person round trip",
             "zh": "⛴️ 約50分鐘，來回每人 €25-40"
+          },
+          "location": {
+            "name": {
+              "en": "Molo Beverello (ferry terminal)",
+              "zh": "貝弗雷洛碼頭（渡輪碼頭）"
+            },
+            "coords": {
+              "lat": 40.8384,
+              "lng": 14.2552
+            },
+            "mapsQuery": "Molo Beverello, Napoli"
           }
         },
         {
@@ -844,6 +1042,17 @@
           "note": {
             "en": "🚤 Boat from Marina Grande: ~€18 + €4 entry",
             "zh": "🚤 從 Marina Grande 搭船：約 €18 + €4 入場費"
+          },
+          "location": {
+            "name": {
+              "en": "Grotta Azzurra (Blue Grotto)",
+              "zh": "藍洞"
+            },
+            "coords": {
+              "lat": 40.5609,
+              "lng": 14.2057
+            },
+            "mapsQuery": "Grotta Azzurra, Anacapri"
           }
         },
         {
@@ -859,6 +1068,17 @@
           "info": {
             "en": "Fresh seafood, ravioli capresi, limoncello",
             "zh": "新鮮海鮮、ravioli capresi、limoncello"
+          },
+          "location": {
+            "name": {
+              "en": "Marina Grande, Capri",
+              "zh": "卡普里大碼頭"
+            },
+            "coords": {
+              "lat": 40.5562,
+              "lng": 14.2388
+            },
+            "mapsQuery": "Marina Grande, Capri"
           }
         },
         {
@@ -874,6 +1094,17 @@
           "info": {
             "en": "Glamorous town square, luxury shopping, people watching",
             "zh": "迷人的小鎮廣場、奢華購物、街頭漫步"
+          },
+          "location": {
+            "name": {
+              "en": "Piazzetta di Capri (Piazza Umberto I)",
+              "zh": "卡普里小廣場（翁貝托一世廣場）"
+            },
+            "coords": {
+              "lat": 40.5507,
+              "lng": 14.2428
+            },
+            "mapsQuery": "Piazza Umberto I, Capri"
           }
         },
         {
@@ -893,6 +1124,17 @@
           "note": {
             "en": "🚡 Chairlift: ~€12 round trip, 13 min each way",
             "zh": "🚡 纜車：來回約 €12，每程13分鐘"
+          },
+          "location": {
+            "name": {
+              "en": "Monte Solaro Chairlift",
+              "zh": "索拉羅山纜椅"
+            },
+            "coords": {
+              "lat": 40.5555,
+              "lng": 14.2215
+            },
+            "mapsQuery": "Seggiovia Monte Solaro, Anacapri"
           }
         },
         {
@@ -908,6 +1150,17 @@
           "info": {
             "en": "Beautiful gardens with panoramic views",
             "zh": "美麗花園及全景觀景台"
+          },
+          "location": {
+            "name": {
+              "en": "Villa San Michele, Anacapri",
+              "zh": "聖米歇爾別墅（阿納卡普里）"
+            },
+            "coords": {
+              "lat": 40.5573,
+              "lng": 14.225
+            },
+            "mapsQuery": "Villa San Michele, Anacapri"
           }
         },
         {
@@ -1006,6 +1259,17 @@
           "note": {
             "en": "🎫 <a href=\"https://www.getyourguide.com/\" target=\"_blank\">Booked on GetYourGuide</a> — booking ref GYGLMR2W6BK5 ✓ Booked",
             "zh": "🎫 <a href=\"https://www.getyourguide.com/\" target=\"_blank\">已喺 GetYourGuide 預訂</a> — 預訂編號 GYGLMR2W6BK5 ✓ 已預訂"
+          },
+          "location": {
+            "name": {
+              "en": "Corso Arnaldo Lucci (TRAMVIA pickup)",
+              "zh": "阿納爾多·盧奇大道（TRAMVIA 接駁點）"
+            },
+            "coords": {
+              "lat": 40.8512,
+              "lng": 14.2722
+            },
+            "mapsQuery": "Corso Arnaldo Lucci, Napoli"
           }
         },
         {
@@ -1026,6 +1290,17 @@
           "comment": {
             "en": "📸 Best photo spot: lookout above the church dome with sea backdrop. Note: ~30min steep walk down to the beach (and back up!)",
             "zh": "📸 最佳拍照點：教堂圓頂上方的觀景台，以大海為背景。注意：去海灘要落山約30分鐘（返上嚟仲攰）"
+          },
+          "location": {
+            "name": {
+              "en": "Positano",
+              "zh": "波西塔諾"
+            },
+            "coords": {
+              "lat": 40.6287,
+              "lng": 14.4855
+            },
+            "mapsQuery": "Positano, Salerno"
           }
         },
         {
@@ -1045,6 +1320,17 @@
           "note": {
             "en": "📸 ~10min viewpoint stop on the SS163 coastal road",
             "zh": "📸 SS163 海岸公路上約10分鐘觀景停留"
+          },
+          "location": {
+            "name": {
+              "en": "Fiordo di Furore",
+              "zh": "富羅雷峽灣"
+            },
+            "coords": {
+              "lat": 40.6146,
+              "lng": 14.5549
+            },
+            "mapsQuery": "Fiordo di Furore, Salerno"
           }
         },
         {
@@ -1065,6 +1351,17 @@
           "comment": {
             "en": "🍽️ Lunch tip: scialatielli ai frutti di mare or grilled fish with lemon from local groves",
             "zh": "🍽️ 午餐推薦：scialatielli ai frutti di mare（海鮮意粉）或當地檸檬汁烤魚"
+          },
+          "location": {
+            "name": {
+              "en": "Amalfi",
+              "zh": "阿馬爾菲"
+            },
+            "coords": {
+              "lat": 40.6337,
+              "lng": 14.6026
+            },
+            "mapsQuery": "Amalfi, Salerno"
           }
         },
         {
@@ -1217,6 +1514,17 @@
               "en": "Book ahead to skip queues",
               "zh": "提前預訂免排隊"
             }
+          },
+          "location": {
+            "name": {
+              "en": "Pompeii Archaeological Park",
+              "zh": "龐貝考古公園"
+            },
+            "coords": {
+              "lat": 40.7509,
+              "lng": 14.4885
+            },
+            "mapsQuery": "Scavi di Pompei"
           }
         },
         {
@@ -1232,6 +1540,17 @@
           "info": {
             "en": "Local trattoria outside the park — try fresh buffalo mozzarella from nearby farms",
             "zh": "公園外的當地餐館 — 必試附近農場的新鮮水牛芝士"
+          },
+          "location": {
+            "name": {
+              "en": "Pompei (modern town centre)",
+              "zh": "現代龐貝鎮中心"
+            },
+            "coords": {
+              "lat": 40.7491,
+              "lng": 14.5006
+            },
+            "mapsQuery": "Pompei, Napoli"
           }
         },
         {
@@ -1247,6 +1566,17 @@
           "info": {
             "en": "Back in Naples — wander the narrow streets of the historic center, browse artisan shops, and soak in the atmosphere",
             "zh": "回到拿坡里 — 漫步歷史中心的窄巷，逛手工藝品店，感受氛圍"
+          },
+          "location": {
+            "name": {
+              "en": "Spaccanapoli (Old Town)",
+              "zh": "斯帕卡那不勒斯（舊城區）"
+            },
+            "coords": {
+              "lat": 40.85,
+              "lng": 14.2603
+            },
+            "mapsQuery": "Spaccanapoli, Napoli"
           }
         },
         {
@@ -1377,6 +1707,17 @@
           "note": {
             "en": "🚄 Bari→Polignano: €3-4, every 30min, ~20min",
             "zh": "🚄 Bari→Polignano：€3-4，每30分鐘一班，約20分鐘"
+          },
+          "location": {
+            "name": {
+              "en": "Polignano a Mare (Old Town)",
+              "zh": "波利尼亞諾阿馬雷（舊城）"
+            },
+            "coords": {
+              "lat": 40.9944,
+              "lng": 17.2225
+            },
+            "mapsQuery": "Polignano a Mare, Bari"
           }
         },
         {
@@ -1393,6 +1734,17 @@
           "info": {
             "en": "The iconic beach between two cliffs — swim in crystal clear water under the historic Roman bridge. One of Italy's most photographed spots!",
             "zh": "兩座懸崖之間的標誌性沙灘 — 在古羅馬橋下的水晶般清澈的海水中暢泳。意大利最上鏡的景點之一！"
+          },
+          "location": {
+            "name": {
+              "en": "Lama Monachile Beach",
+              "zh": "拉馬莫納奇萊海灘"
+            },
+            "coords": {
+              "lat": 40.9933,
+              "lng": 17.2139
+            },
+            "mapsQuery": "Lama Monachile, Polignano a Mare"
           }
         },
         {
@@ -1408,6 +1760,17 @@
           "info": {
             "en": "Stay in Polignano for sunset dinner! Try orecchiette, raw sea urchin, and local Primitivo wine. Donna Gina (Lama Monachile views) or Trattoria il Grottone (sea panorama). Train back to Bari after (~20min)",
             "zh": "留在 Polignano 看日落晚餐！試試 orecchiette、生海膽和當地 Primitivo 紅酒。推薦 Donna Gina 或 Trattoria il Grottone。飯後搭火車回巴里（約20分鐘）"
+          },
+          "location": {
+            "name": {
+              "en": "Polignano a Mare (cliff dining)",
+              "zh": "波利尼亞諾阿馬雷（懸崖餐廳）"
+            },
+            "coords": {
+              "lat": 40.9944,
+              "lng": 17.2225
+            },
+            "mapsQuery": "Polignano a Mare, Bari"
           }
         }
       ],
@@ -1487,6 +1850,17 @@
               "en": "~1.5h boat tour",
               "zh": "約1.5小時遊船"
             }
+          },
+          "location": {
+            "name": {
+              "en": "Polignano a Mare (boat tour)",
+              "zh": "波利尼亞諾阿馬雷（遊船）"
+            },
+            "coords": {
+              "lat": 40.9944,
+              "lng": 17.2225
+            },
+            "mapsQuery": "Polignano a Mare, Bari"
           }
         },
         {
@@ -1502,6 +1876,17 @@
           "info": {
             "en": "Fresh seafood at a cliff-edge restaurant — try the famous raw prawns of Polignano!",
             "zh": "在懸崖邊餐廳享用新鮮海鮮 — 必試 Polignano 著名的生蝦！"
+          },
+          "location": {
+            "name": {
+              "en": "Polignano a Mare (lunch)",
+              "zh": "波利尼亞諾阿馬雷（午餐）"
+            },
+            "coords": {
+              "lat": 40.9944,
+              "lng": 17.2225
+            },
+            "mapsQuery": "Polignano a Mare, Bari"
           }
         },
         {
@@ -1522,6 +1907,17 @@
           "note": {
             "en": "🎫 <a href=\"https://www.getyourguide.com/alberobello-l800/alberobello-half-day-trip-from-bari-t873193/\" target=\"_blank\">Book on GetYourGuide</a> — Half-day tour from Bari | Or FSE bus ~1h, €5-10",
             "zh": "🎫 <a href=\"https://www.getyourguide.com/alberobello-l800/alberobello-half-day-trip-from-bari-t873193/\" target=\"_blank\">GetYourGuide 預訂</a> — 從巴里出發半日遊 | 或 FSE 巴士約1小時，€5-10"
+          },
+          "location": {
+            "name": {
+              "en": "Alberobello",
+              "zh": "阿爾貝羅貝洛"
+            },
+            "coords": {
+              "lat": 40.7841,
+              "lng": 17.2377
+            },
+            "mapsQuery": "Alberobello, Bari"
           }
         },
         {
@@ -1537,6 +1933,17 @@
           "info": {
             "en": "Wander the iconic trulli streets, browse handmade souvenirs, taste local olive oil and wine",
             "zh": "漫步標誌性的 trulli 街道，選購手工藝紀念品，品嚐當地橄欖油和美酒"
+          },
+          "location": {
+            "name": {
+              "en": "Rione Monti (Trulli District)",
+              "zh": "蒙蒂區（特魯洛屋區）"
+            },
+            "coords": {
+              "lat": 40.7817,
+              "lng": 17.2364
+            },
+            "mapsQuery": "Rione Monti, Alberobello"
           }
         },
         {
@@ -1552,6 +1959,17 @@
           "info": {
             "en": "Bari Vecchia old town — orecchiette alle cime di rapa, burrata, focaccia barese, and taralli with a glass of Negroamaro. Puglia does food right!",
             "zh": "巴里舊城區 — orecchiette alle cime di rapa、burrata、focaccia barese 和 taralli 配一杯 Negroamaro。普利亞美食名不虛傳！"
+          },
+          "location": {
+            "name": {
+              "en": "Bari Vecchia (Old Town)",
+              "zh": "巴里舊城"
+            },
+            "coords": {
+              "lat": 41.1296,
+              "lng": 16.8696
+            },
+            "mapsQuery": "Bari Vecchia, Bari"
           }
         }
       ],
@@ -1627,6 +2045,17 @@
           "info": {
             "en": "Stroll through Bari's old town — Basilica San Nicola, Cathedral, the Strada delle Orecchiette where nonne hand-shape pasta on doorstep tables. Pick up olive oil and taralli as souvenirs",
             "zh": "漫步巴里舊城 — 聖尼古拉大教堂、主教座堂、Strada delle Orecchiette（耳朵麵小街），睇 nonne 在門口枱仔上手工搓麵。買些橄欖油同 taralli 作手信"
+          },
+          "location": {
+            "name": {
+              "en": "Bari Vecchia (souvenirs)",
+              "zh": "巴里舊城（紀念品）"
+            },
+            "coords": {
+              "lat": 41.1296,
+              "lng": 16.8696
+            },
+            "mapsQuery": "Bari Vecchia, Bari"
           }
         },
         {
@@ -1642,6 +2071,17 @@
           "info": {
             "en": "Final stroll along the Lungomare seafront, then grab a panzerotto or focaccia barese (Bari's signature street food) — easy to eat on the go before bus departure",
             "zh": "沿 Lungomare 海濱大道作最後散步，然後買個 panzerotto 或 focaccia barese（巴里招牌街頭小食）— 容易邊行邊食，趕上巴士出發"
+          },
+          "location": {
+            "name": {
+              "en": "Lungomare di Bari",
+              "zh": "巴里海濱大道"
+            },
+            "coords": {
+              "lat": 41.121,
+              "lng": 16.8837
+            },
+            "mapsQuery": "Lungomare Nazario Sauro, Bari"
           }
         },
         {
@@ -1692,6 +2132,17 @@
           "info": {
             "en": "Off the bus at Roma Tiburtina Bus Station. Take Metro Line B (Tiburtina → Termini, 1 stop, ~5 min) then a short walk to Champagne Palace Hotel. Drop bags and freshen up",
             "zh": "在 Roma Tiburtina 巴士總站下車。乘地鐵 B 線（Tiburtina → Termini，1 站，約5分鐘）然後短途步行到 Champagne Palace Hotel。放下行李，梳洗一下"
+          },
+          "location": {
+            "name": {
+              "en": "Roma Tiburtina Station",
+              "zh": "羅馬蒂布提納車站"
+            },
+            "coords": {
+              "lat": 41.9112,
+              "lng": 12.5316
+            },
+            "mapsQuery": "Roma Tiburtina, Roma"
           }
         },
         {
@@ -1786,6 +2237,17 @@
           "note": {
             "en": "🚄 Leonardo Express to FCO: €14, 32min from Termini",
             "zh": "🚄 Leonardo Express 到 FCO：€14，從 Termini 32分鐘"
+          },
+          "location": {
+            "name": {
+              "en": "Rome Fiumicino Airport (FCO)",
+              "zh": "羅馬菲烏米奇諾機場（FCO）"
+            },
+            "coords": {
+              "lat": 41.8154,
+              "lng": 12.2265
+            },
+            "mapsQuery": "Rome Fiumicino Airport, Roma"
           }
         },
         {
@@ -1805,6 +2267,17 @@
           "note": {
             "en": "✈️ Arrive HK 06:00, June 14",
             "zh": "✈️ 6月14日 06:00 抵達香港"
+          },
+          "location": {
+            "name": {
+              "en": "Rome Fiumicino Airport (FCO)",
+              "zh": "羅馬菲烏米奇諾機場（FCO）"
+            },
+            "coords": {
+              "lat": 41.8154,
+              "lng": 12.2265
+            },
+            "mapsQuery": "Rome Fiumicino Airport, Roma"
           }
         }
       ],
