@@ -646,12 +646,12 @@
             "alt": "Roman Forum"
           },
           "activity": {
-            "en": "Roman Forum & Palatine Hill",
-            "zh": "古羅馬廣場與帕拉蒂尼山"
+            "en": "Roman Forum walk-by (Via dei Fori Imperiali)",
+            "zh": "羅馬廣場路邊觀景（帝國廣場大道）"
           },
           "info": {
-            "en": "Walk through ancient Roman ruins — included with Colosseum tour ticket",
-            "zh": "漫步古羅馬遺跡 — 鬥獸場導覽門票已包含"
+            "en": "Stroll along Via dei Fori Imperiali — the wide avenue runs above the Forum, free railings let you peek down at the Curia, Temple of Saturn and surviving columns. Best wide-angle photo comes a bit later from Capitoline Hill.",
+            "zh": "沿著帝國廣場大道漫步 — 這條大道從高處俯瞰廣場，免費欄杆邊可俯視元老院、農神廟和殘存的圓柱。稍後從卡比托利歐山上會看到最佳的廣角照片。"
           },
           "location": {
             "name": {
@@ -666,18 +666,18 @@
           }
         },
         {
-          "time": "11:30",
+          "time": "09:45",
           "picture": {
             "src": "https://images.unsplash.com/photo-1580916861017-ad6dec90fdb1?w=120&h=120&fit=crop",
             "alt": "Piazza del Campidoglio"
           },
           "activity": {
-            "en": "Capitoline Hill + Vittoriano",
-            "zh": "卡比托利歐山 + 維托里亞諾紀念堂"
+            "en": "⭐ Capitoline Belvedere (Forum panorama)",
+            "zh": "⭐ 卡比托利歐觀景平台（羅馬廣場全景）"
           },
           "info": {
-            "en": "Climb Michelangelo's Cordonata staircase up to Piazza del Campidoglio (free) for a top-down view of the Forum behind you. Walk past the massive Vittoriano (Wedding Cake) on Piazza Venezia.",
-            "zh": "登上米開朗基羅設計的科爾多納塔階梯前往卡比托利歐廣場（免費），可俯瞰身後的羅馬廣場。經過威尼斯廣場上巨大的維托里亞諾紀念堂（婚禮蛋糕）。"
+            "en": "Climb the Cordonata stairs to Piazza del Campidoglio (Michelangelo design, free). Walk past the Marcus Aurelius statue and around to the Belvedere terrace behind Palazzo Senatorio — the iconic Forum panorama opens up below. This is the postcard shot, no ticket needed.",
+            "zh": "登上米開朗基羅設計的科爾多納塔階梯前往卡比托利歐廣場（免費）。經過馬庫斯·奧勒留雕像，繞到元老宮後面的觀景平台 — 標誌性的羅馬廣場全景就在腳下展開。這就是明信片照，無需門票。"
           },
           "location": {
             "name": {
@@ -689,10 +689,11 @@
               "lng": 12.483
             },
             "mapsQuery": "Piazza del Campidoglio, Roma"
-          }
+          },
+          "featured": true
         },
         {
-          "time": "11:50",
+          "time": "10:30",
           "picture": {
             "src": "https://images.unsplash.com/photo-1551018612-9715965c6742?w=120&h=120&fit=crop",
             "alt": "Roman cat"
@@ -715,6 +716,36 @@
               "lng": 12.4768
             },
             "mapsQuery": "Largo di Torre Argentina, Roma"
+          }
+        },
+        {
+          "time": "10:45",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop",
+            "alt": "Italian espresso"
+          },
+          "activity": {
+            "en": "Sant'Eustachio Il Caffè (legendary espresso)",
+            "zh": "Sant'Eustachio 咖啡館（傳奇義式濃縮咖啡）"
+          },
+          "info": {
+            "en": "Tucked behind the Pantheon, this is one of Rome's most famous espresso spots — the secret-recipe gran caffè (whipped foam on espresso) is the signature. Stand at the marble counter like locals; ~45 min stop kills the wait until noon Pantheon.",
+            "zh": "藏身於萬神殿後方，羅馬最著名的義式濃縮咖啡店之一 — 招牌是秘製配方的 gran caffè（濃縮咖啡上的奶泡）。像當地人一樣站在大理石吧檯前；約45分鐘的停留剛好等到中午萬神殿的時光。"
+          },
+          "comment": {
+            "en": "💡 Alternative: Tazza d'Oro at the Pantheon, equally legendary. Pick whichever is less crowded.",
+            "zh": "💡 替代選擇：萬神殿旁的金杯咖啡（Tazza d'Oro），同樣傳奇。哪間人少就去哪間。"
+          },
+          "location": {
+            "name": {
+              "en": "Sant'Eustachio Il Caffè",
+              "zh": "Sant'Eustachio 咖啡館"
+            },
+            "coords": {
+              "lat": 41.8983,
+              "lng": 12.4754
+            },
+            "mapsQuery": "Sant'Eustachio Il Caffè, Roma"
           }
         },
         {
@@ -743,8 +774,8 @@
             "mapsQuery": "Pantheon, Roma"
           },
           "comment": {
-            "en": "🍦 Right next door: Sant'Eustachio Il Caffè or Tazza d'Oro for legendary coffee, Giolitti for Rome's best gelato. Walk by on the way out.",
-            "zh": "🍦 緊鄰萬神殿：Sant'Eustachio 咖啡館或金杯咖啡（Tazza d'Oro）有傳奇咖啡，喬利蒂（Giolitti）有羅馬最棒的冰淇淋。離開時順道一訪。"
+            "en": "🍦 Walking out: Giolitti for Rome's best gelato (~150m, Via degli Uffici del Vicario), Tazza d'Oro for another shot of espresso right next to the Pantheon.",
+            "zh": "🍦 離開時：步行約150公尺到喬利蒂（Giolitti）品嚐羅馬最棒的冰淇淋，或到萬神殿旁的金杯咖啡（Tazza d'Oro）再來一杯濃縮咖啡。"
           },
           "featured": true
         },
