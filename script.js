@@ -28,10 +28,10 @@ function initMobileNav() {
     // Close mobile nav when clicking outside
     document.addEventListener('click', (e) => {
         const mobileNav = document.getElementById('mobileNav');
-        const navToggle = document.querySelector('.nav-toggle');
-        
+        const isToggleClick = e.target.closest('.nav-toggle, .floating-nav-btn');
+
         if (mobileNav && mobileNav.classList.contains('active')) {
-            if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
+            if (!mobileNav.contains(e.target) && !isToggleClick) {
                 mobileNav.classList.remove('active');
             }
         }
@@ -338,6 +338,9 @@ function toggleLanguage() {
 
     // Re-run countdown to update its text
     initCountdown();
+
+    // Notify dynamically-rendered content (e.g. itinerary-render.js) to re-render.
+    window.dispatchEvent(new CustomEvent('app-lang-change', { detail: { lang: newLang } }));
 }
 
 function applyTranslations(lang) {
