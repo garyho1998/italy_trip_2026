@@ -1,0 +1,1827 @@
+{
+  "$schema": "Italy Trip Itinerary — single source of truth. EN + ZH inline per field. See itinerary-render.js for shape.",
+  "page": {
+    "headerTag": {
+      "en": "📅 Day by Day",
+      "zh": "📅 逐日行程"
+    },
+    "headerTitle": {
+      "en": "Your Italian Journey",
+      "zh": "你的意大利之旅"
+    },
+    "headerSubtitle": {
+      "en": "11 days exploring Rome, Naples & Puglia",
+      "zh": "11天探索羅馬、拿坡里及普利亞"
+    },
+    "footerLinks": [
+      {
+        "href": "map.html",
+        "primary": true,
+        "label": {
+          "en": "🗺️ View Route Map",
+          "zh": "🗺️ 查看路線地圖"
+        }
+      },
+      {
+        "href": "budget.html",
+        "primary": false,
+        "label": {
+          "en": "💰 See Budget Breakdown",
+          "zh": "💰 查看預算明細"
+        }
+      }
+    ]
+  },
+  "days": [
+    {
+      "number": 1,
+      "theme": "rome",
+      "featured": false,
+      "title": {
+        "en": "First Day in Rome",
+        "zh": "羅馬第一天"
+      },
+      "date": {
+        "en": "June 3, Wednesday",
+        "zh": "6月3日，星期三"
+      },
+      "city": "Roma",
+      "stay": {
+        "label": {
+          "en": "Tonight's Stay · Rome (3 nights)",
+          "zh": "今晚住宿 · 羅馬（3晚）"
+        },
+        "name": {
+          "en": "Rome Airbnb · near Santa Croce in Gerusalemme",
+          "zh": "羅馬 Airbnb · 鄰近 Santa Croce in Gerusalemme"
+        },
+        "address": "Piazza di Santa Croce in Gerusalemme, 1, Roma, Lazio 00185, Italia",
+        "mapsQuery": "Piazza+di+Santa+Croce+in+Gerusalemme+1+Roma+00185",
+        "coords": {
+          "lat": 41.8886,
+          "lng": 12.5144
+        }
+      },
+      "timeline": [
+        {
+          "time": "06:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop",
+            "alt": "Land at Rome FCO"
+          },
+          "activity": {
+            "en": "✈️ Land at Rome FCO (CX293)",
+            "zh": "✈️ 抵達羅馬 FCO 機場（CX293）"
+          },
+          "info": {
+            "en": "Disembark, immigration, baggage claim — about 60-90 min total",
+            "zh": "下機、入境、取行李 — 大約60-90分鐘"
+          },
+          "note": {
+            "en": "✈️ Cathay CX293: HKG 23:50 → FCO 06:30 (Jun 3)",
+            "zh": "✈️ 國泰 CX293：HKG 23:50 → FCO 06:30（6月3日）"
+          },
+          "location": {
+            "name": {
+              "en": "Rome Fiumicino Airport (FCO)",
+              "zh": "羅馬菲烏米奇諾機場（FCO）"
+            },
+            "coords": {
+              "lat": 41.7954,
+              "lng": 12.2511
+            }
+          }
+        },
+        {
+          "time": "08:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1768213021718-9f738eabb363?w=120&h=120&fit=crop",
+            "alt": "Leonardo Express to Termini"
+          },
+          "activity": {
+            "en": "🚄 Leonardo Express → Roma Termini",
+            "zh": "🚄 Leonardo Express → Roma Termini"
+          },
+          "info": {
+            "en": "Direct airport train, 32 min from FCO to Termini. Then short taxi/Uber (~15 min, ~€18) to the Airbnb at Santa Croce in Gerusalemme",
+            "zh": "直達機場快線，由 FCO 到 Termini 約32分鐘。再短途的士/Uber（約15分鐘，€18）到 Santa Croce in Gerusalemme 嘅 Airbnb"
+          },
+          "note": {
+            "en": "🎫 Leonardo Express €14/person, every 15min",
+            "zh": "🎫 Leonardo Express 每人 €14，每15分鐘一班"
+          },
+          "location": {
+            "name": {
+              "en": "Roma Termini Station",
+              "zh": "羅馬特米尼火車站"
+            },
+            "coords": {
+              "lat": 41.9006,
+              "lng": 12.5025
+            }
+          }
+        },
+        {
+          "time": "09:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop",
+            "alt": "Drop bags + coffee"
+          },
+          "activity": {
+            "en": "Drop Bags + First Italian Coffee",
+            "zh": "放行李 + 第一杯意式咖啡"
+          },
+          "info": {
+            "en": "Coordinate with Airbnb host to drop luggage early (room may not be ready until 15:00). Grab a cappuccino + cornetto nearby to wake up after the long flight",
+            "zh": "同 Airbnb 房東協調早啲放行李（房間通常要15:00先準備好）。喺附近飲杯 cappuccino 配 cornetto，醒下個瞓"
+          }
+        },
+        {
+          "time": "10:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1525874684015-58379d421a52?w=120&h=120&fit=crop",
+            "alt": "Trevi Fountain"
+          },
+          "activity": {
+            "en": "Trevi Fountain",
+            "zh": "許願池"
+          },
+          "info": {
+            "en": "Throw a coin, make a wish to return to Rome! Mid-morning is busy but manageable",
+            "zh": "投一枚硬幣，許願重返羅馬！上午稍晚雖然有人，但仍可應付"
+          },
+          "location": {
+            "name": {
+              "en": "Trevi Fountain",
+              "zh": "特雷維噴泉"
+            },
+            "coords": {
+              "lat": 41.901,
+              "lng": 12.4833
+            }
+          }
+        },
+        {
+          "time": "11:15",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1663143146856-683650ffee76?w=120&h=120&fit=crop",
+            "alt": "Spanish Steps"
+          },
+          "activity": {
+            "en": "Spanish Steps & Piazza di Spagna",
+            "zh": "西班牙階梯與西班牙廣場"
+          },
+          "info": {
+            "en": "Stroll the elegant shopping district (~10min walk from Trevi). Stop by Antico Caffè Greco (Via dei Condotti 86) — 200+ year-old café, perfect for a rest",
+            "zh": "漫步優雅購物區（由許願池步行約10分鐘）。到 Antico Caffè Greco（孔多蒂街86號）小歇 — 超過200年歷史的咖啡館，適合讓旅伴休息"
+          },
+          "location": {
+            "name": {
+              "en": "Spanish Steps & Piazza di Spagna",
+              "zh": "西班牙階梯與西班牙廣場"
+            },
+            "coords": {
+              "lat": 41.9056,
+              "lng": 12.4823
+            }
+          }
+        },
+        {
+          "time": "13:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=120&h=120&fit=crop",
+            "alt": "Roman Lunch"
+          },
+          "activity": {
+            "en": "Lunch near Piazza di Spagna",
+            "zh": "西班牙廣場附近午餐"
+          },
+          "info": {
+            "en": "Traditional Roman trattoria — try cacio e pepe or amatriciana",
+            "zh": "傳統羅馬小餐館 — 試試 cacio e pepe 或 amatriciana"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza di Spagna (lunch area)",
+              "zh": "西班牙廣場（午餐區）"
+            },
+            "coords": {
+              "lat": 41.9056,
+              "lng": 12.4823
+            }
+          }
+        },
+        {
+          "time": "15:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1691178174391-279820f14b36?w=120&h=120&fit=crop",
+            "alt": "Villa Borghese / rest"
+          },
+          "activity": {
+            "en": "Villa Borghese Gardens (or Hotel Rest)",
+            "zh": "博爾蓋塞別墅花園（或返酒店休息）"
+          },
+          "info": {
+            "en": "Leisurely stroll through Rome's most beautiful park — rent a rowboat on the lake or relax in the shade. Or skip and head back to the Airbnb for a jet-lag nap before dinner",
+            "zh": "悠閒漫步羅馬最美公園 — 在湖上租划艇或在樹蔭下休息。或者跳過去 Airbnb 補眠，下午先繼續行程"
+          },
+          "location": {
+            "name": {
+              "en": "Villa Borghese Gardens",
+              "zh": "博爾蓋塞別墅花園"
+            },
+            "coords": {
+              "lat": 41.9144,
+              "lng": 12.4848
+            }
+          }
+        },
+        {
+          "time": "18:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1652794691816-65da24a9f476?w=120&h=120&fit=crop",
+            "alt": "Trastevere"
+          },
+          "activity": {
+            "en": "Evening in Trastevere",
+            "zh": "Trastevere 黃昏漫步"
+          },
+          "info": {
+            "en": "Charming cobblestone lanes, ivy-covered facades, and local artisan shops in Rome's most photogenic neighborhood — golden hour is magic here",
+            "zh": "迷人的鵝卵石小巷、常春藤外牆和本地工藝店 — 羅馬最上鏡的社區，黃昏時分特別美"
+          },
+          "location": {
+            "name": {
+              "en": "Piazza Santa Maria in Trastevere",
+              "zh": "聖母瑪利亞廣場（特拉斯提弗列）"
+            },
+            "coords": {
+              "lat": 41.8895,
+              "lng": 12.4703
+            }
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop",
+            "alt": "Italian Dinner"
+          },
+          "activity": {
+            "en": "Welcome Dinner in Trastevere",
+            "zh": "Trastevere 歡迎晚餐"
+          },
+          "info": {
+            "en": "Try La Gattabuia — 1600s papal prison turned restaurant! Must-order: carbonara, stewed oxtail, roast lamb, Roman artichoke",
+            "zh": "推薦 La Gattabuia — 1600年教廷監獄改建的餐廳！必點：培根蛋麵 (Carbonara)、燉番茄牛尾、烤羊肉、羅馬式朝鮮薊"
+          },
+          "comment": {
+            "en": "🍧 Grab a Grattachecca (Roman shaved ice) at Sora Mirella nearby!",
+            "zh": "🍧 記得去附近的 Sora Mirella 嚐 Grattachecca（羅馬傳統水果剉冰）！"
+          },
+          "location": {
+            "name": {
+              "en": "La Gattabuia · Via del Porto 1",
+              "zh": "La Gattabuia 餐廳·Via del Porto 1"
+            },
+            "coords": {
+              "lat": 41.8864,
+              "lng": 12.4771
+            }
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "⛲ Trevi Fountain",
+          "zh": "⛲ 許願池"
+        },
+        {
+          "en": "🌿 Villa Borghese",
+          "zh": "🌿 博爾蓋塞花園"
+        },
+        {
+          "en": "🍝 Roman Dinner",
+          "zh": "🍝 羅馬晚餐"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "theme": "rome",
+      "featured": true,
+      "title": {
+        "en": "⛪ Vatican City",
+        "zh": "⛪ 梵蒂岡城"
+      },
+      "date": {
+        "en": "June 4, Thursday",
+        "zh": "6月4日，星期四"
+      },
+      "city": "Città del Vaticano",
+      "timeline": [
+        {
+          "time": "08:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1722441521673-3e8601897460?w=120&h=120&fit=crop",
+            "alt": "Vatican Museums"
+          },
+          "activity": {
+            "en": "⭐ Vatican Museums (Early Entry)",
+            "zh": "⭐ 梵蒂岡博物館（早場入場）"
+          },
+          "info": {
+            "en": "Early entry guided tour — get inside before 8am public opening, experience Sistine Chapel nearly empty!",
+            "zh": "早鳥入場導覽團 — 在早上8點公眾開放前進入，幾乎包場欣賞西斯廷禮拜堂！"
+          },
+          "link": {
+            "url": "https://www.getyourguide.com/rome-l33/early-morning-vatican-sistine-chapel-before-the-crowds-t50951",
+            "label": {
+              "en": "Book on GetYourGuide",
+              "zh": "在 GetYourGuide 預訂"
+            }
+          },
+          "price": {
+            "amount": "€50-75",
+            "perPerson": true,
+            "note": {
+              "en": "Early Entry + Guide, ~3h",
+              "zh": "早鳥入場 + 導遊，約3小時"
+            }
+          }
+        },
+        {
+          "time": "10:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1681671416148-4a6d342896bc?w=120&h=120&fit=crop",
+            "alt": "Sistine Chapel"
+          },
+          "activity": {
+            "en": "⭐ Sistine Chapel",
+            "zh": "⭐ 西斯汀教堂"
+          },
+          "info": {
+            "en": "Michelangelo's ceiling masterpiece - The Creation of Adam",
+            "zh": "米開朗基羅的天花板傑作 - 創造亞當"
+          },
+          "comment": {
+            "en": "📸 No photos allowed inside, but memories last forever",
+            "zh": "📸 教堂內不准拍照，但回憶永存"
+          }
+        },
+        {
+          "time": "11:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop",
+            "alt": "St Peters Basilica"
+          },
+          "activity": {
+            "en": "⭐ St. Peter's Basilica",
+            "zh": "⭐ 聖伯多祿大殿"
+          },
+          "info": {
+            "en": "World's largest church - Michelangelo's Pietà",
+            "zh": "世界最大教堂 - 米開朗基羅的聖殤像"
+          },
+          "comment": {
+            "en": "🗼 Climb the dome for panoramic Rome views (551 steps!)",
+            "zh": "🗼 登上圓頂俯瞰羅馬全景（551級階梯！）"
+          }
+        },
+        {
+          "time": "14:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=120&h=120&fit=crop",
+            "alt": "Roman Trattoria"
+          },
+          "activity": {
+            "en": "Lunch near Vatican",
+            "zh": "梵蒂岡附近午餐"
+          },
+          "info": {
+            "en": "Traditional Roman trattoria in Prati neighborhood. Then coffee at Sant'Eustachio Il Caffè — famous for unique brewing methods, a must for coffee lovers",
+            "zh": "Prati 區的傳統羅馬小餐館。飯後到 Sant'Eustachio Il Caffè 嘆咖啡 — 以獨特沖煮方法聞名，咖啡愛好者必訪"
+          }
+        },
+        {
+          "time": "16:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1764377847707-023f792e90ec?w=120&h=120&fit=crop",
+            "alt": "Castel Sant'Angelo"
+          },
+          "activity": {
+            "en": "Castel Sant'Angelo",
+            "zh": "聖天使城堡"
+          },
+          "info": {
+            "en": "Papal fortress with Tiber river views",
+            "zh": "教皇堡壘，可欣賞台伯河景色"
+          }
+        },
+        {
+          "time": "18:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1635416180743-c336b4abdd20?w=120&h=120&fit=crop",
+            "alt": "Tiber River"
+          },
+          "activity": {
+            "en": "Evening Stroll",
+            "zh": "傍晚散步"
+          },
+          "info": {
+            "en": "Walk along the Tiber, enjoy Rome at dusk",
+            "zh": "沿台伯河漫步，欣賞黃昏羅馬"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop",
+            "alt": "Roman Dinner"
+          },
+          "activity": {
+            "en": "Farewell Rome Dinner",
+            "zh": "告別羅馬晚餐"
+          },
+          "info": {
+            "en": "Last Roman feast before heading south!",
+            "zh": "南下前的最後羅馬盛宴！"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🎨 Sistine Chapel",
+          "zh": "🎨 西斯汀教堂"
+        },
+        {
+          "en": "⛪ St. Peter's",
+          "zh": "⛪ 聖伯多祿大殿"
+        },
+        {
+          "en": "🏰 Castel Sant'Angelo",
+          "zh": "🏰 聖天使城堡"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "theme": "rome",
+      "featured": true,
+      "title": {
+        "en": "🏛️ Ancient Rome",
+        "zh": "🏛️ 古羅馬"
+      },
+      "date": {
+        "en": "June 5, Friday",
+        "zh": "6月5日，星期五"
+      },
+      "city": "Roma",
+      "timeline": [
+        {
+          "time": "08:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=120&h=120&fit=crop",
+            "alt": "Colosseum"
+          },
+          "activity": {
+            "en": "⭐ Colosseum",
+            "zh": "⭐ 鬥獸場"
+          },
+          "info": {
+            "en": "Skip-the-line guided tour with arena floor access — no queuing in the June sun!",
+            "zh": "免排隊導覽團連競技場地板 — 無需在六月烈日下排隊！"
+          },
+          "link": {
+            "url": "https://www.getyourguide.com/colosseum-l2619/",
+            "label": {
+              "en": "Book on GetYourGuide",
+              "zh": "在 GetYourGuide 預訂"
+            }
+          },
+          "price": {
+            "amount": "€38-48",
+            "perPerson": true,
+            "note": {
+              "en": "Skip-the-line + Arena Floor, 2.5-3h",
+              "zh": "免排隊 + 競技場地板，2.5-3小時"
+            }
+          }
+        },
+        {
+          "time": "11:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1624392234319-f0700ec01b5c?w=120&h=120&fit=crop",
+            "alt": "Roman Forum"
+          },
+          "activity": {
+            "en": "Roman Forum & Palatine Hill",
+            "zh": "古羅馬廣場與帕拉蒂尼山"
+          },
+          "info": {
+            "en": "Walk through ancient Roman ruins — included with Colosseum tour ticket",
+            "zh": "漫步古羅馬遺跡 — 鬥獸場導覽門票已包含"
+          }
+        },
+        {
+          "time": "14:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1652794691816-65da24a9f476?w=120&h=120&fit=crop",
+            "alt": "Campo de Fiori"
+          },
+          "activity": {
+            "en": "Lunch in Jewish Quarter (Ghetto)",
+            "zh": "猶太區 (Ghetto) 午餐"
+          },
+          "info": {
+            "en": "Historic Roman-Jewish cuisine near Campo de' Fiori. Must-try: giant runny-egg tortello, fried artichoke (Rome's best!), fried zucchini flowers",
+            "zh": "鮮花廣場附近的羅馬猶太傳統美食。必試：巨大流心蛋餃子 (Tortello)、炸朝鮮薊（羅馬最好吃！）、炸節瓜花"
+          }
+        },
+        {
+          "time": "16:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1714687399142-ea5ff3fb038e?w=120&h=120&fit=crop",
+            "alt": "Pantheon"
+          },
+          "activity": {
+            "en": "Pantheon",
+            "zh": "萬神殿"
+          },
+          "info": {
+            "en": "Best preserved ancient Roman building - free entry!",
+            "zh": "保存最完好的古羅馬建築 - 免費入場！"
+          }
+        },
+        {
+          "time": "18:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=120&h=120&fit=crop",
+            "alt": "Piazza Navona"
+          },
+          "activity": {
+            "en": "Piazza Navona",
+            "zh": "納沃納廣場"
+          },
+          "info": {
+            "en": "Bernini's fountains, street artists, evening vibes",
+            "zh": "貝尼尼噴泉、街頭藝人、夜晚氛圍"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1560512823-829485b8bf24?w=120&h=120&fit=crop",
+            "alt": "Aperitivo"
+          },
+          "activity": {
+            "en": "Aperitivo & Dinner",
+            "zh": "開胃酒與晚餐"
+          },
+          "info": {
+            "en": "Seek out Nabil Hassen's restaurant for Rome's best carbonara — ultra-creamy with crispy guanciale. End with Maritozzo (Roman cream bun) for dessert!",
+            "zh": "推薦大廚 Nabil Hassen 的餐廳 — 全羅馬最好吃培根蛋麵，醬汁極濃稠配脆風乾豬頰肉。甜品試生乳包 Maritozzo！"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🏛️ Colosseum",
+          "zh": "🏛️ 鬥獸場"
+        },
+        {
+          "en": "🏛️ Pantheon",
+          "zh": "🏛️ 萬神殿"
+        },
+        {
+          "en": "⛲ Piazza Navona",
+          "zh": "⛲ 納沃納廣場"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "theme": "napoli",
+      "featured": true,
+      "title": {
+        "en": "🍕 Train to Naples",
+        "zh": "🍕 火車前往拿坡里"
+      },
+      "date": {
+        "en": "June 6, Saturday",
+        "zh": "6月6日，星期六"
+      },
+      "city": {
+        "en": "Roma → Napoli",
+        "zh": "Roma → Napoli"
+      },
+      "stay": {
+        "label": {
+          "en": "Tonight's Stay · Naples (4 nights)",
+          "zh": "今晚住宿 · 拿坡里（4晚）"
+        },
+        "name": {
+          "en": "Naples Airbnb · Spaccanapoli historic center",
+          "zh": "拿坡里 Airbnb · Spaccanapoli 舊城區"
+        },
+        "address": "Via San Biagio dei Librai, 8 (3rd floor, first door right) · Napoli, Campania 80138, Italia",
+        "mapsQuery": "Via+San+Biagio+dei+Librai+8+Napoli+80138"
+      },
+      "timeline": [
+        {
+          "time": "09:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1760509094375-c7a601b77de0?w=120&h=120&fit=crop",
+            "alt": "Termini Station"
+          },
+          "activity": {
+            "en": "Check-out Rome Airbnb",
+            "zh": "退房 — 羅馬 Airbnb"
+          },
+          "info": {
+            "en": "Pack up, head to Roma Termini station (~15 min taxi from Santa Croce in Gerusalemme)",
+            "zh": "收拾行李，由 Santa Croce in Gerusalemme 乘的士前往 Roma Termini 車站（約15分鐘）"
+          }
+        },
+        {
+          "time": "10:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1768213021718-9f738eabb363?w=120&h=120&fit=crop",
+            "alt": "Italian Train"
+          },
+          "activity": {
+            "en": "🚄 High-Speed Train to Naples",
+            "zh": "🚄 高速列車前往拿坡里"
+          },
+          "info": {
+            "en": "Frecciarossa - only 1 hour 10 minutes!",
+            "zh": "Frecciarossa - 僅需1小時10分鐘！"
+          },
+          "note": {
+            "en": "🎫 ~€45-70 per person",
+            "zh": "🎫 每人約 €45-70"
+          }
+        },
+        {
+          "time": "11:15",
+          "activity": {
+            "en": "Arrive Napoli Centrale & Check-in",
+            "zh": "抵達 Napoli Centrale 並入住"
+          },
+          "info": {
+            "en": "Taxi or Metro Line 1 to Spaccanapoli (~10 min). Check-in at Via San Biagio dei Librai 8 — right in the heart of old Naples, walk to everything",
+            "zh": "乘的士或地鐵1號線前往 Spaccanapoli（約10分鐘），入住 Via San Biagio dei Librai 8 — 位於拿坡里舊城區心臟，步行可達各景點"
+          }
+        },
+        {
+          "time": "12:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=120&h=120&fit=crop",
+            "alt": "Naples Pizza"
+          },
+          "activity": {
+            "en": "⭐ Authentic Neapolitan Pizza",
+            "zh": "⭐ 正宗拿坡里薄餅"
+          },
+          "info": {
+            "en": "Naples = birthplace of pizza! Try L'Antica Pizzeria da Michele or Sorbillo",
+            "zh": "拿坡里 = 薄餅發源地！推薦 L'Antica Pizzeria da Michele 或 Sorbillo"
+          },
+          "comment": {
+            "en": "🍕 Margherita DOP - the original and the best!",
+            "zh": "🍕 Margherita DOP - 原創經典，無可比擬！"
+          }
+        },
+        {
+          "time": "14:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop",
+            "alt": "Naples Archaeological Museum"
+          },
+          "activity": {
+            "en": "⭐ Naples Archaeological Museum 考古博物館",
+            "zh": "⭐ 拿坡里考古博物館"
+          },
+          "info": {
+            "en": "One of the world's great museums — Pompeii mosaics, Farnese Collection, ancient Roman sculptures",
+            "zh": "世界級博物館 — 龐貝馬賽克、法爾內塞收藏、古羅馬雕塑"
+          },
+          "note": {
+            "en": "🎫 Covered by <a href=\"https://www.campaniartecard.it/en/\" target=\"_blank\">Campania Artecard 3-day pass</a> (includes 2 attractions + transport)",
+            "zh": "🎫 可使用 <a href=\"https://www.campaniartecard.it/en/\" target=\"_blank\">Campania Artecard 三日券</a>（包含2個景點 + 交通）"
+          }
+        },
+        {
+          "time": "17:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop",
+            "alt": "Naples Historic Center"
+          },
+          "activity": {
+            "en": "Naples Historic Center",
+            "zh": "拿坡里歷史中心"
+          },
+          "info": {
+            "en": "Spaccanapoli street — the vibrant heart of Naples",
+            "zh": "Spaccanapoli 街 — 拿坡里的活力心臟"
+          }
+        },
+        {
+          "time": "19:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop",
+            "alt": "Castel Sant'Elmo"
+          },
+          "activity": {
+            "en": "⭐ Castel Sant'Elmo 聖埃爾莫城堡 — Night View",
+            "zh": "⭐ 聖埃爾莫城堡 — 夜景"
+          },
+          "info": {
+            "en": "Medieval hilltop fortress with 360° panoramic views of Naples, Vesuvius, and the bay — stunning at sunset",
+            "zh": "中世紀山頂堡壘，360°全景俯瞰拿坡里、維蘇威火山及海灣 — 日落時分格外壯麗"
+          },
+          "note": {
+            "en": "🎫 €5 per person | Take Funicular Centrale up",
+            "zh": "🎫 每人 €5 | 乘 Funicular Centrale 纜車上山"
+          }
+        },
+        {
+          "time": "21:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop",
+            "alt": "Seafood Dinner"
+          },
+          "activity": {
+            "en": "Seafood Dinner",
+            "zh": "海鮮晚餐"
+          },
+          "info": {
+            "en": "Fresh Mediterranean seafood, Neapolitan style",
+            "zh": "新鮮地中海海鮮，拿坡里風味"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🚄 Train",
+          "zh": "🚄 火車"
+        },
+        {
+          "en": "🍕 Original Pizza",
+          "zh": "🍕 正宗薄餅"
+        },
+        {
+          "en": "🏛️ Archaeological Museum",
+          "zh": "🏛️ 考古博物館"
+        },
+        {
+          "en": "🏰 Castel Sant'Elmo",
+          "zh": "🏰 聖埃爾莫城堡"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "theme": "napoli",
+      "featured": true,
+      "title": {
+        "en": "🌊 Capri & 藍洞 Blue Grotto",
+        "zh": "🌊 卡普里與藍洞"
+      },
+      "date": {
+        "en": "June 7, Sunday",
+        "zh": "6月7日，星期日"
+      },
+      "city": "Capri",
+      "timeline": [
+        {
+          "time": "07:30",
+          "picture": {
+            "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Porto_di_Marina_Grande_-_Isola_di_Capri.jpg?width=240",
+            "alt": "Marina Grande Capri"
+          },
+          "activity": {
+            "en": "Ferry to Capri",
+            "zh": "渡輪前往卡普里"
+          },
+          "info": {
+            "en": "High-speed ferry from Naples Port (Molo Beverello)",
+            "zh": "從拿坡里港口 (Molo Beverello) 乘高速渡輪"
+          },
+          "note": {
+            "en": "⛴️ ~50 min, €25-40 per person round trip",
+            "zh": "⛴️ 約50分鐘，來回每人 €25-40"
+          }
+        },
+        {
+          "time": "08:30",
+          "featured": true,
+          "picture": {
+            "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Blue_grotto_in_capri_arp.jpg?width=240",
+            "alt": "Blue Grotto Capri"
+          },
+          "activity": {
+            "en": "⭐ 藍洞 Grotta Azzurra (Blue Grotto)",
+            "zh": "⭐ 藍洞 Grotta Azzurra (Blue Grotto)"
+          },
+          "info": {
+            "en": "World-famous sea cave with magical blue light",
+            "zh": "世界著名海蝕洞，夢幻藍光"
+          },
+          "comment": {
+            "en": "🌊 Boat from Marina Grande → queue at cave entrance → small rowboat into the grotto. Allow 3+ hours for the full excursion",
+            "zh": "🌊 從 Marina Grande 搭船 → 在洞口排隊 → 小划艇進入藍洞。整個行程需預留3小時以上"
+          },
+          "note": {
+            "en": "🚤 Boat from Marina Grande: ~€18 + €4 entry",
+            "zh": "🚤 從 Marina Grande 搭船：約 €18 + €4 入場費"
+          }
+        },
+        {
+          "time": "12:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop",
+            "alt": "Capri Lunch"
+          },
+          "activity": {
+            "en": "Lunch with a View",
+            "zh": "觀景午餐"
+          },
+          "info": {
+            "en": "Fresh seafood, ravioli capresi, limoncello",
+            "zh": "新鮮海鮮、ravioli capresi、limoncello"
+          }
+        },
+        {
+          "time": "14:00",
+          "picture": {
+            "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Capri-marina_piccola.jpg?width=240",
+            "alt": "Capri Town"
+          },
+          "activity": {
+            "en": "Capri Town & Piazzetta",
+            "zh": "卡普里小鎮及小廣場"
+          },
+          "info": {
+            "en": "Glamorous town square, luxury shopping, people watching",
+            "zh": "迷人的小鎮廣場、奢華購物、街頭漫步"
+          }
+        },
+        {
+          "time": "15:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1688141307495-9003d5a2ee25?w=120&h=120&fit=crop",
+            "alt": "Monte Solaro View"
+          },
+          "activity": {
+            "en": "Chairlift to Monte Solaro",
+            "zh": "纜車上索拉羅山"
+          },
+          "info": {
+            "en": "Highest point of Capri (589m) - 360° views of the bay & Faraglioni rocks",
+            "zh": "卡普里最高點（589米）- 海灣及 Faraglioni 岩石360°全景"
+          },
+          "note": {
+            "en": "🚡 Chairlift: ~€12 round trip, 13 min each way",
+            "zh": "🚡 纜車：來回約 €12，每程13分鐘"
+          }
+        },
+        {
+          "time": "17:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1629301987816-f07b24a87ce3?w=120&h=120&fit=crop",
+            "alt": "Anacapri"
+          },
+          "activity": {
+            "en": "Anacapri & Villa San Michele",
+            "zh": "Anacapri 與聖米歇爾別墅"
+          },
+          "info": {
+            "en": "Beautiful gardens with panoramic views",
+            "zh": "美麗花園及全景觀景台"
+          }
+        },
+        {
+          "time": "18:30",
+          "picture": {
+            "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Porto_di_Marina_Grande_-_Isola_di_Capri.jpg?width=240",
+            "alt": "Ferry back"
+          },
+          "activity": {
+            "en": "Ferry back to Naples",
+            "zh": "渡輪返回拿坡里"
+          },
+          "info": {
+            "en": "Return to mainland",
+            "zh": "返回大陸"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop",
+            "alt": "Naples Dinner"
+          },
+          "activity": {
+            "en": "Dinner in Naples",
+            "zh": "拿坡里晚餐"
+          },
+          "info": {
+            "en": "More pizza? Why not! Or try sfogliatella pastry",
+            "zh": "再來一份薄餅？當然好！或者試試 sfogliatella 酥皮糕點"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🌊 藍洞 Blue Grotto",
+          "zh": "🌊 藍洞"
+        },
+        {
+          "en": "🏝️ Capri Island",
+          "zh": "🏝️ 卡普里島"
+        },
+        {
+          "en": "🍋 Limoncello",
+          "zh": "🍋 Limoncello"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "theme": "napoli",
+      "featured": true,
+      "title": {
+        "en": "🏖️ Amalfi Coast Day Trip",
+        "zh": "🏖️ 阿馬爾菲海岸一日遊"
+      },
+      "date": {
+        "en": "June 8, Monday",
+        "zh": "6月8日，星期一"
+      },
+      "city": {
+        "en": "Positano / Amalfi",
+        "zh": "波西塔諾 / 阿馬爾菲"
+      },
+      "timeline": [
+        {
+          "time": "07:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop",
+            "alt": "Breakfast"
+          },
+          "activity": {
+            "en": "Quick Breakfast & Walk to Pickup Point",
+            "zh": "快速早餐 + 步行去接送點"
+          },
+          "info": {
+            "en": "Coffee + cornetto near the Airbnb. Walk/short taxi to C.So Arnaldo Lucci (~25min walk or ~€8 taxi from Spaccanapoli) — pickup point near Napoli Centrale station",
+            "zh": "Airbnb 附近飲杯咖啡食件 cornetto。然後步行/短途的士去 C.So Arnaldo Lucci（Spaccanapoli 步行約25分鐘 / 的士約€8）— 接送點喺拿坡里中央車站附近"
+          }
+        },
+        {
+          "time": "09:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1628082824320-e02368bc5c8f?w=120&h=120&fit=crop",
+            "alt": "TRAMVIA Bus Pickup"
+          },
+          "activity": {
+            "en": "🚌 TRAMVIA Bus Pickup at C.So Arnaldo Lucci",
+            "zh": "🚌 TRAMVIA 巴士喺 C.So Arnaldo Lucci 接客"
+          },
+          "info": {
+            "en": "Booked tour: TRAMVIA - Beducci Travel Bus. Group bus tour with free exploration time in Positano & Amalfi. Be at pickup point by 8:50 — bring confirmation voucher!",
+            "zh": "已預訂行程：TRAMVIA - Beducci Travel Bus。團體巴士遊，在 Positano 同 Amalfi 自由活動。8:50前到接送點 — 記得帶確認券！"
+          },
+          "note": {
+            "en": "🎫 <a href=\"https://www.getyourguide.com/\" target=\"_blank\">Booked on GetYourGuide</a> — booking ref GYGLMR2W6BK5 ✓ Booked",
+            "zh": "🎫 <a href=\"https://www.getyourguide.com/\" target=\"_blank\">已喺 GetYourGuide 預訂</a> — 預訂編號 GYGLMR2W6BK5 ✓ 已預訂"
+          }
+        },
+        {
+          "time": "10:45",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1686496829495-0be7fa2e1e88?w=120&h=120&fit=crop",
+            "alt": "Positano"
+          },
+          "activity": {
+            "en": "⭐ Positano (Free Time ~2h)",
+            "zh": "⭐ 波西塔諾（自由活動約2小時）"
+          },
+          "info": {
+            "en": "Iconic pastel clifftop village — walk down to Spiaggia Grande beach, browse ceramic shops, grab a granita di limone",
+            "zh": "標誌性的粉彩懸崖小鎮 — 落山去 Spiaggia Grande 海灘、行陶瓷商店、嘆杯檸檬冰沙 granita di limone"
+          },
+          "comment": {
+            "en": "📸 Best photo spot: lookout above the church dome with sea backdrop. Note: ~30min steep walk down to the beach (and back up!)",
+            "zh": "📸 最佳拍照點：教堂圓頂上方的觀景台，以大海為背景。注意：去海灘要落山約30分鐘（返上嚟仲攰）"
+          }
+        },
+        {
+          "time": "13:00",
+          "picture": {
+            "src": "images/positano-beach3.jpg",
+            "alt": "Fiordo di Furore"
+          },
+          "activity": {
+            "en": "Fiordo di Furore (Photo Stop)",
+            "zh": "Fiordo di Furore 峽灣（影相停留）"
+          },
+          "info": {
+            "en": "Bus passes the dramatic hidden fjord between Positano and Amalfi — emerald water, iconic stone bridge. Photo stop depends on driver / traffic",
+            "zh": "由 Positano 去 Amalfi 途中經過呢個壯觀的隱世峽灣 — 翡翠碧水、標誌性石橋。是否停車視乎司機/交通"
+          },
+          "note": {
+            "en": "📸 ~10min viewpoint stop on the SS163 coastal road",
+            "zh": "📸 SS163 海岸公路上約10分鐘觀景停留"
+          }
+        },
+        {
+          "time": "13:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=120&h=120&fit=crop",
+            "alt": "Amalfi Town"
+          },
+          "activity": {
+            "en": "⭐ Amalfi Town (Free Time ~4h, includes lunch)",
+            "zh": "⭐ 阿馬爾菲小鎮（自由活動約4小時，包含午餐）"
+          },
+          "info": {
+            "en": "Visit the magnificent Amalfi Cathedral (Duomo), explore the narrow alleyways. Long free window — sit-down lunch with sea view, taste limoncello, optional walk to Atrani next door (~10min)",
+            "zh": "參觀宏偉的阿馬爾菲大教堂（Duomo），探索狹窄巷弄。長時間自由活動 — 邊吃午餐邊欣賞海景，試 limoncello，可選步行去隔壁 Atrani（約10分鐘）"
+          },
+          "comment": {
+            "en": "🍽️ Lunch tip: scialatielli ai frutti di mare or grilled fish with lemon from local groves",
+            "zh": "🍽️ 午餐推薦：scialatielli ai frutti di mare（海鮮意粉）或當地檸檬汁烤魚"
+          }
+        },
+        {
+          "time": "17:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1628082824320-e02368bc5c8f?w=120&h=120&fit=crop",
+            "alt": "Return journey from Amalfi"
+          },
+          "activity": {
+            "en": "🚌 Bus Returns from Amalfi → Naples",
+            "zh": "🚌 巴士由 Amalfi 返拿坡里"
+          },
+          "info": {
+            "en": "17:30 departure from Amalfi. ~2h drive back to Naples (depending on coastal traffic)",
+            "zh": "17:30 由 Amalfi 出發。返回拿坡里約2小時車程（視乎海岸交通）"
+          },
+          "note": {
+            "en": "🚌 Be at pickup ~17:20 sharp — bus does not wait for latecomers",
+            "zh": "🚌 17:20 一定要到接送點 — 巴士唔等遲到嘅人"
+          }
+        },
+        {
+          "time": "19:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1632778140142-d62dee6e124c?w=120&h=120&fit=crop",
+            "alt": "Drop off near Centrale"
+          },
+          "activity": {
+            "en": "Arrive Naples + Walk to Airbnb",
+            "zh": "返到拿坡里 + 步行返 Airbnb"
+          },
+          "info": {
+            "en": "Drop-off back at C.So Arnaldo Lucci. Short walk or taxi back to Spaccanapoli Airbnb (~25min walk / ~€8 taxi)",
+            "zh": "落車地點返 C.So Arnaldo Lucci。步行/的士返 Spaccanapoli Airbnb（約25分鐘步行 / 的士約€8）"
+          }
+        },
+        {
+          "time": "20:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=120&h=120&fit=crop",
+            "alt": "Late Naples Dinner"
+          },
+          "activity": {
+            "en": "Late Naples Dinner",
+            "zh": "拿坡里宵夜晚餐"
+          },
+          "info": {
+            "en": "Casual late dinner — friggitoria takeaway (frittura di mare, fried pizza), or sit-down trattoria. Sfogliatella pastry for dessert!",
+            "zh": "輕鬆嘅遲晚餐 — friggitoria 外賣（炸海鮮、炸 pizza），或者去 trattoria 坐低慢慢食。最後嘆件 sfogliatella 千層酥！"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🏖️ Positano",
+          "zh": "🏖️ 波西塔諾"
+        },
+        {
+          "en": "🏔️ Fiordo di Furore",
+          "zh": "🏔️ Fiordo di Furore"
+        },
+        {
+          "en": "⛪ Amalfi Cathedral",
+          "zh": "⛪ 阿馬爾菲大教堂"
+        },
+        {
+          "en": "🚌 TRAMVIA Bus Tour ✓ Booked",
+          "zh": "🚌 TRAMVIA 巴士遊 ✓ 已預訂"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "theme": "napoli",
+      "featured": false,
+      "title": {
+        "en": "🏛️ Pompeii Day Trip",
+        "zh": "🏛️ 龐貝一日遊"
+      },
+      "date": {
+        "en": "June 9, Tuesday",
+        "zh": "6月9日，星期二"
+      },
+      "city": "Napoli",
+      "timeline": [
+        {
+          "time": "08:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop",
+            "alt": "Breakfast"
+          },
+          "activity": {
+            "en": "Hotel Breakfast",
+            "zh": "酒店早餐"
+          },
+          "info": {
+            "en": "Fuel up for a full day of ancient history",
+            "zh": "為充實的古蹟一日遊補充能量"
+          }
+        },
+        {
+          "time": "09:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=120&h=120&fit=crop",
+            "alt": "Circumvesuviana Train"
+          },
+          "activity": {
+            "en": "🚄 Circumvesuviana to Pompeii",
+            "zh": "🚄 Circumvesuviana 前往龐貝"
+          },
+          "info": {
+            "en": "Local train from Napoli Centrale to Pompeii Scavi station",
+            "zh": "從 Napoli Centrale 搭本地火車到 Pompeii Scavi 站"
+          },
+          "note": {
+            "en": "🚄 ~40 min, ~€4 one-way | Departs every 30 min",
+            "zh": "🚄 約40分鐘，約 €4 單程 | 每30分鐘一班"
+          }
+        },
+        {
+          "time": "10:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1657354371984-ef2f1a59cf80?w=120&h=120&fit=crop",
+            "alt": "Pompeii Ruins"
+          },
+          "activity": {
+            "en": "⭐ Pompeii Archaeological Park",
+            "zh": "⭐ 龐貝考古公園"
+          },
+          "info": {
+            "en": "Walk the streets of the ancient Roman city frozen in time by Mount Vesuvius in 79 AD — remarkably preserved houses, temples, theatres, and frescoes",
+            "zh": "漫步這座被維蘇威火山於公元79年凝固在時間中的古羅馬城市 — 保存驚人的房屋、神殿、劇場和壁畫"
+          },
+          "comment": {
+            "en": "🏛️ Must-sees: Forum, House of the Faun, amphitheatre, Villa of the Mysteries. Allow 3-4 hours minimum!",
+            "zh": "🏛️ 必看：廣場、牧神之屋、圓形劇場、秘儀莊園。至少預留3-4小時！"
+          },
+          "link": {
+            "url": "https://parcocolosseo.it/en/",
+            "label": {
+              "en": "Book tickets",
+              "zh": "預訂門票"
+            }
+          },
+          "price": {
+            "amount": "€18",
+            "perPerson": true,
+            "note": {
+              "en": "Book ahead to skip queues",
+              "zh": "提前預訂免排隊"
+            }
+          }
+        },
+        {
+          "time": "14:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop",
+            "alt": "Lunch"
+          },
+          "activity": {
+            "en": "Lunch near Pompeii",
+            "zh": "龐貝附近午餐"
+          },
+          "info": {
+            "en": "Local trattoria outside the park — try fresh buffalo mozzarella from nearby farms",
+            "zh": "公園外的當地餐館 — 必試附近農場的新鮮水牛芝士"
+          }
+        },
+        {
+          "time": "16:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1632778140142-d62dee6e124c?w=120&h=120&fit=crop",
+            "alt": "Spaccanapoli"
+          },
+          "activity": {
+            "en": "Spaccanapoli & Naples Old Town",
+            "zh": "Spaccanapoli 及拿坡里舊城區"
+          },
+          "info": {
+            "en": "Back in Naples — wander the narrow streets of the historic center, browse artisan shops, and soak in the atmosphere",
+            "zh": "回到拿坡里 — 漫步歷史中心的窄巷，逛手工藝品店，感受氛圍"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop",
+            "alt": "Naples Pizza"
+          },
+          "activity": {
+            "en": "Last Naples Pizza Night",
+            "zh": "最後的拿坡里披薩之夜"
+          },
+          "info": {
+            "en": "Final night in Naples — one more round of the world's best pizza! Try a fritta (fried pizza) for something different",
+            "zh": "拿坡里最後一晚 — 再來一輪世界最強披薩！試試炸披薩 (pizza fritta) 感受不一樣的風味"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🏛️ Pompeii",
+          "zh": "🏛️ 龐貝"
+        },
+        {
+          "en": "🏘️ Spaccanapoli",
+          "zh": "🏘️ Spaccanapoli"
+        },
+        {
+          "en": "🍕 Last Pizza Night",
+          "zh": "🍕 最後披薩之夜"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "theme": "puglia",
+      "featured": false,
+      "title": {
+        "en": "🚌 Bus to Puglia",
+        "zh": "🚌 巴士前往普利亞"
+      },
+      "date": {
+        "en": "June 10, Wednesday",
+        "zh": "6月10日，星期三"
+      },
+      "city": {
+        "en": "Napoli → Bari",
+        "zh": "Napoli → Bari"
+      },
+      "stay": {
+        "label": {
+          "en": "Tonight's Stay · Bari (2 nights)",
+          "zh": "今晚住宿 · 巴里（2晚）"
+        },
+        "name": {
+          "en": "Bari Airbnb · Picone-Poggiofranco",
+          "zh": "巴里 Airbnb · Picone-Poggiofranco"
+        },
+        "address": "Via Giulio Petroni, 14/E · Bari, Puglia 70100, Italia (~3 km SE of Bari Centrale)",
+        "mapsQuery": "Via+Giulio+Petroni+14%2FE+Bari+70100"
+      },
+      "timeline": [
+        {
+          "time": "08:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=120&fit=crop",
+            "alt": "Breakfast"
+          },
+          "activity": {
+            "en": "Check-out Naples Airbnb",
+            "zh": "退房 — 拿坡里 Airbnb"
+          },
+          "info": {
+            "en": "Pack up, walk/taxi to Napoli bus station (Metropark Centrale, ~10 min)",
+            "zh": "收拾行李，步行或乘的士前往拿坡里巴士站（Metropark Centrale，約10分鐘）"
+          }
+        },
+        {
+          "time": "08:30",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop",
+            "alt": "MarinoBus to Puglia"
+          },
+          "activity": {
+            "en": "🚌 MarinoBus Naples → Bari ✓ Booked",
+            "zh": "🚌 MarinoBus 拿坡里 → 巴里 ✓ 已預訂"
+          },
+          "info": {
+            "en": "Direct bus across southern Italy to Puglia. Free WiFi, comfortable seats",
+            "zh": "直達巴士穿越南意大利。免費 WiFi、舒適座椅"
+          },
+          "note": {
+            "en": "🚌 ~3h, €14.83/person ✓ Booked | Arrive Bari ~11:30",
+            "zh": "🚌 約3小時，每人 €14.83 ✓ 已預訂 | 約11:30 抵達巴里"
+          }
+        },
+        {
+          "time": "12:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop",
+            "alt": "Polignano Hotel"
+          },
+          "activity": {
+            "en": "Check-in Bari Airbnb & Lunch",
+            "zh": "入住巴里 Airbnb 及午餐"
+          },
+          "info": {
+            "en": "Taxi from bus station to Via Giulio Petroni 14/E (~10 min, ~€10). Drop luggage, then taxi/bus 2 to Bari Vecchia for a quick lunch in the old town",
+            "zh": "由巴士站乘的士到 Via Giulio Petroni 14/E（約10分鐘，€10）。放下行李後，乘的士或2號巴士前往巴里舊城區 (Bari Vecchia) 快速午餐"
+          }
+        },
+        {
+          "time": "15:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1531075693709-e11db6e39107?w=120&h=120&fit=crop",
+            "alt": "Polignano a Mare Old Town"
+          },
+          "activity": {
+            "en": "⭐ Train to Polignano → Old Town",
+            "zh": "⭐ 火車到 Polignano → 舊城區"
+          },
+          "info": {
+            "en": "20min train from Bari → explore the dramatic clifftop old town — whitewashed buildings over the turquoise Adriatic. Visit the Domenico Modugno (Volare!) statue",
+            "zh": "從巴里搭火車約20分鐘 → 探索壯觀的懸崖舊城 — 白色建築矗立在碧藍亞得里亞海上。參觀 Domenico Modugno（Volare! 名曲）的雕像"
+          },
+          "note": {
+            "en": "🚄 Bari→Polignano: €3-4, every 30min, ~20min",
+            "zh": "🚄 Bari→Polignano：€3-4，每30分鐘一班，約20分鐘"
+          }
+        },
+        {
+          "time": "17:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1607212108450-a98c71171d4c?w=120&h=120&fit=crop",
+            "alt": "Lama Monachile Beach"
+          },
+          "activity": {
+            "en": "⭐ Lama Monachile Beach",
+            "zh": "⭐ Lama Monachile 沙灘"
+          },
+          "info": {
+            "en": "The iconic beach between two cliffs — swim in crystal clear water under the historic Roman bridge. One of Italy's most photographed spots!",
+            "zh": "兩座懸崖之間的標誌性沙灘 — 在古羅馬橋下的水晶般清澈的海水中暢泳。意大利最上鏡的景點之一！"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop",
+            "alt": "Puglia Dinner"
+          },
+          "activity": {
+            "en": "Cliff-edge Seafood Dinner in Polignano",
+            "zh": "Polignano 懸崖海鮮晚餐"
+          },
+          "info": {
+            "en": "Stay in Polignano for sunset dinner! Try orecchiette, raw sea urchin, and local Primitivo wine. Donna Gina (Lama Monachile views) or Trattoria il Grottone (sea panorama). Train back to Bari after (~20min)",
+            "zh": "留在 Polignano 看日落晚餐！試試 orecchiette、生海膽和當地 Primitivo 紅酒。推薦 Donna Gina 或 Trattoria il Grottone。飯後搭火車回巴里（約20分鐘）"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🚌 MarinoBus",
+          "zh": "🚌 MarinoBus"
+        },
+        {
+          "en": "🏘️ Polignano a Mare",
+          "zh": "🏘️ Polignano a Mare"
+        },
+        {
+          "en": "🏖️ Lama Monachile",
+          "zh": "🏖️ Lama Monachile"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "theme": "puglia",
+      "featured": true,
+      "title": {
+        "en": "⛵ Boat Tour & Alberobello",
+        "zh": "⛵ 遊船及阿爾貝羅貝洛"
+      },
+      "date": {
+        "en": "June 11, Thursday",
+        "zh": "6月11日，星期四"
+      },
+      "city": {
+        "en": "Bari (base)",
+        "zh": "Bari（基地）"
+      },
+      "timeline": [
+        {
+          "time": "08:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=120&h=120&fit=crop",
+            "alt": "Breakfast"
+          },
+          "activity": {
+            "en": "Puglia Breakfast",
+            "zh": "普利亞式早餐"
+          },
+          "info": {
+            "en": "Pasticciotto (Puglia's famous custard pastry) and espresso",
+            "zh": "Pasticciotto（普利亞著名的卡士達酥）和濃縮咖啡"
+          }
+        },
+        {
+          "time": "10:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1721824755049-e5e4947bc37e?w=120&h=120&fit=crop",
+            "alt": "Polignano Boat Tour"
+          },
+          "activity": {
+            "en": "⭐ Train to Polignano → Boat Tour (Sea Caves & Swimming)",
+            "zh": "⭐ 火車到 Polignano → 遊船（海蝕洞及暢泳）"
+          },
+          "info": {
+            "en": "Train from Bari (~20min), then explore Polignano's stunning sea caves from the water — swim in hidden coves and see Lama Monachile from the sea!",
+            "zh": "從巴里搭火車（約20分鐘），再從海上探索 Polignano 壯觀的海蝕洞 — 在隱秘海灣暢泳，從海上欣賞 Lama Monachile！"
+          },
+          "link": {
+            "url": "https://www.getyourguide.com/polignano-a-mare-l96415/",
+            "label": {
+              "en": "Book on GetYourGuide",
+              "zh": "GetYourGuide 預訂"
+            }
+          },
+          "price": {
+            "amount": "€25-35",
+            "perPerson": true,
+            "note": {
+              "en": "~1.5h boat tour",
+              "zh": "約1.5小時遊船"
+            }
+          }
+        },
+        {
+          "time": "12:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=120&h=120&fit=crop",
+            "alt": "Lunch"
+          },
+          "activity": {
+            "en": "Lunch in Polignano",
+            "zh": "Polignano 午餐"
+          },
+          "info": {
+            "en": "Fresh seafood at a cliff-edge restaurant — try the famous raw prawns of Polignano!",
+            "zh": "在懸崖邊餐廳享用新鮮海鮮 — 必試 Polignano 著名的生蝦！"
+          }
+        },
+        {
+          "time": "14:00",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1680713096427-76ce2c636800?w=120&h=120&fit=crop",
+            "alt": "Alberobello Trulli"
+          },
+          "activity": {
+            "en": "⭐ Alberobello Guided Tour from Bari (UNESCO Trulli Houses)",
+            "zh": "⭐ 阿爾貝羅貝洛導覽團（聯合國教科文組織 Trulli 石屋）"
+          },
+          "info": {
+            "en": "Unique whitewashed cone-roof trulli houses — nowhere else in the world looks like this! UNESCO World Heritage Site",
+            "zh": "獨一無二的白色錐頂石屋 — 全世界沒有第二個地方長這樣！聯合國教科文組織世界遺產"
+          },
+          "note": {
+            "en": "🎫 <a href=\"https://www.getyourguide.com/alberobello-l800/alberobello-half-day-trip-from-bari-t873193/\" target=\"_blank\">Book on GetYourGuide</a> — Half-day tour from Bari | Or FSE bus ~1h, €5-10",
+            "zh": "🎫 <a href=\"https://www.getyourguide.com/alberobello-l800/alberobello-half-day-trip-from-bari-t873193/\" target=\"_blank\">GetYourGuide 預訂</a> — 從巴里出發半日遊 | 或 FSE 巴士約1小時，€5-10"
+          }
+        },
+        {
+          "time": "17:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1712481852095-4ed21c5af1ba?w=120&h=120&fit=crop",
+            "alt": "Trulli District"
+          },
+          "activity": {
+            "en": "Explore Rione Monti (Trulli District)",
+            "zh": "探索 Rione Monti（Trulli 石屋區）"
+          },
+          "info": {
+            "en": "Wander the iconic trulli streets, browse handmade souvenirs, taste local olive oil and wine",
+            "zh": "漫步標誌性的 trulli 街道，選購手工藝紀念品，品嚐當地橄欖油和美酒"
+          }
+        },
+        {
+          "time": "20:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1600835768553-0cc19062f912?w=120&h=120&fit=crop",
+            "alt": "Farewell Dinner"
+          },
+          "activity": {
+            "en": "Farewell Puglia Dinner in Bari",
+            "zh": "巴里告別晚餐"
+          },
+          "info": {
+            "en": "Bari Vecchia old town — orecchiette alle cime di rapa, burrata, focaccia barese, and taralli with a glass of Negroamaro. Puglia does food right!",
+            "zh": "巴里舊城區 — orecchiette alle cime di rapa、burrata、focaccia barese 和 taralli 配一杯 Negroamaro。普利亞美食名不虛傳！"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "⛵ Boat Tour",
+          "zh": "⛵ 遊船"
+        },
+        {
+          "en": "🏘️ Alberobello",
+          "zh": "🏘️ 阿爾貝羅貝洛"
+        },
+        {
+          "en": "🍝 Farewell Dinner",
+          "zh": "🍝 告別晚餐"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "theme": "rome",
+      "featured": false,
+      "title": {
+        "en": "🚌 Bus Back to Rome",
+        "zh": "🚌 巴士返回羅馬"
+      },
+      "date": {
+        "en": "June 12, Friday",
+        "zh": "6月12日，星期五"
+      },
+      "city": {
+        "en": "Bari → Roma",
+        "zh": "Bari → Roma"
+      },
+      "stay": {
+        "label": {
+          "en": "Tonight's Stay · Rome (1 night)",
+          "zh": "今晚住宿 · 羅馬（1晚）"
+        },
+        "name": {
+          "en": "Champagne Palace Hotel · near Roma Termini",
+          "zh": "Champagne Palace Hotel · 鄰近 Roma Termini"
+        },
+        "address": "Champagne Palace Hotel · Rome (close to Termini for easy airport access)",
+        "mapsQuery": "Champagne+Palace+Hotel+Roma"
+      },
+      "timeline": [
+        {
+          "time": "08:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop",
+            "alt": "Italian Coffee"
+          },
+          "activity": {
+            "en": "Relaxed Breakfast",
+            "zh": "悠閒早餐"
+          },
+          "info": {
+            "en": "Last morning in Bari — enjoy a cappuccino & cornetto in the old town one more time",
+            "zh": "巴里最後一個早晨 — 在舊城區再享受一杯 cappuccino 和 cornetto"
+          }
+        },
+        {
+          "time": "09:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1691557126778-c547794344d5?w=120&h=120&fit=crop",
+            "alt": "Bari Old Town"
+          },
+          "activity": {
+            "en": "Bari Vecchia Walk & Souvenirs",
+            "zh": "巴里舊城漫步及紀念品"
+          },
+          "info": {
+            "en": "Stroll through Bari's old town — Basilica San Nicola, Cathedral, the Strada delle Orecchiette where nonne hand-shape pasta on doorstep tables. Pick up olive oil and taralli as souvenirs",
+            "zh": "漫步巴里舊城 — 聖尼古拉大教堂、主教座堂、Strada delle Orecchiette（耳朵麵小街），睇 nonne 在門口枱仔上手工搓麵。買些橄欖油同 taralli 作手信"
+          }
+        },
+        {
+          "time": "11:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1605522561233-768ad7a8fabf?w=120&h=120&fit=crop",
+            "alt": "Bari Lungomare and panzerotti lunch"
+          },
+          "activity": {
+            "en": "Lungomare Walk & Quick Lunch",
+            "zh": "海濱大道散步及輕食午餐"
+          },
+          "info": {
+            "en": "Final stroll along the Lungomare seafront, then grab a panzerotto or focaccia barese (Bari's signature street food) — easy to eat on the go before bus departure",
+            "zh": "沿 Lungomare 海濱大道作最後散步，然後買個 panzerotto 或 focaccia barese（巴里招牌街頭小食）— 容易邊行邊食，趕上巴士出發"
+          }
+        },
+        {
+          "time": "12:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=120&h=120&fit=crop",
+            "alt": "Check-out and walk to bus stop"
+          },
+          "activity": {
+            "en": "Check-out & Walk to FlixBus Stop",
+            "zh": "退房及步行去 FlixBus 站"
+          },
+          "info": {
+            "en": "Pick up luggage from accommodation and walk to Bari FS Park Via Capruzzi (FlixBus stop, ~5 min from Bari Centrale station — south side of the tracks)",
+            "zh": "由住處取行李，步行到 Bari FS Park Via Capruzzi（FlixBus 站，距 Bari Centrale 火車站約5分鐘 — 月台南面）"
+          }
+        },
+        {
+          "time": "13:15",
+          "featured": true,
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=120&h=120&fit=crop",
+            "alt": "FlixBus to Rome"
+          },
+          "activity": {
+            "en": "🚌 FlixBus Bari → Rome (Direct)",
+            "zh": "🚌 FlixBus 巴里 → 羅馬（直達）"
+          },
+          "info": {
+            "en": "Direct FlixBus to Roma Tiburtina Bus Station — 5h 50m, free WiFi, USB charging, comfortable reclining seats. Booked!",
+            "zh": "FlixBus 直達 Roma Tiburtina 巴士總站 — 5小時50分，免費 WiFi、USB 充電、舒適可調節座椅。已預訂！"
+          },
+          "note": {
+            "en": "🚌 Depart 13:15 → Arrive 19:05 · €14.66/person ✓ Booked",
+            "zh": "🚌 13:15 出發 → 19:05 抵達 · 每人 €14.66 ✓ 已預訂"
+          }
+        },
+        {
+          "time": "19:05",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=120&h=120&fit=crop",
+            "alt": "Arrive Rome Tiburtina"
+          },
+          "activity": {
+            "en": "Arrive Rome Tiburtina → Hotel",
+            "zh": "抵達羅馬 Tiburtina → 酒店"
+          },
+          "info": {
+            "en": "Off the bus at Roma Tiburtina Bus Station. Take Metro Line B (Tiburtina → Termini, 1 stop, ~5 min) then a short walk to Champagne Palace Hotel. Drop bags and freshen up",
+            "zh": "在 Roma Tiburtina 巴士總站下車。乘地鐵 B 線（Tiburtina → Termini，1 站，約5分鐘）然後短途步行到 Champagne Palace Hotel。放下行李，梳洗一下"
+          }
+        },
+        {
+          "time": "20:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=120&h=120&fit=crop",
+            "alt": "Rome Dinner"
+          },
+          "activity": {
+            "en": "Final Italian Farewell Dinner",
+            "zh": "最後的意大利告別晚餐"
+          },
+          "info": {
+            "en": "Walk to nearby Monti district (15 min from Termini) — cacio e pepe, carbonara, saltimbocca one last time. Say arrivederci to Italian cuisine!",
+            "zh": "步行到附近 Monti 區（距 Termini 約15分鐘）— 再食一次 cacio e pepe、carbonara、saltimbocca。跟意大利美食說 arrivederci！"
+          }
+        },
+        {
+          "time": "22:30",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1635416180743-c336b4abdd20?w=120&h=120&fit=crop",
+            "alt": "Final gelato"
+          },
+          "activity": {
+            "en": "One Last Gelato",
+            "zh": "最後一杯 gelato"
+          },
+          "info": {
+            "en": "Walk back via a final gelato — pistachio, stracciatella, whatever your favourite has been this trip. The perfect finale before tomorrow's flight",
+            "zh": "回程順道再食一杯雪糕 — pistachio、stracciatella，或者今次旅程你最喜愛嘅口味。明天就要飛返香港，呢個就係完美收尾"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "🚌 FlixBus to Rome",
+          "zh": "🚌 FlixBus 到羅馬"
+        },
+        {
+          "en": "🏛️ Back in Rome",
+          "zh": "🏛️ 重返羅馬"
+        },
+        {
+          "en": "🍝 Final Dinner",
+          "zh": "🍝 最後晚餐"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "theme": "rome",
+      "featured": false,
+      "title": {
+        "en": "Departure from Rome",
+        "zh": "從羅馬出發回港"
+      },
+      "date": {
+        "en": "June 13, Saturday",
+        "zh": "6月13日，星期六"
+      },
+      "city": "Arrivederci!",
+      "timeline": [
+        {
+          "time": "08:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop",
+            "alt": "Italian Coffee"
+          },
+          "activity": {
+            "en": "Breakfast & Last Stroll",
+            "zh": "早餐及最後漫步"
+          },
+          "info": {
+            "en": "Last Italian cappuccino & cornetto — afternoon flight means a relaxed morning!",
+            "zh": "最後一杯意大利 cappuccino 及 cornetto — 下午航班，早上可悠閒度過！"
+          }
+        },
+        {
+          "time": "10:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=120&h=120&fit=crop",
+            "alt": "Taxi to Airport"
+          },
+          "activity": {
+            "en": "🚕 Head to Rome Fiumicino (FCO)",
+            "zh": "🚕 前往羅馬菲烏米奇諾機場 (FCO)"
+          },
+          "info": {
+            "en": "Allow time for duty-free shopping — limoncello, olive oil, Italian chocolates!",
+            "zh": "預留時間逛免稅店 — limoncello、橄欖油、意大利朱古力！"
+          },
+          "note": {
+            "en": "🚄 Leonardo Express to FCO: €14, 32min from Termini",
+            "zh": "🚄 Leonardo Express 到 FCO：€14，從 Termini 32分鐘"
+          }
+        },
+        {
+          "time": "13:00",
+          "picture": {
+            "src": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=120&h=120&fit=crop",
+            "alt": "Flight Home"
+          },
+          "activity": {
+            "en": "✈️ Cathay Pacific CX292",
+            "zh": "✈️ 國泰航空 CX292"
+          },
+          "info": {
+            "en": "Rome (FCO) → Hong Kong (HKG) • Direct 11h",
+            "zh": "羅馬 (FCO) → 香港 (HKG) • 直航11小時"
+          },
+          "note": {
+            "en": "✈️ Arrive HK 06:00, June 14",
+            "zh": "✈️ 6月14日 06:00 抵達香港"
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "en": "☕ Last Cappuccino",
+          "zh": "☕ 最後一杯 Cappuccino"
+        },
+        {
+          "en": "✈️ Fly Home",
+          "zh": "✈️ 飛回香港"
+        },
+        {
+          "en": "💭 Amazing Memories",
+          "zh": "💭 美好回憶"
+        }
+      ]
+    }
+  ]
+}
