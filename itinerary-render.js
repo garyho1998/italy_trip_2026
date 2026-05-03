@@ -49,7 +49,10 @@
         // Strip parentheticals like "(lunch area)" that confuse geocoding
         q = q.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
         if (!q) return '';
-        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+        // Use the Directions URL format so a tap lands the user on a route page
+        // with their current location as origin — one more tap to start nav,
+        // no search-results step. https://developers.google.com/maps/documentation/urls/get-started#directions-action
+        return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}`;
     };
 
     const escapeAttr = (s) => String(s ?? '')
