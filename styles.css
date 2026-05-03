@@ -3215,6 +3215,8 @@ section {
         width: 100%;
         height: 100%;
         max-height: none;
+        margin: 0;
+        padding: 0;  /* override the global `section { padding }` rule */
         transform: none !important;
         background: #fff;
         box-shadow: none;
