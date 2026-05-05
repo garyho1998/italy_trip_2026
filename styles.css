@@ -62,84 +62,190 @@ a {
 }
 
 /* ================================
-   Navigation
+   Site Header (new design — replaces old .nav)
    ================================ */
-.nav {
+.site-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 48px;
-    position: relative;
-    z-index: 100;
-}
-
-.nav-sticky {
-    position: fixed;
+    gap: 24px;
+    padding: 12px 32px;
+    background: white;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 4px 22px rgba(30, 58, 95, 0.07);
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    background: var(--venetian-blue);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    margin-bottom: 8px;
 }
 
-.logo {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: white;
-}
-
-.nav-links {
+.site-header-brand {
     display: flex;
-    gap: 28px;
+    align-items: center;
+    gap: 10px;
+    color: var(--charcoal);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+.site-header-brand:hover { opacity: 0.85; }
+
+.brand-flag {
+    font-size: 1.25rem;
+    width: 38px;
+    height: 38px;
+    background: var(--cream);
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.nav-links a {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9rem;
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.brand-subtitle {
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    margin-top: 1px;
     font-weight: 500;
-    transition: var(--transition-smooth);
-    position: relative;
-    padding: 4px 0;
 }
 
-.nav-links a::after {
+.brand-chevron {
+    color: var(--warm-gray);
+    font-size: 0.7rem;
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+.site-header-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+}
+
+.site-header-nav a {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 6px 0;
+}
+
+.site-header-nav a:hover { color: var(--charcoal); }
+
+.site-header-nav a.active {
+    color: var(--venetian-blue);
+    font-weight: 600;
+}
+
+.site-header-nav a.active::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -4px;
     left: 0;
-    width: 0;
+    right: 0;
     height: 2px;
     background: var(--tuscany-gold);
-    transition: width 0.3s ease;
+    border-radius: 1px;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    color: white;
+.site-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--warm-gray);
+    font-size: 1.05rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    line-height: 1;
+}
+.theme-toggle:hover {
+    background: var(--cream);
+    color: var(--tuscany-gold);
+}
+@keyframes theme-bump {
+    0% { transform: scale(1) rotate(0); }
+    50% { transform: scale(1.18) rotate(15deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+.theme-toggle.theme-toggle-bumped { animation: theme-bump 0.45s ease; }
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 4px 8px;
+    font-family: var(--font-body);
+    font-size: inherit;
+    font-weight: inherit;
+    transition: color 0.2s ease;
+}
+.lang-btn:hover { color: var(--charcoal); }
+.lang-btn.active {
+    color: var(--charcoal);
+    font-weight: 700;
+}
+.lang-sep {
+    color: rgba(30, 58, 95, 0.25);
+    user-select: none;
 }
 
-.nav-toggle {
+.site-header-toggle {
     display: none;
     background: none;
     border: none;
-    color: white;
+    color: var(--charcoal);
     font-size: 1.5rem;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border-radius: 8px;
 }
+.site-header-toggle:hover { background: var(--cream); }
 
-/* Language Toggle */
+/* Compatibility: legacy single-button .lang-toggle still used in mobile drawer */
 .lang-toggle {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: white;
-    padding: 5px 14px;
+    background: var(--cream);
+    border: 1px solid rgba(30, 58, 95, 0.15);
+    color: var(--charcoal);
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -149,58 +255,79 @@ a {
     letter-spacing: 0.5px;
     white-space: nowrap;
 }
-
 .lang-toggle:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: var(--parchment);
 }
 
 .mobile-nav .lang-toggle {
     align-self: flex-start;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
+/* Mobile nav drawer (slides under sticky header) */
 .mobile-nav {
     display: none;
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
-    background: var(--venetian-blue);
-    padding: 20px;
+    background: white;
+    padding: 14px 16px 18px;
     flex-direction: column;
-    gap: 16px;
+    gap: 4px;
     z-index: 99;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.12);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 
 .mobile-nav a {
-    color: white;
-    padding: 12px;
+    color: var(--charcoal);
+    padding: 10px 12px;
     border-radius: 8px;
+    font-size: 1rem;
     transition: var(--transition-smooth);
 }
-
 .mobile-nav a:hover,
 .mobile-nav a.active {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--cream);
+    color: var(--venetian-blue);
 }
+.mobile-nav.active { display: flex; }
 
-.mobile-nav.active {
-    display: flex;
+@media (max-width: 1023px) {
+    .site-header {
+        padding: 10px 14px;
+        gap: 12px;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+    .brand-chevron { display: none; }
+    .brand-title { font-size: 0.95rem; }
+    .brand-subtitle { font-size: 0.68rem; }
+    .brand-flag { width: 34px; height: 34px; font-size: 1.1rem; }
+    .site-header-nav,
+    .site-header-controls {
+        display: none;
+    }
+    .site-header-toggle {
+        display: flex;
+    }
 }
 
 /* ================================
    Hero Section
    ================================ */
 .hero {
-    min-height: 100vh;
+    /* Subtract approx site-header height so the hero fits under the
+       sticky header without extra scrollbar wobble on first paint. */
+    min-height: calc(100vh - 64px);
     position: relative;
     display: flex;
     flex-direction: column;
-    background: 
-        linear-gradient(135deg, 
-            rgba(30, 58, 95, 0.92) 0%, 
+    background:
+        linear-gradient(135deg,
+            rgba(30, 58, 95, 0.92) 0%,
             rgba(114, 47, 55, 0.88) 50%,
             rgba(198, 93, 59, 0.85) 100%),
         url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=1920&q=80') center/cover;
@@ -382,7 +509,10 @@ a {
 }
 
 .page-main {
-    padding-top: 100px;
+    /* The new .site-header is position:sticky (in flow) instead of position:fixed,
+       so it takes its own space — no padding-top needed to clear it. Keep a small
+       breathing room. */
+    padding-top: 24px;
     padding-bottom: 60px;
     min-height: calc(100vh - 200px);
 }
@@ -3315,6 +3445,35 @@ section {
     z-index: 1000;
 }
 
+/* Meal pins — emoji-based, color-coded so lunch and dinner stand out from sights. */
+.map-pin-numbered .pin-bubble-lunch {
+    background: var(--tuscany-gold, #D4A84B);
+    font-size: 16px;
+}
+.map-pin-numbered .pin-bubble-lunch.pin-bubble-active {
+    background: var(--tuscany-gold, #D4A84B);
+    box-shadow: 0 4px 14px rgba(212, 168, 75, 0.55);
+    font-size: 22px;
+}
+.map-pin-numbered .pin-bubble-dinner {
+    background: var(--deep-wine, #722F37);
+    font-size: 16px;
+}
+.map-pin-numbered .pin-bubble-dinner.pin-bubble-active {
+    background: var(--deep-wine, #722F37);
+    box-shadow: 0 4px 14px rgba(114, 47, 55, 0.55);
+    font-size: 22px;
+}
+.map-pin-numbered .pin-bubble-snack {
+    background: var(--olive, #4A5D23);
+    font-size: 16px;
+}
+.map-pin-numbered .pin-bubble-snack.pin-bubble-active {
+    background: var(--olive, #4A5D23);
+    box-shadow: 0 4px 14px rgba(74, 93, 35, 0.55);
+    font-size: 22px;
+}
+
 .map-pin-hotel .pin-hotel {
     width: 30px;
     height: 30px;
@@ -3346,4 +3505,726 @@ section {
 .map-popup-item strong {
     color: var(--terracotta, #C65D3B);
     margin-right: 4px;
+}
+
+/* ================================
+   Bookings Page
+   ================================ */
+
+/* Page-level: extra space for sticky-nav + footer */
+.bookings-page .page-main {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: var(--cream);
+    min-height: 100vh;
+}
+
+/* Category color tokens (referenced from JS via .cat-* classes) */
+:root {
+    --cat-transport: var(--venetian-blue);
+    --cat-transport-bg: #E5EEF8;
+    --cat-food: var(--terracotta);
+    --cat-food-bg: #FBE7DF;
+    --cat-sights: #B07F1F;
+    --cat-sights-bg: #FAEDC9;
+    --cat-stays: var(--olive);
+    --cat-stays-bg: #E8EEDC;
+}
+
+/* ----- Hero ----- */
+.bookings-hero {
+    margin: 24px 0 32px;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 6px 24px rgba(30, 58, 95, 0.06);
+    border: 1px solid rgba(30, 58, 95, 0.06);
+}
+
+.bookings-hero-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+}
+
+.bookings-hero-icon {
+    font-size: 2.4rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--cat-sights-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bookings-hero-text h1 {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin: 0 0 6px;
+}
+
+.bookings-hero-subtitle {
+    color: var(--warm-gray);
+    font-size: 1rem;
+    margin: 0 0 14px;
+}
+
+.bookings-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+}
+
+.bk-stat-chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.4;
+    border: 1px solid transparent;
+}
+.bk-stat-chip .stat-num { font-weight: 700; }
+
+/* Per-chip tinted backgrounds (matches Figma) — total = warm gold,
+   done = sage green, remaining = sunset orange. The number stays bold and
+   slightly more saturated than the trailing label. */
+.bk-stat-chip:has(.stat-total) {
+    background: #FAF1D8;
+    border-color: rgba(212, 168, 75, 0.45);
+    color: #6B5212;
+}
+.bk-stat-chip:has(.stat-done) {
+    background: #E8F1DE;
+    border-color: rgba(74, 93, 35, 0.40);
+    color: #3F5418;
+}
+.bk-stat-chip:has(.stat-remaining) {
+    background: #FBE7DF;
+    border-color: rgba(198, 93, 59, 0.40);
+    color: #8A3719;
+}
+.bk-stat-chip .stat-num.stat-total     { color: #8A6914; }
+.bk-stat-chip .stat-num.stat-done      { color: var(--olive); }
+.bk-stat-chip .stat-num.stat-remaining { color: var(--terracotta); }
+
+.bookings-hero-illustration {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 8px;
+}
+.bookings-hero-illustration .hero-emoji {
+    font-size: 2.6rem;
+    line-height: 1;
+    /* Slight desaturation feels more "illustrated" than raw emoji */
+    filter: saturate(0.9);
+}
+.bookings-hero-illustration .hero-emoji-building {
+    font-size: 3rem;
+}
+
+/* ----- Filter bar ----- */
+.bk-filter-bar {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 18px rgba(30, 58, 95, 0.05);
+    border: 1px solid rgba(30, 58, 95, 0.06);
+}
+
+@media (min-width: 1024px) {
+    .bk-filter-bar {
+        position: sticky;
+        top: 64px;
+        z-index: 50;
+    }
+}
+
+.bk-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.bk-pill {
+    /* Lighter pastel inactive state per mockup. Active state gets thicker
+       1px tinted border + saturated bg per category. */
+    border: 1px solid rgba(30, 58, 95, 0.10);
+    background: #FAFAF8;
+    border-radius: 999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--warm-gray);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+.bk-pill:hover {
+    background: white;
+    border-color: rgba(30, 58, 95, 0.18);
+}
+
+.bk-pill .bk-pill-icon { font-size: 0.95rem; line-height: 1; }
+
+/* Active state — colored per category, lighter than before */
+.bk-pill-transport.active { background: var(--cat-transport-bg); color: var(--cat-transport); border-color: var(--cat-transport); }
+.bk-pill-food.active      { background: var(--cat-food-bg);      color: var(--cat-food);      border-color: var(--cat-food); }
+.bk-pill-sights.active    { background: var(--cat-sights-bg);    color: var(--cat-sights);    border-color: var(--cat-sights); }
+.bk-pill-stays.active     { background: var(--cat-stays-bg);     color: var(--cat-stays);     border-color: var(--cat-stays); }
+
+.bk-filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+/* Toggle switch (Hide done) */
+.bk-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+}
+.bk-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.bk-toggle-track {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background: #DCDCDC;
+    border-radius: 999px;
+    transition: var(--transition-smooth);
+}
+.bk-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-smooth);
+}
+.bk-toggle input:checked ~ .bk-toggle-track {
+    background: var(--olive);
+}
+.bk-toggle input:checked ~ .bk-toggle-track .bk-toggle-thumb {
+    transform: translateX(20px);
+}
+
+.bk-reset {
+    background: none;
+    border: none;
+    color: var(--terracotta);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.bk-reset:hover { color: var(--deep-wine); }
+/* Dimmed (but still visible) when filter is at default state — clicking does
+   nothing in that case, but the affordance is always present per mockup. */
+.bk-reset-default { opacity: 0.45; cursor: default; }
+.bk-reset-default:hover { color: var(--terracotta); }
+
+/* ----- Sections ----- */
+.bk-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bk-section {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(30, 58, 95, 0.05);
+    border: 1px solid rgba(30, 58, 95, 0.06);
+    overflow: hidden;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+.bk-section-now    { border-left-color: var(--deep-wine); }
+.bk-section-soon   { border-left-color: var(--venetian-blue); }
+.bk-section-casual { border-left-color: var(--tuscany-gold); }
+
+.bk-section-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 14px;
+    align-items: center;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition-smooth);
+}
+.bk-section-header:hover { background: rgba(30, 58, 95, 0.02); }
+
+.bk-section-icon {
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.bk-section-now    .bk-section-icon { background: rgba(114, 47, 55, 0.1); }
+.bk-section-soon   .bk-section-icon { background: rgba(30, 58, 95, 0.1); }
+.bk-section-casual .bk-section-icon { background: rgba(212, 168, 75, 0.18); }
+
+.bk-section-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+}
+
+.bk-section-count {
+    font-size: 0.86rem;
+    color: var(--warm-gray);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.bk-section-toggle {
+    color: var(--warm-gray);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    width: 24px;
+    text-align: center;
+}
+.bk-section.is-collapsed .bk-section-toggle { transform: rotate(-90deg); }
+
+.bk-section-body {
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    overflow: hidden;
+}
+.bk-section.is-collapsed .bk-section-body {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Empty / celebrate states */
+.bk-section-empty {
+    padding: 24px;
+    color: var(--warm-gray);
+    text-align: center;
+    font-style: italic;
+}
+.bk-section-celebrate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 28px 24px;
+    background: transparent;
+    margin: 0 18px 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+.bk-celebrate-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    color: var(--olive);
+    font-weight: 600;
+    line-height: 1.1;
+}
+.bk-celebrate-icon { font-size: 1.7rem; }
+.bk-celebrate-text {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    color: var(--olive);
+    font-weight: 600;
+    line-height: 1.1;
+}
+.bk-celebrate-subtitle {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    margin-top: 4px;
+}
+
+/* ----- Card ----- */
+.bk-card {
+    display: grid;
+    grid-template-columns: 36px 44px auto auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid rgba(30, 58, 95, 0.06);
+    transition: var(--transition-smooth);
+}
+.bk-card:first-child { border-top: none; }
+.bk-card:hover { background: rgba(30, 58, 95, 0.015); }
+
+/* Custom checkbox */
+.bk-checkbox {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.bk-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0;
+}
+.bk-checkbox-box {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--warm-gray);
+    border-radius: 6px;
+    background: white;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+.bk-checkbox input:checked ~ .bk-checkbox-box {
+    background: var(--olive);
+    border-color: var(--olive);
+}
+.bk-checkbox input:checked ~ .bk-checkbox-box::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+.bk-checkbox:hover .bk-checkbox-box { border-color: var(--olive); }
+
+/* Category icon badge (round, colored) */
+.bk-cat-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+.bk-cat-badge.cat-transport { background: var(--cat-transport-bg); }
+.bk-cat-badge.cat-food      { background: var(--cat-food-bg); }
+.bk-cat-badge.cat-sights    { background: var(--cat-sights-bg); }
+.bk-cat-badge.cat-stays     { background: var(--cat-stays-bg); }
+
+/* Day + Date meta */
+.bk-meta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    min-width: 56px;
+}
+.bk-day {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.bk-date {
+    font-size: 0.82rem;
+    color: var(--charcoal);
+    font-weight: 500;
+}
+
+.bk-time {
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    font-weight: 600;
+    min-width: 48px;
+}
+
+.bk-body {
+    min-width: 0;
+}
+
+.bk-title {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+.bk-title.cat-transport { color: var(--cat-transport); }
+.bk-title.cat-food      { color: var(--cat-food); }
+.bk-title.cat-sights    { color: var(--cat-sights); }
+.bk-title.cat-stays     { color: var(--cat-stays); }
+
+/* The title is wrapped in an <a> for mobile-tap navigation. Desktop suppresses
+   the link affordance so it reads as plain text. The whole .bk-title block
+   inherits color from the cat-* class above. */
+.bk-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+.bk-title-link:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+
+.bk-hint {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.bk-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+    min-width: 200px;
+    text-align: right;
+}
+
+.bk-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.1;
+}
+.bk-price-amount {
+    font-weight: 700;
+    color: var(--charcoal);
+    font-size: 0.98rem;
+}
+.bk-price-pp {
+    font-size: 0.74rem;
+    color: var(--warm-gray);
+}
+
+.bk-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Mobile-only compact price (rendered as a sibling of .bk-body on mobile;
+   hidden on desktop where the regular .bk-right column already shows it). */
+.bk-mobile-price { display: none; }
+
+.bk-action {
+    font-size: 0.86rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--warm-gray);
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+.bk-action:hover { color: var(--terracotta); }
+.bk-action-book {
+    color: var(--terracotta);
+    font-weight: 600;
+}
+.bk-action-book:hover { color: var(--deep-wine); }
+.bk-action-itin { color: var(--venetian-blue); }
+.bk-action-dir  { color: var(--olive); }
+
+/* ----- Done state ----- */
+.bk-card.is-done .bk-title,
+.bk-card.is-done .bk-hint,
+.bk-card.is-done .bk-time,
+.bk-card.is-done .bk-meta,
+.bk-card.is-done .bk-price {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+}
+.bk-card.is-done .bk-cat-badge { opacity: 0.5; }
+.bk-card.is-done .bk-action-book { display: none; }
+.bk-card.is-done .bk-action-itin,
+.bk-card.is-done .bk-action-dir { opacity: 0.7; }
+
+/* ----- Footer buttons ----- */
+.bookings-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    padding: 32px 0 16px;
+}
+
+/* ================================
+   Bookings — Mobile (<= 1023px)
+   ================================ */
+@media (max-width: 1023px) {
+    .bookings-page .page-main { padding-top: 16px; padding-bottom: 60px; }
+
+    .bookings-hero {
+        padding: 20px 18px;
+    }
+    .bookings-hero-inner {
+        grid-template-columns: auto 1fr;
+        gap: 14px;
+    }
+    .bookings-hero-icon { width: 44px; height: 44px; font-size: 1.5rem; }
+    .bookings-hero-text h1 { font-size: 1.85rem; }
+    .bookings-hero-subtitle { font-size: 0.9rem; margin-bottom: 10px; }
+    .bookings-hero-illustration { display: none; }
+
+    .bk-filter-bar {
+        padding: 12px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .bk-filter-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+    }
+    .bk-filter-pills::-webkit-scrollbar { display: none; }
+    .bk-pill { flex-shrink: 0; padding: 6px 12px; font-size: 0.84rem; }
+    .bk-filter-controls {
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 4px;
+        border-top: 1px solid rgba(30, 58, 95, 0.08);
+    }
+
+    .bk-section-header {
+        padding: 14px 16px;
+        gap: 10px;
+    }
+    .bk-section-icon { width: 30px; height: 30px; font-size: 1rem; }
+    .bk-section-title { font-size: 1.35rem; }
+    .bk-section-count { font-size: 0.78rem; }
+
+    /* Mobile card per Figma — ultra-compact:
+       - Row 1: meta inline "Day N · Jun X · HH:MM" in small grey text
+       - Row 2: title (color-coded) on left, price on right
+       - Hint hidden on phone (mockup shows just meta + title + price)
+       - Action links hidden (tap title to navigate) */
+    .bk-card {
+        grid-template-columns: 28px 36px auto auto 1fr;
+        grid-template-areas:
+            "check  badge  meta  time  spacer"
+            "check  badge  body  body  body";
+        gap: 4px 8px;
+        padding: 14px 16px;
+        align-items: center;
+    }
+    .bk-checkbox     { grid-area: check; align-self: center; }
+    .bk-cat-badge    { grid-area: badge; width: 36px; height: 36px; align-self: center; font-size: 0.95rem; }
+
+    /* Meta is a flex-row "Day N · Jun X" using a CSS-generated dot separator. */
+    .bk-meta {
+        grid-area: meta;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 4px;
+        font-size: 0.78rem;
+        color: var(--warm-gray);
+        white-space: nowrap;
+    }
+    .bk-meta .bk-day::after {
+        content: '·';
+        margin-left: 4px;
+        color: var(--warm-gray);
+    }
+
+    /* Time slots into the next grid cell with a leading separator so the whole
+       meta line reads as one phrase without needing renderer changes. */
+    .bk-time {
+        grid-area: time;
+        font-size: 0.78rem;
+        color: var(--warm-gray);
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    .bk-time::before {
+        content: '·';
+        margin-right: 4px;
+        color: var(--warm-gray);
+    }
+
+    .bk-body         {
+        grid-area: body;
+        min-width: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .bk-title { font-size: 0.96rem; flex: 1 1 auto; min-width: 0; }
+    .bk-hint  { display: none; }   /* per Figma — hidden on phone */
+
+    /* Hide desktop price+actions wrapper; show just the compact mobile price
+       inline on the right of the body row. */
+    .bk-right        { display: none; }
+    .bk-mobile-price {
+        display: inline-block;     /* override desktop default of display:none */
+        font-weight: 700;
+        color: var(--charcoal);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .bk-day          { font-size: 0.78rem; font-weight: 600; color: var(--charcoal); }
+    .bk-date         { font-size: 0.78rem; }
+
+    /* Hero stats: tighten spacing so the inline numbers don't wrap one-per-line */
+    .bookings-hero-stats { gap: 6px; flex-wrap: wrap; line-height: 1.4; }
+    .bookings-hero-stats .stat-num { margin-right: 2px; }
+
+    .bookings-footer { padding: 20px 0 8px; flex-direction: column; align-items: stretch; }
+    .bookings-footer .cta-button { text-align: center; }
 }

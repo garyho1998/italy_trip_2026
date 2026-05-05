@@ -197,7 +197,7 @@
             .join('');
         const highlightsHtml = renderHighlights(day.highlights, lang);
         return `
-            <article class="day-card${featuredClass}" data-day="${day.number}">
+            <article class="day-card${featuredClass}" data-day="${day.number}" id="day-${day.number}">
                 <div class="day-header${themeClass}" role="button" tabindex="0" aria-expanded="false">
                     <div class="day-number">${numberPadded}</div>
                     <div class="day-info">
@@ -277,7 +277,7 @@
             const info = t(p.info, lang);
             const comment = p.comment ? `<p class="pin-comment">${t(p.comment, lang)}</p>` : '';
             const photo = p.picture
-                ? `<img class="pin-photo" src="${escapeAttr(p.picture.src.replace('w=120', 'w=400').replace('h=120', 'h=400'))}" alt="${escapeAttr(p.picture.alt || '')}">`
+                ? `<img class="pin-photo" src="${escapeAttr(p.picture.src.replace('w=120', 'w=400').replace('h=120', 'h=400').replace('width=240', 'width=600'))}" alt="${escapeAttr(p.picture.alt || '')}">`
                 : '';
             const mapsUrl = buildMapsUrl(p.location, day);
             const mapLink = mapsUrl
@@ -403,12 +403,29 @@
         }
     }
 
-    function makeNumberedIcon(numbers, isActive) {
-        const label = numbers.join(',');
-        const cls = isActive ? 'pin-bubble pin-bubble-active' : 'pin-bubble';
+    // Classify a timeline item as 'lunch' / 'dinner' / 'snack' / 'sight'.
+    // Prefers the explicit `category` field on the item; otherwise treats it as a sight.
+    function getPinCategory(item) {
+        if (!item) return 'sight';
+        const c = item.category;
+        if (c === 'lunch' || c === 'dinner' || c === 'snack') return c;
+        return 'sight';
+    }
+
+    // Per-category icon emoji (overrides the number for non-sight pins).
+    const CATEGORY_ICON = { lunch: '🍝', dinner: '🍷', snack: '🍦' };
+    const CATEGORY_CLASS = { lunch: 'pin-bubble-lunch', dinner: 'pin-bubble-dinner', snack: 'pin-bubble-snack' };
+
+    function makeNumberedIcon(numbers, isActive, category) {
+        const cat = category || 'sight';
+        const baseCls = isActive ? 'pin-bubble pin-bubble-active' : 'pin-bubble';
+        const catCls = CATEGORY_CLASS[cat] ? ' ' + CATEGORY_CLASS[cat] : '';
+        // Meal/snack pins show a food emoji instead of the number sequence —
+        // chronological ordering is already obvious from the timeline time.
+        const label = CATEGORY_ICON[cat] || numbers.join(',');
         return L.divIcon({
             className: 'map-pin-numbered',
-            html: `<div class="${cls}">${label}</div>`,
+            html: `<div class="${baseCls}${catCls}">${label}</div>`,
             iconSize: isActive ? [42, 42] : [30, 30],
             iconAnchor: isActive ? [21, 42] : [15, 30],
             popupAnchor: [0, -30]
@@ -432,6 +449,7 @@
             if (!item.location || !item.location.coords) continue;
             pinNum += 1;
             const c = item.location.coords;
+            const cat = getPinCategory(item);
             const last = groups[groups.length - 1];
             if (last
                 && Math.abs(last.coords.lat - c.lat) < 1e-6
@@ -440,11 +458,14 @@
                 last.items.push(item);
                 last.firstPinIndex = last.firstPinIndex; // unchanged
                 last.pinIndices.push(pinNum - 1);
+                // If any item in the group is a meal, prefer that category.
+                if (last.category === 'sight' && cat !== 'sight') last.category = cat;
             } else {
                 groups.push({
                     numbers: [pinNum],
                     items: [item],
                     coords: c,
+                    category: cat,
                     firstPinIndex: pinNum - 1,
                     pinIndices: [pinNum - 1]
                 });
@@ -471,7 +492,7 @@
             const ll = [g.coords.lat, g.coords.lng];
             bounds.push(ll);
             const isActive = g.pinIndices.includes(activePinIndex);
-            const marker = L.marker(ll, { icon: makeNumberedIcon(g.numbers, isActive) }).addTo(mapInstance);
+            const marker = L.marker(ll, { icon: makeNumberedIcon(g.numbers, isActive, g.category) }).addTo(mapInstance);
             marker._groupFirstPinIndex = g.firstPinIndex;
             marker.on('click', () => {
                 activePinIndex = g.firstPinIndex;
@@ -520,7 +541,7 @@
             const g = activeDayGroups[i];
             if (!g) return;
             const isActive = g.pinIndices.includes(activePinIndex);
-            marker.setIcon(makeNumberedIcon(g.numbers, isActive));
+            marker.setIcon(makeNumberedIcon(g.numbers, isActive, g.category));
         });
     }
 
@@ -818,7 +839,7 @@
             const img = e.target.closest('.spot-thumb');
             if (!img) return;
             e.stopPropagation();
-            const highRes = img.src.replace('w=120', 'w=1200').replace('h=120', 'h=1200');
+            const highRes = img.src.replace('w=120', 'w=1200').replace('h=120', 'h=1200').replace('width=240', 'width=1200').replace('width=600', 'width=1200');
             lightboxImg.src = highRes;
             lightboxCaption.textContent = img.alt;
             lightbox.classList.add('active');
@@ -848,12 +869,29 @@
         initMap();
         initSheetDrag();
         initPinCardSwipe();
+
+        // If the URL has a #day-N hash (typically from the bookings page deep-linking
+        // back to a specific day), activate that day instead of the default first day,
+        // and scroll the day card into view.
+        const hashMatch = (window.location.hash || '').match(/^#day-(\d+)$/);
         const firstDay = cachedData.days && cachedData.days[0];
-        const target = activeDayNumber != null
-            ? activeDayNumber
-            : (firstDay ? firstDay.number : null);
+        const target = hashMatch
+            ? Number(hashMatch[1])
+            : (activeDayNumber != null
+                ? activeDayNumber
+                : (firstDay ? firstDay.number : null));
         if (target != null) {
             setActiveDay(target, cachedData, getCurrentLang());
+            if (hashMatch) {
+                // Defer to next frame so the day card has been laid out post-render.
+                requestAnimationFrame(() => {
+                    const el = document.getElementById(`day-${target}`);
+                    if (el) {
+                        try { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                        catch (e) { el.scrollIntoView(); }
+                    }
+                });
+            }
         }
         setSheetState(sheetSnapState);
     }

@@ -7,29 +7,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2026-05-04f">
 </head>
 <body class="page-body">
-    <nav class="nav nav-sticky">
-        <a href="index.html" class="logo">🇮🇹 Italia 2026</a>
-        <div class="nav-links">
-            <a href="index.html" data-i18n="nav-home">Home</a>
+<header class="site-header">
+        <a class="site-header-brand" href="index.html">
+            <span class="brand-flag" aria-hidden="true">🇮🇹</span>
+            <div class="brand-text">
+                <span class="brand-title">Italy Trip</span>
+                <span class="brand-subtitle" data-i18n="site-header-subtitle">Jun 3 - Jun 13, 2026</span>
+            </div>
+            <span class="brand-chevron" aria-hidden="true">▾</span>
+        </a>
+        <nav class="site-header-nav" aria-label="Main">
+            <a href="index.html" data-i18n="nav-overview">Overview</a>
             <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
-            <a href="map.html" data-i18n="nav-route">Route</a>
-            <a href="flights.html" data-i18n="nav-flights">Flights</a>
-            <a href="budget.html" data-i18n="nav-budget">Budget</a>
-            <a href="tips.html" class="active" data-i18n="nav-tips">Tips & Packing</a>
-            <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+            <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+            <a href="tips.html" class="active" data-i18n="nav-tips">Tips</a>
+            <a href="map.html" data-i18n="nav-route">Map</a>
+        </nav>
+        <div class="site-header-controls">
+            <button class="theme-toggle" type="button" title="Theme settings coming soon" aria-label="Toggle theme" onclick="handleThemeToggle(this)">☀</button>
+            <div class="lang-switch" role="group" aria-label="Language">
+                <button class="lang-btn lang-btn-en" type="button" onclick="setLanguage('en')">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button class="lang-btn lang-btn-zh" type="button" onclick="setLanguage('zh')">繁中</button>
+            </div>
         </div>
-        <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
-    </nav>
-    <div class="mobile-nav" id="mobileNav">
-        <a href="index.html" data-i18n="nav-home">Home</a>
+        <button class="site-header-toggle" type="button" onclick="toggleMobileNav()" aria-label="Open menu">☰</button>
+    </header>
+<div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-overview">Overview</a>
         <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
-        <a href="map.html" data-i18n="nav-route">Route</a>
-        <a href="flights.html" data-i18n="nav-flights">Flights</a>
-        <a href="budget.html" data-i18n="nav-budget">Budget</a>
-        <a href="tips.html" class="active" data-i18n="nav-tips">Tips & Packing</a>
+        <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+        <a href="tips.html" class="active" data-i18n="nav-tips">Tips</a>
+        <a href="map.html" data-i18n="nav-route">Map</a>
         <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
     </div>
 
@@ -40,70 +52,6 @@
                 <h1 data-i18n="tips-title">Tips & Packing List</h1>
                 <p class="page-subtitle" data-i18n="tips-subtitle">Everything you need to know before your Italian adventure</p>
             </div>
-
-            <!-- Pre-Book Section -->
-            <section class="checklist-section">
-                <h2 data-i18n="tips-prebook-title">🎫 Must Pre-Book (Before You Go!)</h2>
-                <p class="section-intro" data-i18n="tips-prebook-intro">These attractions sell out quickly - book 2-4 weeks in advance!</p>
-                <div class="checklist-grid">
-                    <div class="checklist-item urgent">
-                        <input type="checkbox" id="book-vatican">
-                        <label for="book-vatican">
-                            <span class="checklist-title" data-i18n="tips-book-vatican">Vatican Museums + Sistine Chapel</span>
-                            <span class="checklist-detail" data-i18n="tips-book-vatican-detail">Skip-the-line essential! Book at museivaticani.va</span>
-                            <a href="https://www.museivaticani.va" target="_blank" class="checklist-link" data-i18n="tips-book-vatican-link">Book Now →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item urgent">
-                        <input type="checkbox" id="book-colosseum">
-                        <label for="book-colosseum">
-                            <span class="checklist-title" data-i18n="tips-book-colosseum">Colosseum + Roman Forum</span>
-                            <span class="checklist-detail" data-i18n="tips-book-colosseum-detail">Arena floor access requires advance booking</span>
-                            <a href="https://www.coopculture.it" target="_blank" class="checklist-link" data-i18n="tips-book-colosseum-link">Book Now →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item urgent">
-                        <input type="checkbox" id="book-segesta-tour">
-                        <label for="book-segesta-tour">
-                            <span class="checklist-title" data-i18n="tips-book-segesta">Polignano Boat Tour (Day 9)</span>
-                            <span class="checklist-detail" data-i18n="tips-book-segesta-detail">GetYourGuide sea caves & swimming tour — ~€25-35/person</span>
-                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/" target="_blank" class="checklist-link" data-i18n="tips-book-segesta-link">Book Tour →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item urgent">
-                        <input type="checkbox" id="book-etna-tour">
-                        <label for="book-etna-tour">
-                            <span class="checklist-title" data-i18n="tips-book-etna">Alberobello Guided Tour (Day 9)</span>
-                            <span class="checklist-detail" data-i18n="tips-book-etna-detail">GetYourGuide tour from Polignano — UNESCO trulli houses</span>
-                            <a href="https://www.getyourguide.com/polignano-a-mare-l96415/from-polignano-a-mare-alberobello-guided-tour-t570600/" target="_blank" class="checklist-link" data-i18n="tips-book-etna-link">Book Tour →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="book-trains">
-                        <label for="book-trains">
-                            <span class="checklist-title" data-i18n="tips-book-train">Train Tickets (Rome → Naples)</span>
-                            <span class="checklist-detail" data-i18n="tips-book-train-detail">Frecciarossa high-speed train</span>
-                            <a href="https://www.trenitalia.com/en.html" target="_blank" class="checklist-link" data-i18n="tips-book-train-link">Book Trains →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="book-internal-flight">
-                        <label for="book-internal-flight">
-                            <span class="checklist-title" data-i18n="tips-book-flight">Train Tickets (Naples→Bari, Bari→Rome)</span>
-                            <span class="checklist-detail" data-i18n="tips-book-flight-detail">Frecciarossa on Trenitalia — book early for best prices</span>
-                            <a href="https://www.trenitalia.com/en.html" target="_blank" class="checklist-link" data-i18n="tips-book-flight-link">Book Trains →</a>
-                        </label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="book-hotel">
-                        <label for="book-hotel">
-                            <span class="checklist-title" data-i18n="tips-book-hotel">Hotels (9 nights)</span>
-                            <span class="checklist-detail" data-i18n="tips-book-hotel-detail">Rome, Naples, Bari area</span>
-                            <a href="https://www.booking.com" target="_blank" class="checklist-link" data-i18n="tips-book-hotel-link">Search Hotels →</a>
-                        </label>
-                    </div>
-                </div>
-            </section>
 
             <!-- Packing List -->
             <section class="packing-section">
@@ -432,6 +380,7 @@
                 <div class="footer-nav">
                     <a href="index.html" data-i18n="nav-home">Home</a>
                     <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
                     <a href="map.html" data-i18n="nav-route">Route</a>
                     <a href="flights.html" data-i18n="nav-flights">Flights</a>
                     <a href="budget.html" data-i18n="nav-budget">Budget</a>
@@ -444,7 +393,7 @@
         </div>
     </footer>
 
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script src="translations.js?v=2026-05-04f"></script>
+    <script src="script.js?v=2026-05-04f"></script>
 </body>
 </html>

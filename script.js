@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initScrollAnimations();
     initPackingListPersistence();
-    initChecklistPersistence();
     initCountdown();
     initNavScroll();
     initLanguage();
@@ -28,7 +27,7 @@ function initMobileNav() {
     // Close mobile nav when clicking outside
     document.addEventListener('click', (e) => {
         const mobileNav = document.getElementById('mobileNav');
-        const isToggleClick = e.target.closest('.nav-toggle, .floating-nav-btn');
+        const isToggleClick = e.target.closest('.nav-toggle, .floating-nav-btn, .site-header-toggle');
 
         if (mobileNav && mobileNav.classList.contains('active')) {
             if (!mobileNav.contains(e.target) && !isToggleClick) {
@@ -36,7 +35,7 @@ function initMobileNav() {
             }
         }
     });
-    
+
     // Close mobile nav when clicking a link
     const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
     mobileNavLinks.forEach(link => {
@@ -163,47 +162,6 @@ function updatePackingStyle(checkbox) {
 }
 
 // ================================
-// Pre-Book Checklist Persistence
-// ================================
-function initChecklistPersistence() {
-    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-    const storageKey = 'italy-trip-checklist';
-    
-    if (checkboxes.length === 0) return;
-    
-    // Load saved state
-    const savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
-    
-    checkboxes.forEach((checkbox) => {
-        const id = checkbox.id;
-        
-        // Restore saved state
-        if (savedState[id]) {
-            checkbox.checked = true;
-            updateChecklistStyle(checkbox);
-        }
-        
-        // Save on change
-        checkbox.addEventListener('change', () => {
-            savedState[id] = checkbox.checked;
-            localStorage.setItem(storageKey, JSON.stringify(savedState));
-            updateChecklistStyle(checkbox);
-        });
-    });
-}
-
-function updateChecklistStyle(checkbox) {
-    const item = checkbox.closest('.checklist-item');
-    if (checkbox.checked) {
-        item.style.opacity = '0.6';
-        item.style.background = '#f0f0f0';
-    } else {
-        item.style.opacity = '1';
-        item.style.background = 'white';
-    }
-}
-
-// ================================
 // Countdown to Trip
 // ================================
 function initCountdown() {
@@ -312,13 +270,17 @@ if (document.querySelector('.hero')) {
 // Language Toggle (EN / 繁體中文)
 // ================================
 const LANG_STORAGE_KEY = 'italy-trip-lang';
-const ORIGINAL_TEXTS = {};
+// Originals are keyed by *element*, not by i18n key, because multiple elements
+// can share the same data-i18n key (e.g. nav-route appears in the top nav as
+// "Map" and in the footer nav as "Route"). Using a WeakMap also lets the
+// browser GC originals when dynamic renderers (itinerary-render.js, bookings-
+// render.js) replace their containers.
+const ORIGINAL_TEXTS = new WeakMap();
 
 function initLanguage() {
     // Store original English texts on first load
     document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        ORIGINAL_TEXTS[key] = el.innerHTML;
+        ORIGINAL_TEXTS.set(el, el.innerHTML);
     });
 
     // Apply saved language preference
@@ -349,25 +311,58 @@ function applyTranslations(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (lang === 'zh' && TRANSLATIONS[key]) {
-            // Store original if not yet stored
-            if (!ORIGINAL_TEXTS[key]) {
-                ORIGINAL_TEXTS[key] = el.innerHTML;
+            // Capture per-element original lazily on first switch to ZH.
+            if (!ORIGINAL_TEXTS.has(el)) {
+                ORIGINAL_TEXTS.set(el, el.innerHTML);
             }
             el.innerHTML = TRANSLATIONS[key];
-        } else if (lang === 'en' && ORIGINAL_TEXTS[key]) {
-            el.innerHTML = ORIGINAL_TEXTS[key];
+        } else if (lang === 'en') {
+            const original = ORIGINAL_TEXTS.get(el);
+            if (original !== undefined) {
+                el.innerHTML = original;
+            }
         }
     });
 }
 
 function updateToggleButtons(lang) {
+    // Legacy single-button toggle (still used in mobile drawer)
     document.querySelectorAll('.lang-toggle').forEach(btn => {
         btn.textContent = lang === 'en' ? '中文' : 'EN';
     });
+    // New two-button switcher (.lang-btn-en / .lang-btn-zh) — mark active
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isEnBtn = btn.classList.contains('lang-btn-en');
+        const isZhBtn = btn.classList.contains('lang-btn-zh');
+        const isActive = (lang === 'en' && isEnBtn) || (lang === 'zh' && isZhBtn);
+        btn.classList.toggle('active', isActive);
+    });
+}
+
+// Set language to a specific value (no-op if already set). Used by the
+// two-button switcher in the new site-header. Re-routes through
+// toggleLanguage() so all the side-effects (translations, countdown,
+// app-lang-change event) fire consistently.
+function setLanguage(lang) {
+    if (lang !== 'en' && lang !== 'zh') return;
+    const current = localStorage.getItem(LANG_STORAGE_KEY) || 'en';
+    if (current === lang) return;
+    toggleLanguage();
+}
+
+// Theme toggle is decorative for now — wired up so the button isn't dead,
+// but the only effect is a brief tooltip flash. When dark mode lands later
+// this function will swap stylesheets.
+function handleThemeToggle(btn) {
+    if (!btn) return;
+    btn.classList.add('theme-toggle-bumped');
+    setTimeout(() => btn.classList.remove('theme-toggle-bumped'), 600);
 }
 
 // Make toggleLanguage globally available
 window.toggleLanguage = toggleLanguage;
+window.setLanguage = setLanguage;
+window.handleThemeToggle = handleThemeToggle;
 
 // Helper: get current language
 function getCurrentLang() {

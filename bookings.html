@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itinerary | Italia Avventura 2026</title>
+    <title>Bookings | Italia Avventura 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <link rel="stylesheet" href="styles.css?v=2026-05-04f">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
 </head>
-<body class="page-body itinerary-page">
+<body class="page-body bookings-page">
 <header class="site-header">
         <a class="site-header-brand" href="index.html">
             <span class="brand-flag" aria-hidden="true">🇮🇹</span>
@@ -23,8 +21,8 @@
         </a>
         <nav class="site-header-nav" aria-label="Main">
             <a href="index.html" data-i18n="nav-overview">Overview</a>
-            <a href="itinerary.html" class="active" data-i18n="nav-itinerary">Itinerary</a>
-            <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="bookings.html" class="active" data-i18n="nav-bookings">Bookings</a>
             <a href="tips.html" data-i18n="nav-tips">Tips</a>
             <a href="map.html" data-i18n="nav-route">Map</a>
         </nav>
@@ -40,25 +38,18 @@
     </header>
 <div class="mobile-nav" id="mobileNav">
         <a href="index.html" data-i18n="nav-overview">Overview</a>
-        <a href="itinerary.html" class="active" data-i18n="nav-itinerary">Itinerary</a>
-        <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+        <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="bookings.html" class="active" data-i18n="nav-bookings">Bookings</a>
         <a href="tips.html" data-i18n="nav-tips">Tips</a>
         <a href="map.html" data-i18n="nav-route">Map</a>
         <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
     </div>
 
 <main class="page-main">
-        <div class="container" id="itinerary-app">
-            <!-- Rendered by itinerary-render.js from data/itinerary.json -->
+        <div class="container" id="bookings-app">
+            <!-- Rendered by bookings-render.js from data/itinerary.json -->
         </div>
     </main>
-
-    <!-- Lightbox for full-size images -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-    </div>
 
     <footer class="footer">
         <div class="container">
@@ -85,6 +76,6 @@
 
     <script src="translations.js?v=2026-05-04f"></script>
     <script src="script.js?v=2026-05-04f"></script>
-    <script src="itinerary-render.js?v=2026-05-04f"></script>
+    <script src="bookings-render.js?v=2026-05-04f"></script>
 </body>
 </html>
