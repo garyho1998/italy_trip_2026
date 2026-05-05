@@ -16,6 +16,18 @@
     const DONE_KEY = 'italy-trip-bookings';
     const FILTER_KEY = 'italy-trip-bookings-filters'; // remembered across page loads
 
+    // Firestore — used as the source of truth for booking done-state across devices.
+    // localStorage is a write-through cache for instant UX + offline resilience.
+    const FIREBASE_PROJECT = 'trip-webapp-de677';
+    const TRIP_ID = 'italy-2026';
+    const FIRESTORE_BASE =
+        `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT}` +
+        `/databases/(default)/documents/trips/${TRIP_ID}/bookings`;
+    // Doc-id safe-form: "3-13:00" -> "3-13-00" (avoid colons in URL paths)
+    const docIdFor = (id) => id.replace(/:/g, '-');
+    // Reverse: "3-13-00" -> "3-13:00" (last "-DD" becomes ":DD" for time)
+    const idFromDoc = (safeId) => safeId.replace(/^(\d+)-(\d+)-(\d+)$/, '$1-$2:$3');
+
     const URGENCY_ORDER = ['now', 'soon', 'casual'];
     const URGENCY_ICONS = { now: '⚡', soon: '⏰', casual: '🚶' };
 
@@ -120,7 +132,9 @@
             && ALL_PILLS.every(p => filterState.pills.includes(p));
     }
 
-    // localStorage merging for done state
+    // ================================
+    // Storage layer — Firestore (truth) + localStorage (cache)
+    // ================================
     function loadDoneOverrides() {
         try {
             const raw = localStorage.getItem(DONE_KEY);
@@ -128,13 +142,71 @@
         } catch (e) { return {}; }
     }
     function setDoneOverride(id, value) {
+        // Write-through: cache locally first (instant UX), then push to Firestore.
         const map = loadDoneOverrides();
         map[id] = value;
         try { localStorage.setItem(DONE_KEY, JSON.stringify(map)); } catch (e) {}
+        writeFirestoreDone(id, value).catch(err =>
+            console.warn('[bookings] Firestore write failed (kept locally):', err));
     }
     function effectiveDone(id, jsonDone) {
         const map = loadDoneOverrides();
         return Object.prototype.hasOwnProperty.call(map, id) ? !!map[id] : !!jsonDone;
+    }
+
+    // Fetch the entire bookings collection in one round-trip.
+    async function fetchFirestoreOverrides() {
+        const res = await fetch(FIRESTORE_BASE);
+        if (!res.ok) {
+            if (res.status === 404) return {}; // empty collection
+            throw new Error(`Firestore read failed: HTTP ${res.status}`);
+        }
+        const json = await res.json();
+        const out = {};
+        for (const doc of (json.documents || [])) {
+            // doc.name = "projects/.../bookings/3-13-00"
+            const safeId = doc.name.split('/').pop();
+            const id = idFromDoc(safeId);
+            const fields = doc.fields || {};
+            if (fields.done && typeof fields.done.booleanValue === 'boolean') {
+                out[id] = fields.done.booleanValue;
+            }
+        }
+        return out;
+    }
+
+    // PATCH = create-or-update for a single booking doc.
+    async function writeFirestoreDone(id, value) {
+        const url = `${FIRESTORE_BASE}/${docIdFor(id)}`;
+        const body = JSON.stringify({
+            fields: {
+                done: { booleanValue: !!value },
+                updatedAt: { timestampValue: new Date().toISOString() }
+            }
+        });
+        const res = await fetch(url, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    }
+
+    // Called once on page load AFTER the initial JSON+cache render.
+    // Merges remote state in, refreshes cache + UI if anything changed.
+    async function syncFromFirestoreAndRerender() {
+        try {
+            const remote = await fetchFirestoreOverrides();
+            const local = loadDoneOverrides();
+            const merged = Object.assign({}, local, remote); // remote wins on conflict
+            const changed = JSON.stringify(merged) !== JSON.stringify(local);
+            if (changed) {
+                try { localStorage.setItem(DONE_KEY, JSON.stringify(merged)); } catch (e) {}
+                renderAll();
+            }
+        } catch (err) {
+            console.warn('[bookings] Firestore sync skipped (offline or error):', err);
+        }
     }
 
     // ================================
@@ -563,6 +635,9 @@
             cachedData = await loadItinerary();
             renderAll();
             initDelegatedEvents();
+            // Fire-and-forget: instant first paint from JSON+cache, then upgrade
+            // with Firestore data if/when it arrives.
+            syncFromFirestoreAndRerender();
         } catch (err) {
             console.error('Bookings load failed:', err);
             renderError(err);
