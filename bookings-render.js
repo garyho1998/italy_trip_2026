@@ -347,6 +347,19 @@
     // ================================
     // Render — section + cards
     // ================================
+    function renderAllDoneBanner(lang) {
+        const allDoneLabel = tr('bookings.empty.allDone', lang, '🎉 All booked!');
+        const subtitle = tr('bookings.empty.allDoneSubtitle', lang,
+            'Great job! Nothing in this section needs booking.');
+        const labelText = allDoneLabel.replace(/^🎉\s*/, '');
+        return `
+            <div class="bk-section-celebrate-banner" role="status">
+                <span class="bk-celebrate-icon" aria-hidden="true">🎉</span>
+                <span class="bk-celebrate-text">${escapeAttr(labelText)}</span>
+                <span class="bk-celebrate-subtitle">${escapeAttr(subtitle)}</span>
+            </div>`;
+    }
+
     function renderSection(urgency, entries, lang) {
         // entries already filtered + sorted (chronological by trip day)
         const total = entries.length;
@@ -366,23 +379,10 @@
         if (total === 0) {
             // Section has no items at all (e.g. filter excludes everything)
             body = `<div class="bk-section-empty">—</div>`;
-        } else if (allDone) {
-            const allDoneLabel = tr('bookings.empty.allDone', lang, '🎉 All booked!');
-            const subtitle = tr('bookings.empty.allDoneSubtitle', lang,
-                'Great job! Nothing in this section needs booking.');
-            // Per Figma, the celebrate state is a single inline "🎉 All booked!"
-            // line followed by a small grey subtitle — no decorative confetti.
-            const labelText = allDoneLabel.replace(/^🎉\s*/, '');
-            body = `
-                <div class="bk-section-celebrate">
-                    <div class="bk-celebrate-icon-row">
-                        <span class="bk-celebrate-icon" aria-hidden="true">🎉</span>
-                        <span class="bk-celebrate-text">${escapeAttr(labelText)}</span>
-                    </div>
-                    <div class="bk-celebrate-subtitle">${escapeAttr(subtitle)}</div>
-                </div>`;
         } else {
-            body = entries.map(e => renderCard(e, lang)).join('');
+            const cards = entries.map(e => renderCard(e, lang)).join('');
+            const banner = allDone ? renderAllDoneBanner(lang) : '';
+            body = `${banner}${cards}`;
         }
 
         return `

@@ -3890,6 +3890,39 @@ section {
     margin-top: 4px;
 }
 
+/* Compact banner variant — rendered ABOVE cards when all entries are done
+   (so done items remain visible when "Hide done" is OFF). */
+.bk-section-celebrate-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    margin: 0 18px 12px;
+    border-radius: 10px;
+    background: rgba(74, 93, 35, 0.07);
+}
+.bk-section-celebrate-banner .bk-celebrate-icon {
+    font-size: 1.2rem;
+}
+.bk-section-celebrate-banner .bk-celebrate-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--olive);
+    font-weight: 600;
+    line-height: 1.1;
+}
+.bk-section-celebrate-banner .bk-celebrate-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    margin-top: 0;
+}
+@media (max-width: 480px) {
+    .bk-section-celebrate-banner { margin: 0 12px 10px; padding: 10px 14px; }
+    .bk-section-celebrate-banner .bk-celebrate-subtitle { flex-basis: 100%; }
+}
+
 /* ----- Card ----- */
 .bk-card {
     display: grid;
