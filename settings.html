@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Italia Avventura 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2026-05-06c">
+</head>
+<body class="page-body">
+    <header class="site-header">
+        <a class="site-header-brand" href="index.html">
+            <span class="brand-flag" aria-hidden="true">🇮🇹</span>
+            <div class="brand-text">
+                <span class="brand-title">Italy Trip</span>
+                <span class="brand-subtitle" data-i18n="site-header-subtitle">Jun 3 - Jun 13, 2026</span>
+            </div>
+            <span class="brand-chevron" aria-hidden="true">▾</span>
+        </a>
+        <nav class="site-header-nav" aria-label="Main">
+            <a href="index.html" data-i18n="nav-overview">Overview</a>
+            <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+            <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+            <a href="budget.html" data-i18n="nav-budget">Budget</a>
+            <a href="tips.html" data-i18n="nav-tips">Tips</a>
+            <a href="map.html" data-i18n="nav-route">Map</a>
+            <a href="settings.html" data-i18n="nav-settings" class="active">Settings</a>
+        </nav>
+        <div class="site-header-controls">
+            <button class="theme-toggle" type="button" title="Theme settings coming soon" aria-label="Toggle theme" onclick="handleThemeToggle(this)">☀</button>
+            <div class="lang-switch" role="group" aria-label="Language">
+                <button class="lang-btn lang-btn-en" type="button" onclick="setLanguage('en')">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button class="lang-btn lang-btn-zh" type="button" onclick="setLanguage('zh')">繁中</button>
+            </div>
+        </div>
+        <button class="site-header-toggle" type="button" onclick="toggleMobileNav()" aria-label="Open menu">☰</button>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" data-i18n="nav-overview">Overview</a>
+        <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+        <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
+        <a href="tips.html" data-i18n="nav-tips">Tips</a>
+        <a href="map.html" data-i18n="nav-route">Map</a>
+        <a href="settings.html" data-i18n="nav-settings">Settings</a>
+        <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
+    </div>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header">
+                <span class="section-tag" data-i18n="settings-tag">⚙️ Trip Settings</span>
+                <h1 data-i18n="settings-title">Settings</h1>
+                <p class="page-subtitle" data-i18n="settings-subtitle">Travelers, currency, language</p>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-row">
+                    <label class="settings-label" for="travelers-input" data-i18n="settings-travelers-label">Travelers</label>
+                    <p class="settings-hint" data-i18n="settings-travelers-hint">Used to compute per-person totals on the budget page. Synced across devices.</p>
+                    <input id="travelers-input" type="number" min="1" max="20" step="1" value="6" class="settings-input">
+                    <span class="settings-status" id="travelers-status"></span>
+                </div>
+
+                <div class="settings-row">
+                    <label class="settings-label" data-i18n="settings-display-mode-label">Budget display mode</label>
+                    <p class="settings-hint" data-i18n="settings-display-mode-hint">Switch between group total and per-person amounts on the budget page. Saved to this device only.</p>
+                    <div class="settings-mode-toggle" role="group" aria-label="Display mode">
+                        <button id="mode-total-btn" type="button" class="settings-mode-btn">Total</button>
+                        <button id="mode-pp-btn" type="button" class="settings-mode-btn">Per person</button>
+                    </div>
+                </div>
+
+                <div class="settings-row">
+                    <label class="settings-label" for="default-currency-select" data-i18n="settings-currency-label">Default input currency</label>
+                    <p class="settings-hint" data-i18n="settings-currency-hint">Pre-selected when adding a new budget item. Saved to this device only.</p>
+                    <select id="default-currency-select" class="settings-input">
+                        <option value="EUR">EUR (€)</option>
+                        <option value="HKD">HKD (HK$)</option>
+                    </select>
+                    <span class="settings-status" id="currency-status"></span>
+                </div>
+
+                <div class="settings-row">
+                    <label class="settings-label" for="language-select" data-i18n="settings-language-label">Language</label>
+                    <p class="settings-hint" data-i18n="settings-language-hint">Saved to this device only.</p>
+                    <select id="language-select" class="settings-input">
+                        <option value="en">English</option>
+                        <option value="zh">繁體中文</option>
+                    </select>
+                </div>
+
+                <div class="settings-row">
+                    <label class="settings-label" data-i18n="settings-fx-label">Exchange rate (EUR → HKD)</label>
+                    <p class="settings-hint" data-i18n="settings-fx-hint">Live rate from frankfurter.app, cached 24 hours. Falls back to 9.16 if offline.</p>
+                    <div class="settings-fx-row">
+                        <span class="settings-fx-display" id="fx-display">…</span>
+                        <button id="fx-refresh-btn" type="button" class="settings-btn" data-i18n="settings-fx-refresh">Refresh now</button>
+                    </div>
+                    <span class="settings-status" id="fx-status"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🇮🇹 Italia Avventura 2026</h3>
+                    <p data-i18n="footer-cities">Rome • Naples • Puglia</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html" data-i18n="nav-home">Home</a>
+                    <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
+                    <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+                    <a href="map.html" data-i18n="nav-route">Route</a>
+                    <a href="flights.html" data-i18n="nav-flights">Flights</a>
+                    <a href="budget.html" data-i18n="nav-budget">Budget</a>
+                    <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                    <a href="settings.html" data-i18n="nav-settings">Settings</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-bottom">June 3-13, 2026 • 6 Travelers • Buon viaggio! 🍷</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js?v=2026-05-05b"></script>
+    <script src="script.js?v=2026-05-05b"></script>
+    <script>
+    (function () {
+        const LANG_KEY = 'italy-trip-lang';
+        const TRAVELERS_KEY = 'italy-trip-budget-travelers';
+        const DEFAULT_CURRENCY_KEY = 'italy-trip-default-currency';
+        const FIREBASE_PROJECT = 'trip-webapp-de677';
+        const TRIP_ID = 'italy-2026';
+        const FIRESTORE_DOC = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT}/databases/(default)/documents/trips/${TRIP_ID}`;
+
+        function $(id) { return document.getElementById(id); }
+        function setStatus(el, msg, ok = true) {
+            if (!el) return;
+            el.textContent = msg || '';
+            el.classList.toggle('ok', !!msg && ok);
+            el.classList.toggle('err', !!msg && !ok);
+            if (msg) {
+                clearTimeout(el._fade);
+                el._fade = setTimeout(() => { el.textContent = ''; }, 2200);
+            }
+        }
+
+        // ---- Travelers (Firestore via PATCH with updateMask) ----
+        async function loadTravelers() {
+            // Local cache first
+            const cached = Number(localStorage.getItem(TRAVELERS_KEY));
+            if (cached > 0) $('travelers-input').value = String(cached);
+
+            try {
+                const res = await fetch(FIRESTORE_DOC);
+                if (!res.ok) return;
+                const j = await res.json();
+                const f = j.fields && j.fields.travelers;
+                if (f && (f.integerValue || f.doubleValue)) {
+                    const n = Number(f.integerValue || f.doubleValue);
+                    if (n > 0) {
+                        $('travelers-input').value = String(n);
+                        try { localStorage.setItem(TRAVELERS_KEY, String(n)); } catch (e) {}
+                    }
+                }
+            } catch (e) { console.warn('travelers load:', e.message); }
+        }
+
+        async function saveTravelers(n) {
+            try { localStorage.setItem(TRAVELERS_KEY, String(n)); } catch (e) {}
+            // Use updateMask so we only touch the travelers field
+            const url = `${FIRESTORE_DOC}?updateMask.fieldPaths=travelers`;
+            const body = JSON.stringify({ fields: { travelers: { integerValue: String(n) } } });
+            const res = await fetch(url, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        }
+
+        $('travelers-input').addEventListener('change', async (e) => {
+            const n = Number(e.target.value);
+            if (!(n >= 1 && n <= 20)) {
+                setStatus($('travelers-status'), 'Must be 1–20', false);
+                return;
+            }
+            try {
+                await saveTravelers(n);
+                setStatus($('travelers-status'), '✓ Saved', true);
+            } catch (err) {
+                setStatus($('travelers-status'), 'Saved locally; sync failed', false);
+            }
+        });
+
+        // ---- Display mode (Total / Per person, localStorage) ----
+        const PER_PERSON_KEY = 'italy-trip-budget-per-person';
+        function readPerPerson() {
+            try {
+                const raw = localStorage.getItem(PER_PERSON_KEY);
+                return raw ? JSON.parse(raw) : false;
+            } catch (e) { return false; }
+        }
+        function applyModeUI() {
+            const pp = readPerPerson();
+            $('mode-total-btn').classList.toggle('active', !pp);
+            $('mode-pp-btn').classList.toggle('active', pp);
+        }
+        $('mode-total-btn').addEventListener('click', () => {
+            try { localStorage.setItem(PER_PERSON_KEY, JSON.stringify(false)); } catch (e) {}
+            applyModeUI();
+        });
+        $('mode-pp-btn').addEventListener('click', () => {
+            try { localStorage.setItem(PER_PERSON_KEY, JSON.stringify(true)); } catch (e) {}
+            applyModeUI();
+        });
+        applyModeUI();
+
+        // ---- Default currency (localStorage) ----
+        $('default-currency-select').value = localStorage.getItem(DEFAULT_CURRENCY_KEY) || 'EUR';
+        $('default-currency-select').addEventListener('change', (e) => {
+            try { localStorage.setItem(DEFAULT_CURRENCY_KEY, e.target.value); } catch (err) {}
+            setStatus($('currency-status'), '✓ Saved', true);
+        });
+
+        // ---- Language (localStorage, existing key) ----
+        $('language-select').value = localStorage.getItem(LANG_KEY) || 'en';
+        $('language-select').addEventListener('change', (e) => {
+            const v = e.target.value;
+            // Use script.js global so all the side-effects (translations, event,
+            // toggle button state) fire consistently
+            if (typeof setLanguage === 'function') {
+                setLanguage(v);
+            } else {
+                try { localStorage.setItem(LANG_KEY, v); } catch (err) {}
+            }
+        });
+
+        // ---- FX rate ----
+        async function refreshFxDisplay(force = false) {
+            $('fx-display').textContent = '…';
+            try {
+                const { rate, source, fetchedAt } = await getFxEurToHkd({ forceRefresh: force });
+                const ago = fetchedAt ? Math.round((Date.now() - fetchedAt) / 60000) + ' min ago' : 'fallback';
+                $('fx-display').textContent = `EUR 1 = HKD ${rate.toFixed(4)}  (${source}, ${ago})`;
+            } catch (e) {
+                $('fx-display').textContent = `(${e.message})`;
+            }
+        }
+        $('fx-refresh-btn').addEventListener('click', async () => {
+            await refreshFxDisplay(true);
+            setStatus($('fx-status'), '✓ Refreshed', true);
+        });
+
+        // Init
+        loadTravelers();
+        refreshFxDisplay(false);
+    })();
+    </script>
+</body>
+</html>

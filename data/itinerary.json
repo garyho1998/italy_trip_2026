@@ -60,7 +60,9 @@
         "coords": {
           "lat": 41.8886,
           "lng": 12.5144
-        }
+        },
+        "budgetAmount": 1350,
+        "budgetCurrency": "EUR"
       },
       "timeline": [
         {
@@ -137,6 +139,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -293,6 +299,10 @@
               "en": "Reserve 2-3 days ahead via TheFork or phone",
               "zh": "提前2-3天透過 TheFork 或電話訂位"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -365,6 +375,10 @@
               "en": "Reserve 1-2 days ahead — popular Trastevere spot",
               "zh": "提前1-2天訂位 — 熱門 Trastevere 餐廳"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -429,8 +443,8 @@
             "zh": "早鳥入場導覽團 — 在早上8點公眾開放前進入，幾乎包場欣賞西斯廷禮拜堂！"
           },
           "price": {
-            "amount": "€50-75",
-            "perPerson": true,
+            "amount": 450,
+            "currency": "EUR",
             "note": {
               "en": "Early Entry + Guide, ~3h",
               "zh": "早鳥入場 + 導遊，約3小時"
@@ -573,6 +587,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -641,6 +659,10 @@
               "en": "Buy timed-entry ticket online to skip queue",
               "zh": "網上購買限時入場券免排隊"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -714,6 +736,10 @@
               "en": "Reserve 1-2 days ahead — small trattoria",
               "zh": "提前1-2天訂位 — 小型 trattoria"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -1015,8 +1041,8 @@
             "zh": "📞 網上訂位 — 30日預訂窗口，6月5日由5月6日開始可訂。🥈 後備：鮮花廣場的 La Carbonara（隨時可喺 Quandoo 訂，€15 培根蛋麵，Gambero Rosso 前十名）。"
           },
           "price": {
-            "amount": "€20-25",
-            "perPerson": true,
+            "amount": 150,
+            "currency": "EUR",
             "note": {
               "en": "Carbonara €14 + drink + tip; no card hold",
               "zh": "培根蛋麵 €14 + 飲品 + 小費；唔使預授權"
@@ -1158,6 +1184,10 @@
               "en": "Reserve 2-3 days ahead for 20:30",
               "zh": "提前2-3天預訂 20:30 時段"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -1210,7 +1240,9 @@
         "coords": {
           "lat": 40.8499,
           "lng": 14.2575
-        }
+        },
+        "budgetAmount": 1440,
+        "budgetCurrency": "EUR"
       },
       "timeline": [
         {
@@ -1260,6 +1292,14 @@
             "hint": {
               "en": "Book Frecciarossa via Trenitalia or Italo — earlier = cheaper",
               "zh": "在 Trenitalia 或 Italo 預訂 Frecciarossa — 越早越平"
+            }
+          },
+          "price": {
+            "amount": 132,
+            "currency": "EUR",
+            "note": {
+              "en": "Trenitalia €21.90/pp booked",
+              "zh": "Trenitalia €21.90/pp booked"
             }
           }
         },
@@ -1325,6 +1365,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -1366,6 +1410,10 @@
               "en": "Covered by Campania Artecard 3-day pass",
               "zh": "Campania Artecard 三日券已包含"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -1388,8 +1436,8 @@
             "zh": "📞 必須網上預訂 — 提前60天開放，時段秒殺。星期二休館。開放時間 9am-7pm（最後入場 6:30pm）。室內禁止拍照。"
           },
           "price": {
-            "amount": "€10",
-            "perPerson": true,
+            "amount": 60,
+            "currency": "EUR",
             "note": {
               "en": "Adult €10 + optional audio guide €3.50",
               "zh": "成人 €10 + 語音導覽 €3.50（自選）"
@@ -1494,6 +1542,10 @@
               "en": "Covered by Campania Artecard; €5 standalone",
               "zh": "Campania Artecard 已包含；單獨購票 €5"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -1536,6 +1588,10 @@
               "en": "Reserve via TheFork — small seafood spot",
               "zh": "透過 TheFork 預訂 — 小型海鮮餐廳"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -1630,6 +1686,14 @@
               "en": "Book Caremar/SNAV ferry day before; arrive 30 min early",
               "zh": "前一天預訂 Caremar/SNAV 渡輪；提前30分鐘到達"
             }
+          },
+          "price": {
+            "amount": 240,
+            "currency": "EUR",
+            "note": {
+              "en": "Caremar/SNAV round-trip €30-50/pp",
+              "zh": "Caremar/SNAV round-trip €30-50/pp"
+            }
           }
         },
         {
@@ -1675,6 +1739,14 @@
               "en": "Weather-dependent — closed in rough sea; backup: round-island boat",
               "zh": "視天氣而定 — 海浪大會關閉；備案：環島遊船"
             }
+          },
+          "price": {
+            "amount": 150,
+            "currency": "EUR",
+            "note": {
+              "en": "Entry + boat €18-25/pp",
+              "zh": "Entry + boat €18-25/pp"
+            }
           }
         },
         {
@@ -1707,6 +1779,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -1778,6 +1854,14 @@
               "en": "Buy chairlift ticket at base — €14 round-trip",
               "zh": "纜車票於山腳購買 — 來回 €14"
             }
+          },
+          "price": {
+            "amount": 108,
+            "currency": "EUR",
+            "note": {
+              "en": "Monte Solaro chairlift €18/pp",
+              "zh": "Monte Solaro chairlift €18/pp"
+            }
           }
         },
         {
@@ -1814,6 +1898,10 @@
               "en": "Villa San Michele entrance €10 — buy at gate",
               "zh": "聖米歇爾別墅入場 €10 — 現場購票"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -1876,6 +1964,10 @@
               "en": "Reserve same morning",
               "zh": "當日早上訂位"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -2094,6 +2186,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2174,6 +2270,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -2268,6 +2368,10 @@
             "required": false,
             "done": true,
             "description": "Buy Circumvesuviana ticket at Napoli Centrale — €3.50"
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2290,8 +2394,8 @@
             "zh": "🏛️ 必看：廣場、牧神之屋、圓形劇場、秘儀莊園。至少預留3-4小時！"
           },
           "price": {
-            "amount": "€18",
-            "perPerson": true,
+            "amount": 108,
+            "currency": "EUR",
             "note": {
               "en": "Book ahead to skip queues",
               "zh": "提前預訂免排隊"
@@ -2356,6 +2460,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2410,8 +2518,8 @@
             "zh": "📞 一樓不接受訂位 — 19:30 抵達避開人潮。樓上可預訂。"
           },
           "price": {
-            "amount": "€8-12",
-            "perPerson": true,
+            "amount": 72,
+            "currency": "EUR",
             "note": {
               "en": "Pizza + drink",
               "zh": "薄餅 + 飲料"
@@ -2480,7 +2588,9 @@
         "coords": {
           "lat": 41.1269,
           "lng": 16.866
-        }
+        },
+        "budgetAmount": 480,
+        "budgetCurrency": "EUR"
       },
       "timeline": [
         {
@@ -2531,6 +2641,14 @@
               "en": "MarinoBus Naples → Bari already booked",
               "zh": "MarinoBus 拿坡里 → 巴里 已預訂"
             }
+          },
+          "price": {
+            "amount": 90,
+            "currency": "EUR",
+            "note": {
+              "en": "MarinoBus €14.83/pp booked",
+              "zh": "MarinoBus €14.83/pp booked"
+            }
           }
         },
         {
@@ -2567,6 +2685,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2608,6 +2730,10 @@
               "en": "Buy regional train Bari→Polignano — €3, day-of",
               "zh": "區域火車 Bari→Polignano — €3，當日購票"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2677,6 +2803,10 @@
               "en": "Reserve 1-2 days ahead — cliff-edge dinner spot",
               "zh": "提前1-2天訂位 — 懸崖邊餐廳"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -2764,8 +2894,8 @@
             "zh": "從巴里搭火車（約20分鐘），再從海上探索 Polignano 壯觀的海蝕洞 — 在隱秘海灣暢泳，從海上欣賞 Lama Monachile！"
           },
           "price": {
-            "amount": "€25-35",
-            "perPerson": true,
+            "amount": 210,
+            "currency": "EUR",
             "note": {
               "en": "~1.5h boat tour",
               "zh": "約1.5小時遊船"
@@ -2830,6 +2960,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -2870,6 +3004,14 @@
             "hint": {
               "en": "Book guided Alberobello tour from Bari — half-day",
               "zh": "預訂從巴里出發的阿爾貝羅貝洛半日導覽團"
+            }
+          },
+          "price": {
+            "amount": 210,
+            "currency": "EUR",
+            "note": {
+              "en": "GetYourGuide tour ~€25-35/pp",
+              "zh": "GetYourGuide tour ~€25-35/pp"
             }
           }
         },
@@ -2939,6 +3081,10 @@
               "en": "Reserve for last Bari dinner",
               "zh": "預訂巴里最後一頓晚餐"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -2987,7 +3133,9 @@
         "coords": {
           "lat": 41.8987,
           "lng": 12.5008
-        }
+        },
+        "budgetAmount": 390,
+        "budgetCurrency": "EUR"
       },
       "timeline": [
         {
@@ -3071,6 +3219,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -3120,6 +3272,14 @@
             "hint": {
               "en": "FlixBus Bari → Rome — booked, €14.66/person",
               "zh": "FlixBus 巴里 → 羅馬 — 已預訂，每人 €14.66"
+            }
+          },
+          "price": {
+            "amount": 90,
+            "currency": "EUR",
+            "note": {
+              "en": "FlixBus €14.66/pp booked",
+              "zh": "FlixBus €14.66/pp booked"
             }
           }
         },
@@ -3194,6 +3354,10 @@
               "en": "Reserve ahead — popular before train departures",
               "zh": "提前訂位 — 火車離站前人氣旺"
             }
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -3227,6 +3391,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         }
       ],
@@ -3312,6 +3480,10 @@
             "required": false,
             "done": true,
             "description": null
+          },
+          "price": {
+            "amount": null,
+            "currency": "EUR"
           }
         },
         {
@@ -3370,5 +3542,37 @@
         }
       ]
     }
-  ]
+  ],
+  "travelers": 6,
+  "preTrip": {
+    "title": {
+      "en": "Pre-trip",
+      "zh": "出發前"
+    },
+    "date": {
+      "en": "June 2, Tuesday",
+      "zh": "6月2日，星期二"
+    },
+    "timeline": [
+      {
+        "time": "23:50",
+        "activity": {
+          "en": "✈️ Cathay CX293 — HK → Rome (round trip incl. CX292 return)",
+          "zh": "✈️ 國泰 CX293 — 香港 → 羅馬（來回機票，包括 CX292 回程）"
+        },
+        "info": {
+          "en": "HKG 23:50 (Jun 2) → FCO 06:30 (Jun 3). Return: CX292 Jun 13. Booking ref: E22Y7L.",
+          "zh": "HKG 23:50（6月2日） → FCO 06:30（6月3日）。回程：CX292 6月13日。預訂編號：E22Y7L。"
+        },
+        "price": {
+          "amount": 49590,
+          "currency": "HKD",
+          "note": {
+            "en": "Cathay round-trip × 6 (HKD 8,265/pp, ref E22Y7L)",
+            "zh": "國泰來回 × 6（每人 HKD 8,265，預訂編號 E22Y7L）"
+          }
+        }
+      }
+    ]
+  }
 }

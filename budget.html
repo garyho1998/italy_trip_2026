@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2026-05-04f">
+    <link rel="stylesheet" href="styles.css?v=2026-05-06c">
 </head>
 <body class="page-body">
-<header class="site-header">
+    <header class="site-header">
         <a class="site-header-brand" href="index.html">
             <span class="brand-flag" aria-hidden="true">🇮🇹</span>
             <div class="brand-text">
@@ -23,8 +23,10 @@
             <a href="index.html" data-i18n="nav-overview">Overview</a>
             <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
             <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+            <a href="budget.html" data-i18n="nav-budget" class="active">Budget</a>
             <a href="tips.html" data-i18n="nav-tips">Tips</a>
             <a href="map.html" data-i18n="nav-route">Map</a>
+            <a href="settings.html" data-i18n="nav-settings">Settings</a>
         </nav>
         <div class="site-header-controls">
             <button class="theme-toggle" type="button" title="Theme settings coming soon" aria-label="Toggle theme" onclick="handleThemeToggle(this)">☀</button>
@@ -36,323 +38,20 @@
         </div>
         <button class="site-header-toggle" type="button" onclick="toggleMobileNav()" aria-label="Open menu">☰</button>
     </header>
-<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav">
         <a href="index.html" data-i18n="nav-overview">Overview</a>
         <a href="itinerary.html" data-i18n="nav-itinerary">Itinerary</a>
         <a href="bookings.html" data-i18n="nav-bookings">Bookings</a>
+        <a href="budget.html" data-i18n="nav-budget">Budget</a>
         <a href="tips.html" data-i18n="nav-tips">Tips</a>
         <a href="map.html" data-i18n="nav-route">Map</a>
+        <a href="settings.html" data-i18n="nav-settings">Settings</a>
         <button class="lang-toggle" onclick="toggleLanguage()">中文</button>
     </div>
 
     <main class="page-main">
         <div class="container">
-            <div class="page-header">
-                <span class="section-tag" data-i18n="budg-tag">💰 Trip Budget</span>
-                <h1 data-i18n="budg-title">Cost Breakdown</h1>
-                <p class="page-subtitle" data-i18n="budg-subtitle">Per person estimate for 10 days</p>
-            </div>
-
-            <!-- Budget Hero -->
-            <div class="budget-hero">
-                <div class="budget-total">
-                    <span class="budget-label" data-i18n="budg-hero-label">Estimated Total Per Person</span>
-                    <span class="budget-amount-big">HKD 22,000</span>
-                    <span class="budget-euro" data-i18n="budg-hero-euro">~€2,585</span>
-                </div>
-                <div class="budget-group">
-                    <span class="group-label" data-i18n="budg-group-label">Total for 6 People</span>
-                    <span class="group-amount">HKD 131,790</span>
-                </div>
-            </div>
-
-            <!-- Budget Cards -->
-            <div class="budget-grid">
-                <!-- Flights -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">✈️</span>
-                        <h4 data-i18n="budg-intl-flights">International Flights</h4>
-                    </div>
-                    <p class="budget-amount">HKD 8,265</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-intl-out">HKG ↔ Rome round trip (Cathay Pacific CX293/CX292)</span>
-                            <span>HKD 8,265</span>
-                        </div>
-                    </div>
-                    <p class="budget-note" data-i18n="budg-intl-note">💡 Cathay Pacific confirmed booking (Feb 2026) • Ref: E22Y7L</p>
-                </div>
-
-                <!-- Transport -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">🚄🚌🚕</span>
-                        <h4 data-i18n="budg-transport">Internal Transport</h4>
-                    </div>
-                    <p class="budget-amount">HKD 1,100-1,500</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span><a href="https://www.trenitalia.com/en.html" target="_blank" data-i18n="budg-tr-train">🚄 Rome → Naples (Intercity 727) ✓ Booked</a></span>
-                            <span>€21.90</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.marinobus.it/" target="_blank" data-i18n="budg-tr-puglia">🚌 Naples → Bari (MarinoBus) ✓ Booked</a></span>
-                            <span>€14.83</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-tr-polignano">🚄 Bari ↔ Polignano (Regional, both ways)</span>
-                            <span>€7-8</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.flixbus.com/" target="_blank" data-i18n="budg-tr-return">🚌 Bari → Rome (FlixBus, direct 5h 50m) ✓ Booked</a></span>
-                            <span>€14.66</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.capri.com/en/ferry-schedule" target="_blank" data-i18n="budg-tr-ferry">⛴️ Ferry Naples ↔ Capri — to book</a></span>
-                            <span>€25-40</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-tr-fco">🚆 Friend's Leonardo Express FCO → Termini</span>
-                            <span>€14</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-tr-local">🚕 Local transport (taxis Day 4/8/10)</span>
-                            <span>€20-30</span>
-                        </div>
-                    </div>
-                    <span class="budget-note" data-i18n="budg-tr-note">💡 2 of 5 legs booked: ~€36.73/person locked. Total ~€130-180/person (~HKD 1,100-1,550)</span>
-                </div>
-
-                <!-- Accommodation -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">🏨</span>
-                        <h4 data-i18n="budg-hotel">Accommodation (9 nights)</h4>
-                    </div>
-                    <p class="budget-amount">HKD 4,000</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span><a href="https://www.booking.com/hotel/it/relais-monti.html" target="_blank" data-i18n="budg-hotel-rome">Rome — e.g. Relais Monti (3 nights)</a></span>
-                            <span>~€120-150/room/night</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.booking.com/hotel/it/b-amp-b-el-corazon-de-napoles.html" target="_blank" data-i18n="budg-hotel-naples">Naples — e.g. EL Corazon De Napoles (3 nights)</a></span>
-                            <span>~€80-120/room/night</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.booking.com" target="_blank" data-i18n="budg-hotel-polignano">Bari — near Centrale station (2 nights)</a></span>
-                            <span>~€50-80/room/night</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.booking.com" target="_blank" data-i18n="budg-hotel-rome2">Rome — last night (1 night)</a></span>
-                            <span>~€100-130/room/night</span>
-                        </div>
-                    </div>
-                    <span class="budget-note" data-i18n="budg-hotel-note">💡 Per room/night for 3 twin rooms (÷6 = ~HKD 4,000/person). Jun is peak season — prices from <a href="https://www.booking.com" target="_blank">Booking.com</a> & <a href="https://www.kayak.com" target="_blank">KAYAK</a></span>
-                </div>
-
-                <!-- Food -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">🍝</span>
-                        <h4 data-i18n="budg-food">Food & Drinks</h4>
-                    </div>
-                    <p class="budget-amount">HKD 5,000</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-food-breakfast">Breakfast (incl. in hotel)</span>
-                            <span>—</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-food-lunch">Lunch (€15-20/day)</span>
-                            <span>€135-180</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-food-dinner">Dinner (€25-35/day)</span>
-                            <span>€225-315</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-food-snacks">Coffee, gelato, snacks</span>
-                            <span>€50-70</span>
-                        </div>
-                    </div>
-                    <span class="budget-note" data-i18n="budg-food-note">💡 Naples pizza = super cheap & delicious!</span>
-                </div>
-
-                <!-- Activities -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">🎫</span>
-                        <h4 data-i18n="budg-activities">Activities & Attractions</h4>
-                    </div>
-                    <p class="budget-amount">HKD 2,400</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span><a href="https://parcocolosseo.it/en/" target="_blank">Colosseum + Forum</a></span>
-                            <span>€18-35</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.museivaticani.va/content/museivaticani/en.html" target="_blank">Vatican Museums</a></span>
-                            <span>€17-35</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-act-grotto">🌊 Blue Grotto entry + boat</span>
-                            <span>€18-25</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-act-capri">Capri chairlift + tips</span>
-                            <span>€15-25</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://parcocolosseo.it/en/" target="_blank" data-i18n="budg-act-pompeii">🏛️ Pompeii Archaeological Park</a></span>
-                            <span>~€18</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.getyourguide.com/polignano-a-mare-l96415/" target="_blank" data-i18n="budg-act-boat">⛵ Polignano Boat Tour</a></span>
-                            <span>~€25-35</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span><a href="https://www.getyourguide.com/polignano-a-mare-l96415/from-polignano-a-mare-alberobello-guided-tour-t570600/" target="_blank" data-i18n="budg-act-alberobello">🏘️ Alberobello Guided Tour</a></span>
-                            <span>~€25-35</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-act-other">Other museums/sites</span>
-                            <span>€20-40</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Misc -->
-                <div class="budget-card">
-                    <div class="budget-card-header">
-                        <span class="budget-icon">🎒</span>
-                        <h4 data-i18n="budg-misc">Miscellaneous</h4>
-                    </div>
-                    <p class="budget-amount">HKD 1,000</p>
-                    <div class="budget-breakdown">
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-misc-insurance">Travel insurance</span>
-                            <span>HKD 200-400</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-misc-sim">SIM card / data roaming</span>
-                            <span>HKD 150-300</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-misc-tips">Tips & small expenses</span>
-                            <span>HKD 200-400</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span data-i18n="budg-misc-buffer">Emergency buffer</span>
-                            <span>HKD 250-400</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Budget Summary Table -->
-            <div class="budget-summary-table">
-                <h3 data-i18n="budg-table-title">📊 Budget Summary</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-i18n="budg-th-category">Category</th>
-                            <th data-i18n="budg-th-person">Per Person (HKD)</th>
-                            <th data-i18n="budg-th-group">Group of 6 (HKD)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-i18n="budg-row-flights">✈️ International Flights</td>
-                            <td>8,265</td>
-                            <td>49,590</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="budg-row-transport">🚄🚌🚕 Internal Transport</td>
-                            <td>1,300</td>
-                            <td>7,800</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="budg-row-hotel">🏨 Accommodation</td>
-                            <td>4,000</td>
-                            <td>24,000</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="budg-row-food">🍝 Food & Drinks</td>
-                            <td>5,000</td>
-                            <td>30,000</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="budg-row-activities">🎫 Activities</td>
-                            <td>2,400</td>
-                            <td>14,400</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="budg-row-misc">🎒 Misc</td>
-                            <td>1,000</td>
-                            <td>6,000</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong data-i18n="budg-row-total">TOTAL</strong></td>
-                            <td><strong>~21,965</strong></td>
-                            <td><strong>~131,790</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Money Tips -->
-            <div class="money-tips">
-                <h3 data-i18n="budg-tips-title">💡 Money-Saving Tips</h3>
-                <div class="tips-grid">
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip1-title">🎫 Book Ahead</h4>
-                        <p data-i18n="budg-tip1-desc">Vatican & Colosseum sell out! Pre-booking avoids queues and scalper prices.</p>
-                    </div>
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip2-title">🍕 Eat Like Locals</h4>
-                        <p data-i18n="budg-tip2-desc">Naples pizza is €5-8. Skip tourist traps near attractions. Ask locals!</p>
-                    </div>
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip3-title">🚄 Train Deals</h4>
-                        <p data-i18n="budg-tip3-desc">Trenitalia "Super Economy" fares are 50% off. Book 2-4 weeks ahead.</p>
-                    </div>
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip4-title">🎫 GYG Tours Value</h4>
-                        <p data-i18n="budg-tip4-desc">GetYourGuide tours include transport + guide — no car rental, parking, or fuel hassle!</p>
-                    </div>
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip5-title">💳 Use Wise Card</h4>
-                        <p data-i18n="budg-tip5-desc">Best exchange rates, no foreign transaction fees. Top up in HKD, spend in EUR.</p>
-                    </div>
-                    <div class="tip-card-small">
-                        <h4 data-i18n="budg-tip6-title">🌅 Free Sights</h4>
-                        <p data-i18n="budg-tip6-desc">Trevi Fountain, Spanish Steps, Piazzas are free. Sunsets are free!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Currency Info -->
-            <div class="currency-section">
-                <h3 data-i18n="budg-currency-title">💶 Currency Info</h3>
-                <div class="currency-grid">
-                    <div class="currency-card">
-                        <span class="currency-symbol">€</span>
-                        <span class="currency-name" data-i18n="budg-currency-name">Euro (EUR)</span>
-                        <span class="currency-rate" data-i18n="budg-currency-rate">~HKD 8.5 per €1</span>
-                    </div>
-                    <div class="currency-card">
-                        <h4 data-i18n="budg-payment-title">💳 Payment Tips</h4>
-                        <ul>
-                            <li data-i18n="budg-payment-1">Cards widely accepted (Visa, Mastercard)</li>
-                            <li data-i18n="budg-payment-2">Small shops may be cash-only</li>
-                            <li data-i18n="budg-payment-3">Carry €100-200 cash for markets & tips</li>
-                            <li data-i18n="budg-payment-4">ATMs everywhere (avoid airport exchange)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div id="budget-app"></div>
         </div>
     </main>
 
@@ -371,6 +70,7 @@
                     <a href="flights.html" data-i18n="nav-flights">Flights</a>
                     <a href="budget.html" data-i18n="nav-budget">Budget</a>
                     <a href="tips.html" data-i18n="nav-tips">Tips</a>
+                    <a href="settings.html" data-i18n="nav-settings">Settings</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -379,7 +79,8 @@
         </div>
     </footer>
 
-    <script src="translations.js?v=2026-05-04f"></script>
-    <script src="script.js?v=2026-05-04f"></script>
+    <script src="translations.js?v=2026-05-05b"></script>
+    <script src="script.js?v=2026-05-05b"></script>
+    <script src="budget-render.js?v=2026-05-05b"></script>
 </body>
 </html>

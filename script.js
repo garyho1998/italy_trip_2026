@@ -370,6 +370,73 @@ function getCurrentLang() {
 }
 
 // ================================
+// FX Rate (EUR -> HKD)
+// frankfurter.app for live rate, 24h localStorage cache, 9.16 fallback.
+// TODO: support more currencies (KRW, JPY, etc.) when needed.
+// ================================
+const FX_FALLBACK_EUR_HKD = 9.16;
+const FX_CACHE_KEY = 'italy-trip-fx-eur-hkd';
+const FX_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+
+async function getFxEurToHkd({ forceRefresh = false } = {}) {
+    if (!forceRefresh) {
+        try {
+            const cached = JSON.parse(localStorage.getItem(FX_CACHE_KEY) || 'null');
+            if (cached && (Date.now() - cached.fetchedAt) < FX_CACHE_TTL_MS && cached.rate > 0) {
+                return { rate: cached.rate, source: 'cache', fetchedAt: cached.fetchedAt };
+            }
+        } catch (e) { /* fall through */ }
+    }
+    try {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 5000);
+        const res = await fetch('https://api.frankfurter.app/latest?from=EUR&to=HKD', { signal: ctrl.signal });
+        clearTimeout(tid);
+        if (res.ok) {
+            const j = await res.json();
+            const rate = j.rates && j.rates.HKD;
+            if (typeof rate === 'number' && rate > 0) {
+                const entry = { rate, fetchedAt: Date.now() };
+                try { localStorage.setItem(FX_CACHE_KEY, JSON.stringify(entry)); } catch (e) {}
+                return { rate, source: 'live', fetchedAt: entry.fetchedAt };
+            }
+        }
+    } catch (e) {
+        console.warn('[fx] live fetch failed, using fallback:', e.message);
+    }
+    return { rate: FX_FALLBACK_EUR_HKD, source: 'fallback', fetchedAt: null };
+}
+
+// Convert any supported currency to HKD using a known EUR->HKD rate.
+function toHkd(amount, currency, eurHkdRate) {
+    if (amount == null) return null;
+    if (currency === 'HKD') return amount;
+    if (currency === 'EUR') return amount * eurHkdRate;
+    return amount;
+}
+
+// Convert HKD to any supported currency using a known EUR->HKD rate.
+function fromHkd(amount, currency, eurHkdRate) {
+    if (amount == null) return null;
+    if (currency === 'HKD') return amount;
+    if (currency === 'EUR') return amount / eurHkdRate;
+    return amount;
+}
+
+// Format a number into a currency-prefixed display string.
+function formatMoney(amount, currency) {
+    if (amount == null || isNaN(amount)) return '';
+    const sym = currency === 'HKD' ? 'HK$' : currency === 'EUR' ? '€' : (currency + ' ');
+    const rounded = Math.round(amount);
+    return sym + rounded.toLocaleString('en-US');
+}
+
+window.getFxEurToHkd = getFxEurToHkd;
+window.toHkd = toHkd;
+window.fromHkd = fromHkd;
+window.formatMoney = formatMoney;
+
+// ================================
 // Console Greeting
 // ================================
 console.log('%c🇮🇹 Italia Avventura 2026', 'font-size: 24px; font-weight: bold; color: #C65D3B;');

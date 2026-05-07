@@ -567,9 +567,19 @@
             if (isActive) activePill = pill;
         });
         if (activePill) {
-            // Smoothly center the active pill in the strip
+            // Center the active pill within its scroll container. Computing
+            // scrollTop directly avoids scrollIntoView spilling into ancestor
+            // scroll (e.g. window) on position:fixed strips. Using 'auto'
+            // behavior — Chrome silently drops 'smooth' on overflow:auto
+            // children of position:fixed parents.
             try {
-                activePill.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const strip = activePill.closest('.itinerary-date-strip');
+                if (strip) {
+                    const targetTop = activePill.offsetTop
+                        - (strip.clientHeight / 2)
+                        + (activePill.offsetHeight / 2);
+                    strip.scrollTop = Math.max(0, targetTop);
+                }
             } catch (e) { /* no-op */ }
         }
         activeDayNumber = dayNumber;
