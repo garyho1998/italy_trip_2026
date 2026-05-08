@@ -437,6 +437,179 @@ window.fromHkd = fromHkd;
 window.formatMoney = formatMoney;
 
 // ================================
+// Firebase Auth (REST, no SDK) — used for PDF upload admin
+// Sign-in lives on settings.html. Token + refreshToken in localStorage.
+// ================================
+const FB_PROJECT_ID = 'trip-webapp-de677';
+const FB_STORAGE_BUCKET = 'trip-webapp-de677.firebasestorage.app';
+// Public Web API key from Firebase Console → Project Settings → General → Your
+// apps (Web). Not a secret — it's a client identifier; the actual auth happens
+// server-side and is gated by Firebase Auth users + Storage rules.
+const FB_WEB_API_KEY = 'AIzaSyDlfOTF9IRp81k7NJqPc89Om7y9i-wGR1g';
+const FB_AUTH_KEY = 'italy-trip-fb-auth';
+
+const FB_AUTH_EVT = 'app-fb-auth-change';
+
+function fbAuthState() {
+    try {
+        const raw = localStorage.getItem(FB_AUTH_KEY);
+        if (!raw) return { signedIn: false };
+        const j = JSON.parse(raw);
+        if (!j || !j.idToken) return { signedIn: false };
+        return { signedIn: true, email: j.email, uid: j.uid };
+    } catch (e) { return { signedIn: false }; }
+}
+
+async function fbSignIn(email, password) {
+    if (!FB_WEB_API_KEY) {
+        throw new Error('Firebase Web API Key not configured. Paste it in script.js (FB_WEB_API_KEY).');
+    }
+    const res = await fetch(
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FB_WEB_API_KEY}`,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password, returnSecureToken: true })
+        }
+    );
+    const j = await res.json();
+    if (!res.ok) {
+        const msg = (j && j.error && j.error.message) || `HTTP ${res.status}`;
+        throw new Error(msg);
+    }
+    const entry = {
+        idToken: j.idToken,
+        refreshToken: j.refreshToken,
+        // expiresIn is seconds-as-string from Firebase
+        expiresAt: Date.now() + (Number(j.expiresIn) * 1000),
+        uid: j.localId,
+        email: j.email
+    };
+    localStorage.setItem(FB_AUTH_KEY, JSON.stringify(entry));
+    window.dispatchEvent(new CustomEvent(FB_AUTH_EVT, { detail: { signedIn: true, email: j.email } }));
+    return entry;
+}
+
+function fbSignOut() {
+    localStorage.removeItem(FB_AUTH_KEY);
+    window.dispatchEvent(new CustomEvent(FB_AUTH_EVT, { detail: { signedIn: false } }));
+}
+
+async function fbGetIdToken() {
+    let entry;
+    try { entry = JSON.parse(localStorage.getItem(FB_AUTH_KEY) || 'null'); } catch (e) { entry = null; }
+    if (!entry || !entry.idToken) throw new Error('Not signed in');
+    // Refresh if within 5 min of expiry
+    if (Date.now() > (entry.expiresAt - 5 * 60 * 1000)) {
+        const res = await fetch(
+            `https://securetoken.googleapis.com/v1/token?key=${FB_WEB_API_KEY}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `grant_type=refresh_token&refresh_token=${encodeURIComponent(entry.refreshToken)}`
+            }
+        );
+        const j = await res.json();
+        if (!res.ok) {
+            // Refresh failed — sign out and rethrow
+            fbSignOut();
+            throw new Error('Session expired, please sign in again');
+        }
+        entry.idToken = j.id_token || j.access_token;
+        entry.refreshToken = j.refresh_token || entry.refreshToken;
+        entry.expiresAt = Date.now() + (Number(j.expires_in) * 1000);
+        entry.uid = j.user_id || entry.uid;
+        localStorage.setItem(FB_AUTH_KEY, JSON.stringify(entry));
+    }
+    return entry.idToken;
+}
+
+window.fbAuthState = fbAuthState;
+window.fbSignIn = fbSignIn;
+window.fbSignOut = fbSignOut;
+window.fbGetIdToken = fbGetIdToken;
+window.FB_AUTH_EVT = FB_AUTH_EVT;
+window.FB_PROJECT_ID = FB_PROJECT_ID;
+window.FB_STORAGE_BUCKET = FB_STORAGE_BUCKET;
+
+// ================================
+// Firebase Storage (REST) — upload + delete PDFs
+// ================================
+
+// Upload a File/Blob to Firebase Storage at the given path. Returns
+// { url, storagePath, name, contentType, size, downloadToken }.
+// Reports progress via onProgress(percent).
+function uploadFileToStorage(file, storagePath, onProgress) {
+    return new Promise(async (resolve, reject) => {
+        let idToken;
+        try { idToken = await fbGetIdToken(); }
+        catch (e) { return reject(e); }
+
+        const url = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o?uploadType=media&name=${encodeURIComponent(storagePath)}`;
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Authorization', `Bearer ${idToken}`);
+        xhr.setRequestHeader('Content-Type', file.type || 'application/pdf');
+        if (onProgress) {
+            xhr.upload.onprogress = (e) => {
+                if (e.lengthComputable) onProgress(Math.round((e.loaded / e.total) * 100));
+            };
+        }
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                let meta;
+                try { meta = JSON.parse(xhr.responseText); } catch (e) { return reject(new Error('Bad upload response')); }
+                const token = (meta.downloadTokens || '').split(',')[0];
+                if (!token) return reject(new Error('No download token in response'));
+                const downloadUrl = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o/${encodeURIComponent(meta.name)}?alt=media&token=${token}`;
+                resolve({
+                    url: downloadUrl,
+                    storagePath: meta.name,
+                    name: meta.name,
+                    contentType: meta.contentType,
+                    size: Number(meta.size),
+                    downloadToken: token
+                });
+            } else {
+                let msg = `HTTP ${xhr.status}`;
+                try { const j = JSON.parse(xhr.responseText); if (j.error) msg = j.error.message || msg; } catch (e) {}
+                reject(new Error(msg));
+            }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.send(file);
+    });
+}
+
+async function deleteFileFromStorage(storagePath) {
+    const idToken = await fbGetIdToken();
+    const url = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o/${encodeURIComponent(storagePath)}`;
+    const res = await fetch(url, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${idToken}` }
+    });
+    if (!res.ok && res.status !== 404) {
+        let msg = `HTTP ${res.status}`;
+        try { const j = await res.json(); if (j.error) msg = j.error.message || msg; } catch (e) {}
+        throw new Error(msg);
+    }
+}
+
+window.uploadFileToStorage = uploadFileToStorage;
+window.deleteFileFromStorage = deleteFileFromStorage;
+
+// Slug a string into [a-z0-9-]+ for filenames (max 40 chars)
+function slugifyForFilename(s) {
+    return String(s || 'file')
+        .toLowerCase()
+        .replace(/\.[a-z0-9]+$/i, '')   // strip extension
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 40) || 'file';
+}
+window.slugifyForFilename = slugifyForFilename;
+
+// ================================
 // Console Greeting
 // ================================
 console.log('%c🇮🇹 Italia Avventura 2026', 'font-size: 24px; font-weight: bold; color: #C65D3B;');

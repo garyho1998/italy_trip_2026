@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2026-05-06c">
+    <link rel="stylesheet" href="styles.css?v=2026-05-06e">
 </head>
 <body class="page-body">
     <header class="site-header">
@@ -102,6 +102,21 @@
                     </div>
                     <span class="settings-status" id="fx-status"></span>
                 </div>
+
+                <div class="settings-row" id="auth-row">
+                    <label class="settings-label" data-i18n="settings-auth-label">Admin sign-in</label>
+                    <p class="settings-hint" data-i18n="settings-auth-hint">Sign in to upload, edit or delete trip PDFs (entry tickets, vouchers). Public visitors can still view.</p>
+                    <div id="auth-signed-out">
+                        <input id="auth-email" type="email" placeholder="email" class="settings-input" autocomplete="username">
+                        <input id="auth-password" type="password" placeholder="password" class="settings-input" autocomplete="current-password">
+                        <button id="auth-signin-btn" type="button" class="settings-btn" data-i18n="settings-auth-signin">Sign in</button>
+                    </div>
+                    <div id="auth-signed-in" hidden>
+                        <span id="auth-email-display" class="settings-fx-display"></span>
+                        <button id="auth-signout-btn" type="button" class="settings-btn settings-btn-secondary" data-i18n="settings-auth-signout">Sign out</button>
+                    </div>
+                    <span class="settings-status" id="auth-status"></span>
+                </div>
             </div>
         </div>
     </main>
@@ -130,8 +145,8 @@
         </div>
     </footer>
 
-    <script src="translations.js?v=2026-05-05b"></script>
-    <script src="script.js?v=2026-05-05b"></script>
+    <script src="translations.js?v=2026-05-06d"></script>
+    <script src="script.js?v=2026-05-06f"></script>
     <script>
     (function () {
         const LANG_KEY = 'italy-trip-lang';
@@ -260,9 +275,54 @@
             setStatus($('fx-status'), '✓ Refreshed', true);
         });
 
+        // ---- Auth (sign in / out) ----
+        function applyAuthUI() {
+            const state = (window.fbAuthState && window.fbAuthState()) || { signedIn: false };
+            const out = $('auth-signed-out');
+            const inn = $('auth-signed-in');
+            const lang = localStorage.getItem(LANG_KEY) || 'en';
+            if (state.signedIn) {
+                out.hidden = true;
+                inn.hidden = false;
+                const prefix = lang === 'zh' ? '✓ 已登入：' : '✓ Signed in as ';
+                $('auth-email-display').textContent = prefix + (state.email || '');
+            } else {
+                out.hidden = false;
+                inn.hidden = true;
+            }
+        }
+
+        $('auth-signin-btn').addEventListener('click', async () => {
+            const email = $('auth-email').value.trim();
+            const password = $('auth-password').value;
+            if (!email || !password) {
+                setStatus($('auth-status'), 'Email and password required', false);
+                return;
+            }
+            try {
+                await window.fbSignIn(email, password);
+                $('auth-password').value = '';
+                applyAuthUI();
+                setStatus($('auth-status'), '✓ Signed in', true);
+            } catch (err) {
+                setStatus($('auth-status'), err.message || 'Sign-in failed', false);
+            }
+        });
+        $('auth-signout-btn').addEventListener('click', () => {
+            window.fbSignOut();
+            applyAuthUI();
+            setStatus($('auth-status'), '✓ Signed out', true);
+        });
+        // React to auth changes from other tabs / pages
+        window.addEventListener('app-fb-auth-change', applyAuthUI);
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'italy-trip-fb-auth') applyAuthUI();
+        });
+
         // Init
         loadTravelers();
         refreshFxDisplay(false);
+        applyAuthUI();
     })();
     </script>
 </body>

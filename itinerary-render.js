@@ -164,6 +164,16 @@
             : '';
         const driveInfo = renderDriveInfo(item, lang);
         const locationLink = renderLocation(item.location, lang, day);
+
+        // PDF actions (view / upload) — same itemId convention as bookings.
+        let pdfActions = '';
+        if (window.PdfHelpers && day && item.time) {
+            const itemId = `${day.number}-${item.time}`;
+            const pdfData = window.PdfHelpers.getFor(itemId);
+            const html = window.PdfHelpers.renderActions(itemId, pdfData.pdfs, lang);
+            if (html) pdfActions = `<div class="timeline-pdf-actions">${html}</div>`;
+        }
+
         return `
             <div class="timeline-item${featuredClass}"${pinAttr}>
                 <span class="time">${escapeAttr(item.time)}</span>
@@ -174,6 +184,7 @@
                     ${comment}
                     ${locationLink}
                     ${driveInfo}
+                    ${pdfActions}
                 </div>
             </div>
         `;
@@ -787,6 +798,38 @@
         if (!root) return;
 
         const handle = (e) => {
+            // PDF actions (delegate to pdf.js shared modals) — handled before
+            // other click logic so clicks on these buttons don't bubble into
+            // day-toggle or pin-snap logic.
+            const pdfList = e.target.closest('[data-pdf-list]');
+            if (pdfList && window.PdfHelpers) {
+                const itemId = pdfList.dataset.pdfList;
+                const data = window.PdfHelpers.getFor(itemId);
+                const m = itemId.match(/^(\d+)-(.+)$/);
+                window.PdfHelpers.openViewerModal({
+                    itemId,
+                    day: m ? Number(m[1]) : undefined,
+                    time: m ? m[2].replace(/-/, ':') : undefined,
+                    pdfs: data.pdfs,
+                    onChanged: () => setActiveDay(activeDayNumber, cachedData, getCurrentLang(), { preservePin: true })
+                });
+                e.preventDefault();
+                return;
+            }
+            const pdfUpload = e.target.closest('[data-upload-for]');
+            if (pdfUpload && window.PdfHelpers) {
+                const itemId = pdfUpload.dataset.uploadFor;
+                const m = itemId.match(/^(\d+)-(.+)$/);
+                window.PdfHelpers.openUploadModal({
+                    itemId,
+                    day: m ? Number(m[1]) : undefined,
+                    time: m ? m[2].replace(/-/, ':') : undefined,
+                    onSaved: () => setActiveDay(activeDayNumber, cachedData, getCurrentLang(), { preservePin: true })
+                });
+                e.preventDefault();
+                return;
+            }
+
             // Date strip click (mobile)
             const pill = e.target.closest('.date-pill');
             if (pill && root.contains(pill)) {
@@ -910,6 +953,16 @@
         try {
             cachedData = await loadItinerary();
             bootRender();
+            // Background-load PDF subcollection then re-render to surface chips.
+            if (window.PdfHelpers) {
+                window.PdfHelpers.loadAll().then(() => {
+                    if (cachedData && activeDayNumber != null) {
+                        setActiveDay(activeDayNumber, cachedData, getCurrentLang(), { preservePin: true });
+                    } else if (cachedData) {
+                        bootRender();
+                    }
+                }).catch(err => console.warn('[itinerary] pdfs load:', err.message));
+            }
         } catch (err) {
             console.error('Itinerary load failed:', err);
             renderError(err);
@@ -917,6 +970,10 @@
     });
 
     window.addEventListener('app-lang-change', () => {
+        if (cachedData) bootRender();
+    });
+    // Re-render when sign-in state changes (so upload buttons appear/disappear).
+    window.addEventListener('app-fb-auth-change', () => {
         if (cachedData) bootRender();
     });
 })();

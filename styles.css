@@ -4785,3 +4785,228 @@ section {
     .settings-input { width: 100%; min-width: 0; }
     .settings-fx-display { width: 100%; }
 }
+
+/* ================================
+   PDF actions + modals (pdf.js)
+   ================================ */
+/* Action chips on bookings card + itinerary timeline */
+.bk-action-doc {
+    background: rgba(212, 168, 75, 0.14);
+    color: var(--charcoal);
+    border: 1px solid rgba(212, 168, 75, 0.45);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font: inherit; font-size: 12px; font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.bk-action-doc:hover { background: rgba(212, 168, 75, 0.28); border-color: var(--tuscany-gold); }
+button.bk-action-doc { line-height: 1; }
+
+.bk-action-upload {
+    background: transparent;
+    color: var(--terracotta);
+    border: 1px dashed var(--terracotta);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font: inherit; font-size: 12px; font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.bk-action-upload:hover { background: rgba(198, 93, 59, 0.08); }
+
+/* Compact PDF actions row inside itinerary timeline items */
+.timeline-pdf-actions {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+/* ===== Modals ===== */
+.pdf-overlay {
+    position: fixed; inset: 0;
+    background: rgba(20, 20, 30, 0.45);
+    z-index: 1500;
+}
+.pdf-modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+    z-index: 1501;
+    width: min(540px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+}
+.pdf-modal[hidden] { display: none; }
+.pdf-overlay[hidden] { display: none; }
+.pdf-modal-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+}
+.pdf-modal-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 19px;
+    color: var(--venetian-blue);
+    font-weight: 600;
+    line-height: 1.2;
+}
+.pdf-modal-close {
+    border: 0; background: transparent;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--warm-gray);
+    font-size: 22px; line-height: 1;
+}
+.pdf-modal-close:hover { background: rgba(0, 0, 0, 0.06); color: var(--charcoal); }
+.pdf-modal-body {
+    padding: 16px 18px 18px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* ===== Upload form ===== */
+.pdf-field {
+    display: flex; flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+.pdf-field-label {
+    font-size: 13px; font-weight: 500;
+    color: var(--charcoal);
+}
+.pdf-field-hint {
+    color: var(--warm-gray);
+    font-weight: 400; font-style: italic;
+}
+.pdf-field input[type="text"],
+.pdf-field input[type="email"],
+.pdf-field input[type="password"],
+.pdf-field input[type="file"] {
+    border: 1px solid #e2dccf;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font: inherit; font-size: 14px;
+    background: white;
+}
+.pdf-field input:focus { outline: none; border-color: var(--terracotta); }
+
+.pdf-progress-row {
+    display: flex; gap: 10px; align-items: center;
+    margin: 8px 0;
+}
+.pdf-progress-row[hidden] { display: none; }
+.pdf-error[hidden] { display: none; }
+.pdf-progress-bar {
+    flex: 1; height: 6px;
+    background: var(--parchment);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.pdf-progress-fill {
+    height: 100%; width: 0%;
+    background: var(--terracotta);
+    transition: width 0.2s;
+}
+.pdf-progress-text { font-size: 12px; color: var(--warm-gray); width: 36px; text-align: right; }
+
+.pdf-error {
+    background: rgba(198, 93, 59, 0.1);
+    color: var(--terracotta);
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.pdf-actions {
+    display: flex; justify-content: flex-end; gap: 10px;
+    margin-top: 14px;
+}
+.pdf-btn {
+    border: 0;
+    padding: 8px 18px; border-radius: 8px;
+    font: inherit; font-size: 13px; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.pdf-btn-secondary {
+    background: var(--parchment);
+    color: var(--charcoal);
+}
+.pdf-btn-secondary:hover { background: #e9dfca; }
+.pdf-btn-primary {
+    background: var(--terracotta);
+    color: white;
+}
+.pdf-btn-primary:hover { background: #b04d2e; }
+.pdf-btn-primary:disabled { background: #c9b8a3; cursor: wait; }
+
+/* ===== Viewer list ===== */
+.pdf-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex; flex-direction: column;
+    gap: 6px;
+}
+.pdf-list-empty { color: var(--warm-gray); font-size: 14px; text-align: center; padding: 20px; }
+.pdf-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px;
+    background: var(--cream);
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.pdf-row-meta {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column;
+    gap: 2px;
+}
+.pdf-row-person {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    color: var(--terracotta);
+    letter-spacing: 0.04em;
+}
+.pdf-row-label {
+    font-size: 14px; color: var(--charcoal);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pdf-row-open {
+    color: var(--venetian-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: white;
+}
+.pdf-row-open:hover { background: rgba(30, 58, 95, 0.08); }
+.pdf-row-icon {
+    border: 0; background: transparent;
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+}
+.pdf-row-icon:hover { background: rgba(0, 0, 0, 0.06); }
+
+/* ===== Settings auth row ===== */
+#auth-row #auth-signed-out,
+#auth-row #auth-signed-in {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+}
+#auth-row #auth-signed-out[hidden],
+#auth-row #auth-signed-in[hidden] { display: none; }
+#auth-row .settings-input { min-width: 200px; }
+.settings-btn-secondary {
+    background: var(--parchment) !important;
+    color: var(--charcoal) !important;
+}
+.settings-btn-secondary:hover { background: #e9dfca !important; }

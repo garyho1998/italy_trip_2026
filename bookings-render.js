@@ -445,6 +445,12 @@
         if (mapsUrl) {
             actions.push(`<a class="bk-action bk-action-dir" href="${escapeAttr(mapsUrl)}" target="_blank" rel="noopener">📍 ${escapeAttr(dirLabel)}</a>`);
         }
+        // PDF actions (view / upload) — pdf.js provides the action HTML
+        if (window.PdfHelpers) {
+            const pdfData = window.PdfHelpers.getFor(id);
+            const pdfHtml = window.PdfHelpers.renderActions(id, pdfData.pdfs, lang);
+            if (pdfHtml) actions.push(pdfHtml);
+        }
 
         // Title is always wrapped in an anchor to the matching itinerary day.
         // Desktop CSS suppresses link styling so it reads as plain text; on mobile
@@ -594,6 +600,38 @@
                 return;
             }
 
+            // PDF viewer (open list) — handled before section-collapse so the click
+            // on the bk-action button doesn't toggle the section.
+            const viewBtn = e.target.closest('[data-pdf-list]');
+            if (viewBtn && window.PdfHelpers) {
+                const itemId = viewBtn.dataset.pdfList;
+                const card = viewBtn.closest('.bk-card');
+                const data = window.PdfHelpers.getFor(itemId);
+                const dayMatch = itemId.match(/^(\d+)-(.+)$/);
+                window.PdfHelpers.openViewerModal({
+                    itemId,
+                    day: dayMatch ? Number(dayMatch[1]) : undefined,
+                    time: dayMatch ? dayMatch[2].replace(/-/, ':') : undefined,
+                    pdfs: data.pdfs,
+                    onChanged: () => renderAll()
+                });
+                return;
+            }
+
+            // PDF upload trigger
+            const uploadBtn = e.target.closest('[data-upload-for]');
+            if (uploadBtn && window.PdfHelpers) {
+                const itemId = uploadBtn.dataset.uploadFor;
+                const dayMatch = itemId.match(/^(\d+)-(.+)$/);
+                window.PdfHelpers.openUploadModal({
+                    itemId,
+                    day: dayMatch ? Number(dayMatch[1]) : undefined,
+                    time: dayMatch ? dayMatch[2].replace(/-/, ':') : undefined,
+                    onSaved: () => renderAll()
+                });
+                return;
+            }
+
             // Section collapse
             const header = e.target.closest('.bk-section-header');
             if (header && !e.target.closest('a, button, input, label')) {
@@ -638,6 +676,11 @@
             // Fire-and-forget: instant first paint from JSON+cache, then upgrade
             // with Firestore data if/when it arrives.
             syncFromFirestoreAndRerender();
+            // Load PDF subcollection then re-render (chips appear on rows that have PDFs)
+            if (window.PdfHelpers) {
+                window.PdfHelpers.loadAll().then(() => renderAll())
+                    .catch(err => console.warn('[bookings] pdfs load:', err.message));
+            }
         } catch (err) {
             console.error('Bookings load failed:', err);
             renderError(err);
@@ -645,6 +688,10 @@
     });
 
     window.addEventListener('app-lang-change', () => {
+        if (cachedData) renderAll();
+    });
+    // Re-render when sign-in state changes (upload/edit/delete affordances).
+    window.addEventListener('app-fb-auth-change', () => {
         if (cachedData) renderAll();
     });
 })();
