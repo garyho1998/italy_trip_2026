@@ -4822,6 +4822,9 @@ button.bk-action-doc { line-height: 1; }
     display: flex; gap: 6px; flex-wrap: wrap;
     margin-top: 6px;
 }
+/* Itinerary page is read-only for PDFs — uploads happen on the bookings page.
+   Keep the view chip (📎) so day-by-day timeline still surfaces the link. */
+body.itinerary-page .bk-action-upload { display: none; }
 
 /* PDF actions on bookings card (inside .bk-body so they survive mobile,
    where the .bk-right column is hidden). */
