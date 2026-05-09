@@ -194,13 +194,14 @@
             <div class="pdf-overlay" id="pdf-overlay" hidden></div>
             <div class="pdf-modal pdf-upload-modal" id="pdf-upload-modal" role="dialog" aria-modal="true" hidden>
                 <div class="pdf-modal-head">
-                    <h3 class="pdf-modal-title" id="pdf-upload-title">Upload PDF</h3>
+                    <h3 class="pdf-modal-title" id="pdf-upload-title">Add document</h3>
                     <button class="pdf-modal-close" type="button" aria-label="Close" data-pdf-action="close">×</button>
                 </div>
                 <form class="pdf-modal-body" id="pdf-upload-form">
                     <label class="pdf-field">
-                        <span class="pdf-field-label" id="pdf-file-label">File (PDF, ≤10MB)</span>
-                        <input type="file" id="pdf-file-input" accept="application/pdf" required>
+                        <span class="pdf-field-label" id="pdf-url-label">Google Drive share link</span>
+                        <input type="url" id="pdf-url-input" placeholder="https://drive.google.com/file/d/..." required>
+                        <span class="pdf-field-help" id="pdf-url-help">Open the file in Drive → Share → "Anyone with the link" → Copy link → paste here.</span>
                     </label>
                     <label class="pdf-field">
                         <span class="pdf-field-label" id="pdf-label-label">Label</span>
@@ -210,14 +211,10 @@
                         <span class="pdf-field-label" id="pdf-person-label">Person <span class="pdf-field-hint">(optional, blank = shared)</span></span>
                         <input type="text" id="pdf-person-input" placeholder="e.g. HO CHUN YIN">
                     </label>
-                    <div class="pdf-progress-row" hidden>
-                        <div class="pdf-progress-bar"><div class="pdf-progress-fill" id="pdf-progress-fill"></div></div>
-                        <span class="pdf-progress-text" id="pdf-progress-text">0%</span>
-                    </div>
                     <div class="pdf-error" id="pdf-upload-error" hidden></div>
                     <div class="pdf-actions">
                         <button type="button" class="pdf-btn pdf-btn-secondary" data-pdf-action="close" id="pdf-cancel-btn">Cancel</button>
-                        <button type="submit" class="pdf-btn pdf-btn-primary" id="pdf-submit-btn">Upload</button>
+                        <button type="submit" class="pdf-btn pdf-btn-primary" id="pdf-submit-btn">Save</button>
                     </div>
                 </form>
             </div>
@@ -257,15 +254,18 @@
 
     function setLabels(lang) {
         lang = lang || getLang();
-        document.getElementById('pdf-file-label').textContent =
-            tr('pdfs.field.file', lang, 'File (PDF, ≤10MB)');
+        document.getElementById('pdf-url-label').textContent =
+            tr('pdfs.field.url', lang, 'Google Drive share link');
+        document.getElementById('pdf-url-help').textContent =
+            tr('pdfs.field.urlHelp', lang,
+               'Open the file in Drive → Share → "Anyone with the link" → Copy link → paste here.');
         document.getElementById('pdf-label-label').textContent =
             tr('pdfs.field.label', lang, 'Label');
         const personEl = document.getElementById('pdf-person-label');
         const personHint = ` <span class="pdf-field-hint">(${tr('pdfs.field.personHint', lang, 'optional, blank = shared')})</span>`;
         personEl.innerHTML = escapeAttr(tr('pdfs.field.person', lang, 'Person')) + personHint;
         document.getElementById('pdf-cancel-btn').textContent = tr('pdfs.cancel', lang, 'Cancel');
-        document.getElementById('pdf-submit-btn').textContent = tr('pdfs.upload', lang, 'Upload');
+        document.getElementById('pdf-submit-btn').textContent = tr('pdfs.save', lang, 'Save');
     }
 
     function showOverlayAnd(modalId) {
@@ -280,8 +280,6 @@
         const form = document.getElementById('pdf-upload-form');
         form.reset();
         document.getElementById('pdf-upload-error').hidden = true;
-        document.querySelector('.pdf-progress-row').hidden = true;
-        document.getElementById('pdf-progress-fill').style.width = '0%';
         document.getElementById('pdf-submit-btn').disabled = false;
         // clear edit-mode markers
         form.dataset.mode = '';
@@ -319,7 +317,7 @@
         const lang = getLang();
         const baseTitle = activeContext.mode === 'edit'
             ? tr('pdfs.editTitle', lang, 'Edit document')
-            : tr('pdfs.uploadTitle', lang, 'Upload PDF');
+            : tr('pdfs.uploadTitle', lang, 'Add document');
         const dayLabel = opts.day != null
             ? (lang === 'zh' ? `第 ${opts.day} 天` : `Day ${opts.day}`) +
               (opts.time ? ` · ${opts.time}` : '')
@@ -328,31 +326,36 @@
             dayLabel ? `${baseTitle} — ${dayLabel}` : baseTitle;
 
         // Prefill (edit mode)
-        const fileInput = document.getElementById('pdf-file-input');
+        const urlInput = document.getElementById('pdf-url-input');
         const labelInput = document.getElementById('pdf-label-input');
         const personInput = document.getElementById('pdf-person-input');
         if (opts.prefill) {
+            urlInput.value = opts.prefill.url || '';
             labelInput.value = t(opts.prefill.label, lang) || '';
             personInput.value = opts.prefill.person || '';
-            fileInput.required = false;   // file optional in edit mode
-            document.getElementById('pdf-submit-btn').textContent =
-                tr('pdfs.save', lang, 'Save');
+            // URL editable in edit mode but not required (keep existing if blank)
+            urlInput.required = false;
         } else {
-            fileInput.required = true;
-            document.getElementById('pdf-submit-btn').textContent =
-                tr('pdfs.upload', lang, 'Upload');
+            urlInput.required = true;
         }
-
-        // Auto-fill label from filename
-        fileInput.onchange = () => {
-            const f = fileInput.files && fileInput.files[0];
-            if (f && !labelInput.value) {
-                labelInput.value = f.name.replace(/\.pdf$/i, '');
-            }
-        };
+        document.getElementById('pdf-submit-btn').textContent =
+            tr('pdfs.save', lang, 'Save');
 
         showOverlayAnd('pdf-upload-modal');
-        setTimeout(() => labelInput.focus(), 50);
+        setTimeout(() => urlInput.focus(), 50);
+    }
+
+    // Normalize a Drive URL into a canonical /file/d/<id>/view form. If the
+    // pasted URL doesn't look like a Drive link, return it unchanged so other
+    // formats (Dropbox, OneDrive direct links, etc.) still work.
+    function normalizeDriveUrl(input) {
+        if (!input) return input;
+        const s = String(input).trim();
+        let m = s.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+        if (m) return `https://drive.google.com/file/d/${m[1]}/view`;
+        m = s.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (m) return `https://drive.google.com/file/d/${m[1]}/view`;
+        return s;
     }
 
     async function handleUploadSubmit(e) {
@@ -360,22 +363,17 @@
         const form = e.target;
         const errorEl = document.getElementById('pdf-upload-error');
         const submitBtn = document.getElementById('pdf-submit-btn');
-        const progressRow = document.querySelector('.pdf-progress-row');
-        const progressFill = document.getElementById('pdf-progress-fill');
-        const progressText = document.getElementById('pdf-progress-text');
         errorEl.hidden = true;
         submitBtn.disabled = true;
 
         const itemId = form.dataset.itemId;
         const mode = form.dataset.mode;
         const editId = form.dataset.editId;
-        const day = form.dataset.day;
-        const time = form.dataset.time;
 
-        const fileInput = document.getElementById('pdf-file-input');
+        const urlInput = document.getElementById('pdf-url-input');
         const labelInput = document.getElementById('pdf-label-input');
         const personInput = document.getElementById('pdf-person-input');
-        const file = fileInput.files && fileInput.files[0];
+        const urlStr = normalizeDriveUrl(urlInput.value.trim());
         const labelStr = labelInput.value.trim();
         const personStr = personInput.value.trim();
 
@@ -385,21 +383,17 @@
             submitBtn.disabled = false;
             return;
         }
-        if (mode === 'create' && !file) {
-            errorEl.textContent = 'File required';
+        if (mode === 'create' && !urlStr) {
+            errorEl.textContent = 'Link required';
             errorEl.hidden = false;
             submitBtn.disabled = false;
             return;
         }
-        if (file) {
-            if (file.type !== 'application/pdf') {
-                errorEl.textContent = 'Only PDF files are allowed';
-                errorEl.hidden = false; submitBtn.disabled = false; return;
-            }
-            if (file.size > 10 * 1024 * 1024) {
-                errorEl.textContent = 'File too large (max 10MB)';
-                errorEl.hidden = false; submitBtn.disabled = false; return;
-            }
+        if (urlStr && !/^https?:\/\//i.test(urlStr)) {
+            errorEl.textContent = 'Link must start with https://';
+            errorEl.hidden = false;
+            submitBtn.disabled = false;
+            return;
         }
 
         try {
@@ -410,54 +404,22 @@
             if (mode === 'edit' && editId) {
                 const idx = pdfs.findIndex(p => p.id === editId);
                 if (idx === -1) throw new Error('Entry not found');
-                if (file) {
-                    // Replace file: upload new, delete old
-                    progressRow.hidden = false;
-                    const slug = window.slugifyForFilename(file.name);
-                    const path = `pdfs/${day}-${time}-${Date.now()}-${slug}.pdf`;
-                    const meta = await window.uploadFileToStorage(file, path, (pct) => {
-                        progressFill.style.width = pct + '%';
-                        progressText.textContent = pct + '%';
-                    });
-                    // Try to delete old file (don't fail the edit if delete fails)
-                    if (pdfs[idx].storagePath) {
-                        try { await window.deleteFileFromStorage(pdfs[idx].storagePath); }
-                        catch (e2) { console.warn('[pdf] old file delete failed:', e2.message); }
-                    }
-                    pdfs[idx] = {
-                        ...pdfs[idx],
-                        url: meta.url,
-                        storagePath: meta.storagePath,
-                        size: meta.size,
-                        contentType: meta.contentType
-                    };
-                }
                 pdfs[idx] = {
                     ...pdfs[idx],
                     label: { en: labelStr, zh: labelStr },
-                    person: personStr
+                    person: personStr,
+                    // Only overwrite URL if user provided a new one
+                    ...(urlStr ? { url: urlStr } : {})
                 };
             } else {
-                // Create new entry
-                progressRow.hidden = false;
-                const slug = window.slugifyForFilename(file.name);
-                const path = `pdfs/${day}-${time}-${Date.now()}-${slug}.pdf`;
-                const meta = await window.uploadFileToStorage(file, path, (pct) => {
-                    progressFill.style.width = pct + '%';
-                    progressText.textContent = pct + '%';
-                });
-                const entry = {
+                pdfs.push({
                     id: 'p-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
                     person: personStr,
                     label: { en: labelStr, zh: labelStr },
-                    url: meta.url,
-                    storagePath: meta.storagePath,
-                    size: meta.size,
-                    contentType: meta.contentType,
-                    uploadedAt: new Date().toISOString(),
-                    uploadedBy: ((window.fbAuthState && window.fbAuthState().uid) || '')
-                };
-                pdfs.push(entry);
+                    url: urlStr,
+                    addedAt: new Date().toISOString(),
+                    addedBy: ((window.fbAuthState && window.fbAuthState().uid) || '')
+                });
             }
 
             await savePdfs(itemId, pdfs);
@@ -512,7 +474,7 @@
             const personText = p.person || '';
             const adminBtns = auth.signedIn ? `
                 <button class="pdf-row-icon" type="button" data-pdf-edit="${escapeAttr(p.id)}" title="${escapeAttr(editLabel)}" aria-label="${escapeAttr(editLabel)}">✏️</button>
-                <button class="pdf-row-icon" type="button" data-pdf-delete="${escapeAttr(p.id)}" data-pdf-storage="${escapeAttr(p.storagePath || '')}" title="${escapeAttr(deleteLabel)}" aria-label="${escapeAttr(deleteLabel)}">🗑️</button>
+                <button class="pdf-row-icon" type="button" data-pdf-delete="${escapeAttr(p.id)}" title="${escapeAttr(deleteLabel)}" aria-label="${escapeAttr(deleteLabel)}">🗑️</button>
             ` : '';
             return `
                 <li class="pdf-row" data-pdf-id="${escapeAttr(p.id)}">
@@ -542,7 +504,7 @@
             time: ctx.time,
             mode: 'edit',
             editId: id,
-            prefill: { label: entry.label, person: entry.person },
+            prefill: { label: entry.label, person: entry.person, url: entry.url },
             onSaved: () => {
                 if (ctx.onChanged) ctx.onChanged();
                 // Re-open viewer with updated list
@@ -557,24 +519,19 @@
 
     async function handleDeleteClick(btn) {
         const id = btn.dataset.pdfDelete;
-        const storagePath = btn.dataset.pdfStorage;
         const lang = getLang();
-        const confirmMsg = tr('pdfs.deleteConfirm', lang, 'Delete this document? This cannot be undone.');
+        // PDFs live on Drive, so this only removes the entry from the trip site.
+        // The Drive file itself is untouched.
+        const confirmMsg = tr('pdfs.deleteConfirm', lang,
+            'Remove this link from the trip site? The Drive file is not deleted.');
         if (!confirm(confirmMsg)) return;
 
         const ctx = activeContext;
         if (!ctx || !ctx.itemId) return;
         const safe = safeId(ctx.itemId);
         try {
-            // 1) delete file from Storage (best-effort)
-            if (storagePath) {
-                try { await window.deleteFileFromStorage(storagePath); }
-                catch (e) { console.warn('[pdf] storage delete failed:', e.message); }
-            }
-            // 2) remove from Firestore doc
             const remaining = ((cache[safe] && cache[safe].pdfs) || []).filter(p => p.id !== id);
             await savePdfs(ctx.itemId, remaining);
-            // 3) re-render viewer (or close if empty)
             if (ctx.onChanged) ctx.onChanged();
             if (remaining.length === 0) {
                 closeAllModals();

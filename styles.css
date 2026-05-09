@@ -4893,6 +4893,12 @@ button.bk-action-doc { line-height: 1; }
     color: var(--warm-gray);
     font-weight: 400; font-style: italic;
 }
+.pdf-field-help {
+    font-size: 11px;
+    color: var(--warm-gray);
+    line-height: 1.4;
+    margin-top: 2px;
+}
 .pdf-field input[type="text"],
 .pdf-field input[type="email"],
 .pdf-field input[type="password"],
