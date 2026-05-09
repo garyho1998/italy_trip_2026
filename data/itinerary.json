@@ -2047,8 +2047,8 @@
             "alt": "TRAMVIA Bus Pickup"
           },
           "activity": {
-            "en": "🚌 TRAMVIA Bus Pickup at C.So Arnaldo Lucci",
-            "zh": "🚌 TRAMVIA 巴士喺 C.So Arnaldo Lucci 接客"
+            "en": "Amalfi Tour: 🚌 TRAMVIA Bus Pickup at C.So Arnaldo Lucci",
+            "zh": "阿馬爾菲導賞團：🚌 TRAMVIA 巴士喺 C.So Arnaldo Lucci 接客"
           },
           "info": {
             "en": "Booked tour: TRAMVIA - Beducci Travel Bus. Group bus tour with free exploration time in Positano & Amalfi. Be at pickup point by 8:50 — bring confirmation voucher!",
@@ -2072,7 +2072,7 @@
           "booking": {
             "required": true,
             "done": true,
-            "category": "bus",
+            "category": "tour",
             "urgency": "now",
             "hint": {
               "en": "TRAMVIA Naples-Amalfi bus tour — booked, ref GYGLMR2W6BK5",
@@ -2088,8 +2088,8 @@
             "alt": "Positano"
           },
           "activity": {
-            "en": "⭐ Positano (Free Time ~2h)",
-            "zh": "⭐ 波西塔諾（自由活動約2小時）"
+            "en": "Amalfi Tour: ⭐ Positano (Free Time ~2h)",
+            "zh": "阿馬爾菲導賞團：⭐ 波西塔諾（自由活動約2小時）"
           },
           "info": {
             "en": "Iconic pastel clifftop village — walk down to Spiaggia Grande beach, browse ceramic shops, grab a granita di limone",
@@ -2123,8 +2123,8 @@
             "alt": "Fiordo di Furore"
           },
           "activity": {
-            "en": "Fiordo di Furore (Photo Stop)",
-            "zh": "Fiordo di Furore 峽灣（影相停留）"
+            "en": "Amalfi Tour: Fiordo di Furore (Photo Stop)",
+            "zh": "阿馬爾菲導賞團：Fiordo di Furore 峽灣（影相停留）"
           },
           "info": {
             "en": "Bus passes the dramatic hidden fjord between Positano and Amalfi — emerald water, iconic stone bridge. Photo stop depends on driver / traffic",
@@ -2160,8 +2160,8 @@
             "alt": "Amalfi Town"
           },
           "activity": {
-            "en": "⭐ Amalfi Town (Free Time ~4h, includes lunch)",
-            "zh": "⭐ 阿馬爾菲小鎮（自由活動約4小時，包含午餐）"
+            "en": "Amalfi Tour: ⭐ Amalfi Town (Free Time ~4h, includes lunch)",
+            "zh": "阿馬爾菲導賞團：⭐ 阿馬爾菲小鎮（自由活動約4小時，包含午餐）"
           },
           "info": {
             "en": "Visit the magnificent Amalfi Cathedral (Duomo), explore the narrow alleyways. Long free window — sit-down lunch with sea view, taste limoncello, optional walk to Atrani next door (~10min)",
@@ -2199,8 +2199,8 @@
             "alt": "Return journey from Amalfi"
           },
           "activity": {
-            "en": "🚌 Bus Returns from Amalfi → Naples",
-            "zh": "🚌 巴士由 Amalfi 返拿坡里"
+            "en": "Amalfi Tour: 🚌 Bus Returns from Amalfi → Naples",
+            "zh": "阿馬爾菲導賞團：🚌 巴士由 Amalfi 返拿坡里"
           },
           "info": {
             "en": "17:30 departure from Amalfi. ~2h drive back to Naples (depending on coastal traffic)",
@@ -2922,7 +2922,7 @@
           "booking": {
             "required": true,
             "done": false,
-            "category": "attraction",
+            "category": "tour",
             "urgency": "soon",
             "hint": {
               "en": "Book Polignano boat tour 1-2 days ahead via GetYourGuide",
@@ -2999,7 +2999,7 @@
           "booking": {
             "required": true,
             "done": false,
-            "category": "attraction",
+            "category": "tour",
             "urgency": "now",
             "hint": {
               "en": "Book guided Alberobello tour from Bari — half-day",

@@ -3536,6 +3536,8 @@ section {
     --cat-sights-bg: #FAEDC9;
     --cat-stays: var(--olive);
     --cat-stays-bg: #E8EEDC;
+    --cat-tours: var(--deep-wine);
+    --cat-tours-bg: #F1E0E2;
 }
 
 /* ----- Hero ----- */
@@ -3701,6 +3703,7 @@ section {
 .bk-pill-food.active      { background: var(--cat-food-bg);      color: var(--cat-food);      border-color: var(--cat-food); }
 .bk-pill-sights.active    { background: var(--cat-sights-bg);    color: var(--cat-sights);    border-color: var(--cat-sights); }
 .bk-pill-stays.active     { background: var(--cat-stays-bg);     color: var(--cat-stays);     border-color: var(--cat-stays); }
+.bk-pill-tours.active     { background: var(--cat-tours-bg);     color: var(--cat-tours);     border-color: var(--cat-tours); }
 
 .bk-filter-controls {
     display: flex;
@@ -3998,6 +4001,7 @@ section {
 .bk-cat-badge.cat-food      { background: var(--cat-food-bg); }
 .bk-cat-badge.cat-sights    { background: var(--cat-sights-bg); }
 .bk-cat-badge.cat-stays     { background: var(--cat-stays-bg); }
+.bk-cat-badge.cat-tours     { background: var(--cat-tours-bg); }
 
 /* Day + Date meta */
 .bk-meta {
@@ -4043,6 +4047,7 @@ section {
 .bk-title.cat-food      { color: var(--cat-food); }
 .bk-title.cat-sights    { color: var(--cat-sights); }
 .bk-title.cat-stays     { color: var(--cat-stays); }
+.bk-title.cat-tours     { color: var(--cat-tours); }
 
 /* The title is wrapped in an <a> for mobile-tap navigation. Desktop suppresses
    the link affordance so it reads as plain text. The whole .bk-title block

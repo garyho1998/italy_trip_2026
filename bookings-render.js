@@ -34,7 +34,8 @@
     // category → emoji used inside the round badge on each card
     const CAT_ICON = {
         flight: '✈️', train: '🚆', bus: '🚌', ferry: '⛴️', car: '🚗',
-        restaurant: '🍝', attraction: '🎟️', accommodation: '🏨'
+        restaurant: '🍝', attraction: '🎟️', accommodation: '🏨',
+        tour: '🎫'
     };
     // category → CSS class used to color the title + badge
     const CAT_CLASS = {
@@ -42,16 +43,18 @@
         ferry: 'cat-transport', car: 'cat-transport',
         restaurant: 'cat-food',
         attraction: 'cat-sights',
-        accommodation: 'cat-stays'
+        accommodation: 'cat-stays',
+        tour: 'cat-tours'
     };
     // Pill ↔ category-set mapping. Keep in sync with the CAT_CLASS groups.
     const PILL_CATS = {
         transport: ['flight', 'train', 'bus', 'ferry', 'car'],
         food: ['restaurant'],
         sights: ['attraction'],
-        stays: ['accommodation']
+        stays: ['accommodation'],
+        tours: ['tour']
     };
-    const ALL_PILLS = ['transport', 'food', 'sights', 'stays'];
+    const ALL_PILLS = ['transport', 'food', 'sights', 'stays', 'tours'];
 
     // ================================
     // Helpers
@@ -304,9 +307,10 @@
             transport: tr('bookings.filter.transport', lang, 'Transportation'),
             food: tr('bookings.filter.food', lang, 'Food'),
             sights: tr('bookings.filter.sights', lang, 'Sights'),
-            stays: tr('bookings.filter.stays', lang, 'Stays')
+            stays: tr('bookings.filter.stays', lang, 'Stays'),
+            tours: tr('bookings.filter.tours', lang, 'Tours')
         };
-        const icons = { transport: '🚆', food: '🍝', sights: '🎟️', stays: '🏨' };
+        const icons = { transport: '🚆', food: '🍝', sights: '🎟️', stays: '🏨', tours: '🎫' };
         const pills = ALL_PILLS.map(p => {
             const active = filterState.pills.includes(p);
             return `

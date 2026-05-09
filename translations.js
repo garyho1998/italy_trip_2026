@@ -533,6 +533,7 @@ const TRANSLATIONS = {
     "bookings.filter.food": "餐廳",
     "bookings.filter.sights": "景點",
     "bookings.filter.stays": "住宿",
+    "bookings.filter.tours": "導賞團",
     "bookings.filter.hideDone": "隱藏已完成",
     "bookings.filter.reset": "重設",
     "bookings.bookCta": "預訂 →",
