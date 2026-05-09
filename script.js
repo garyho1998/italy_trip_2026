@@ -546,6 +546,12 @@ function uploadFileToStorage(file, storagePath, onProgress) {
         catch (e) { return reject(e); }
 
         const url = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o?uploadType=media&name=${encodeURIComponent(storagePath)}`;
+        // Verbose debug logs — visible in DevTools / Safari Web Inspector to
+        // diagnose iPhone uploads. Strip the token before logging.
+        const dbg = (...args) => console.log('[fb-upload]', ...args);
+        dbg('POST', url);
+        dbg('file', { name: file.name, size: file.size, type: file.type });
+
         const xhr = new XMLHttpRequest();
         xhr.open('POST', url);
         xhr.setRequestHeader('Authorization', `Bearer ${idToken}`);
@@ -556,11 +562,13 @@ function uploadFileToStorage(file, storagePath, onProgress) {
             };
         }
         xhr.onload = () => {
+            dbg('onload', { status: xhr.status, statusText: xhr.statusText, responseLen: (xhr.responseText || '').length });
             if (xhr.status >= 200 && xhr.status < 300) {
                 let meta;
-                try { meta = JSON.parse(xhr.responseText); } catch (e) { return reject(new Error('Bad upload response')); }
+                try { meta = JSON.parse(xhr.responseText); }
+                catch (e) { return reject(new Error('Bad upload response (not JSON): ' + (xhr.responseText || '').slice(0, 120))); }
                 const token = (meta.downloadTokens || '').split(',')[0];
-                if (!token) return reject(new Error('No download token in response'));
+                if (!token) return reject(new Error('No download token in response: ' + JSON.stringify(meta).slice(0, 200)));
                 const downloadUrl = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o/${encodeURIComponent(meta.name)}?alt=media&token=${token}`;
                 resolve({
                     url: downloadUrl,
@@ -571,15 +579,51 @@ function uploadFileToStorage(file, storagePath, onProgress) {
                     downloadToken: token
                 });
             } else {
+                // Surface the full server error in the rejection so it's visible in the modal
                 let msg = `HTTP ${xhr.status}`;
-                try { const j = JSON.parse(xhr.responseText); if (j.error) msg = j.error.message || msg; } catch (e) {}
+                if (xhr.statusText) msg += ` ${xhr.statusText}`;
+                try {
+                    const j = JSON.parse(xhr.responseText);
+                    if (j.error) msg += ` — ${j.error.message || j.error.code || JSON.stringify(j.error)}`;
+                } catch (e) {
+                    // Non-JSON body — include first 200 chars
+                    if (xhr.responseText) msg += ` — ${xhr.responseText.slice(0, 200)}`;
+                }
                 reject(new Error(msg));
             }
         };
-        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.onerror = () => {
+            // XHR error: preflight rejection / DNS / offline / cert / etc. The
+            // browser deliberately doesn't expose the cause to JS for security
+            // reasons, but we can at least show the readyState + URL in the
+            // message so the user can paste it back for diagnosis.
+            dbg('onerror', { readyState: xhr.readyState, status: xhr.status });
+            reject(new Error(`Network error (XHR status=${xhr.status}, readyState=${xhr.readyState}). Check DevTools Network tab for the actual response — common causes: token expired, CORS preflight blocked, or bucket name wrong (current: ${FB_STORAGE_BUCKET}).`));
+        };
+        xhr.ontimeout = () => reject(new Error('Upload timed out'));
+        xhr.onabort   = () => reject(new Error('Upload aborted'));
         xhr.send(file);
     });
 }
+
+// Quick connectivity probe — call from DevTools console:
+//   await debugFirebaseStorage()
+// Verifies the bucket is reachable by GETting an empty list.
+async function debugFirebaseStorage() {
+    const url = `https://firebasestorage.googleapis.com/v0/b/${FB_STORAGE_BUCKET}/o?prefix=pdfs%2F&maxResults=1`;
+    console.log('[fb-debug] GET', url);
+    try {
+        const res = await fetch(url);
+        const text = await res.text();
+        console.log('[fb-debug] status', res.status, res.statusText);
+        console.log('[fb-debug] body', text.slice(0, 500));
+        return { status: res.status, body: text.slice(0, 500) };
+    } catch (e) {
+        console.error('[fb-debug] fetch failed:', e);
+        return { error: e.message };
+    }
+}
+window.debugFirebaseStorage = debugFirebaseStorage;
 
 async function deleteFileFromStorage(storagePath) {
     const idToken = await fbGetIdToken();
