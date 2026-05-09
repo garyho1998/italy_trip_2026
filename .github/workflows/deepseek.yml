@@ -1,0 +1,155 @@
+# DeepSeek-powered AI edits, triggered from GitHub Issues / comments.
+#
+# Usage from your phone (GitHub mobile app):
+#   1. New Issue → body contains "@deepseek please change X"
+#   2. This workflow runs → opens a PR with the changes
+#   3. You review + merge from phone
+#
+# Setup (one-time):
+#   - Get a DeepSeek API key from https://platform.deepseek.com/api_keys
+#   - Repo Settings → Secrets and variables → Actions → New repository secret:
+#       Name:  DEEPSEEK_API_KEY
+#       Value: sk-...   (the key from DeepSeek)
+#
+# Safety: only triggered by issues/comments authored by the repo owner. Random
+# visitors filing issues with @deepseek are ignored. Bot opens a PR (never
+# merges) so you stay in the loop.
+
+name: DeepSeek AI Edits
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  edit:
+    # Run only when the owner mentions @deepseek in an issue/comment.
+    if: |
+      github.event.sender.login == github.repository_owner && (
+        (github.event_name == 'issues' && contains(github.event.issue.body, '@deepseek')) ||
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@deepseek'))
+      )
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Aider
+        run: pip install aider-chat
+
+      - name: Configure git
+        run: |
+          git config user.name "deepseek-bot"
+          git config user.email "deepseek-bot@users.noreply.github.com"
+          git checkout -b "deepseek/issue-${{ github.event.issue.number }}-${{ github.run_id }}"
+
+      - name: Extract prompt
+        id: prompt
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          # Pick the right body field, strip the "@deepseek" mention, write to file
+          if [ "$EVENT_NAME" = "issue_comment" ]; then
+            printf '%s' "$COMMENT_BODY" > /tmp/prompt.txt
+          else
+            printf '%s' "$ISSUE_BODY" > /tmp/prompt.txt
+          fi
+          # Drop the @deepseek mention itself
+          sed -i 's/@deepseek//gI' /tmp/prompt.txt
+          # Sanity: must have content beyond whitespace
+          if [ ! -s /tmp/prompt.txt ] || ! grep -q '[^[:space:]]' /tmp/prompt.txt; then
+            echo "Prompt is empty after stripping @deepseek mention" >&2
+            exit 1
+          fi
+          echo "Prompt contents:"
+          head -c 500 /tmp/prompt.txt
+          echo
+
+      - name: Run Aider with DeepSeek
+        env:
+          # Aider talks to DeepSeek's OpenAI-compatible endpoint
+          OPENAI_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENAI_API_BASE: https://api.deepseek.com/v1
+          # Quiet down Aider's interactive prompts in CI
+          AIDER_NO_AUTO_COMMITS: "false"   # let aider commit
+          AIDER_AUTO_TEST: "false"
+          AIDER_AUTO_LINT: "false"
+          AIDER_GITIGNORE: "false"
+        run: |
+          # Files Aider is allowed to edit. Static-site project — keep this list
+          # tight so the model has bounded scope and predictable token cost.
+          FILES=$(ls *.html *.js *.css 2>/dev/null; ls data/itinerary.json 2>/dev/null)
+          echo "Editable files:"
+          echo "$FILES"
+
+          # Non-interactive run with the prompt from the issue body
+          aider \
+            --model openai/deepseek-chat \
+            --message-file /tmp/prompt.txt \
+            --yes-always \
+            --no-stream \
+            --no-show-model-warnings \
+            --no-suggest-shell-commands \
+            --no-pretty \
+            --map-tokens 0 \
+            $FILES
+
+      - name: Push branch
+        id: push
+        run: |
+          # If aider made no commits there's nothing to push
+          if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ]; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          git push -u origin HEAD
+          echo "no_changes=false" >> $GITHUB_OUTPUT
+
+      - name: Open PR
+        if: steps.push.outputs.no_changes == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          PR_URL=$(gh pr create \
+            --title "DeepSeek: $ISSUE_TITLE (#$ISSUE_NUM)" \
+            --body "Triggered by issue #$ISSUE_NUM. Closes #$ISSUE_NUM when merged." \
+            --base main \
+            --head "$(git rev-parse --abbrev-ref HEAD)")
+          echo "Opened: $PR_URL"
+          gh issue comment "$ISSUE_NUM" --body "🤖 DeepSeek opened a PR: $PR_URL"
+
+      - name: Notify if no changes
+        if: steps.push.outputs.no_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE_NUM" --body "🤖 DeepSeek ran but didn't produce any file changes. Try rephrasing the request with more specifics (file path, what to change, why)."
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$ISSUE_NUM" --body "❌ DeepSeek run failed. [View logs]($RUN_URL)"
