@@ -4818,9 +4818,10 @@ button.bk-action-doc { line-height: 1; }
 .bk-action-upload:hover { background: rgba(198, 93, 59, 0.08); }
 
 /* Compact PDF actions row inside itinerary timeline items */
-.timeline-pdf-actions {
+.timeline-pdf-actions,
+.pin-pdf-actions {
     display: flex; gap: 6px; flex-wrap: wrap;
-    margin-top: 6px;
+    margin-top: 8px;
 }
 /* Itinerary page is read-only for PDFs — uploads happen on the bookings page.
    Keep the view chip (📎) so day-by-day timeline still surfaces the link. */

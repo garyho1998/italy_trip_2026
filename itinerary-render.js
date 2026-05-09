@@ -294,6 +294,14 @@
             const mapLink = mapsUrl
                 ? `<a class="pin-maps-link" href="${escapeAttr(mapsUrl)}" target="_blank" rel="noopener">📍 Open in Google Maps</a>`
                 : '';
+            // PDF chip (view-only on the active-pin card; uploads belong on bookings)
+            let pdfActions = '';
+            if (window.PdfHelpers && p.time) {
+                const itemId = `${day.number}-${p.time}`;
+                const pdfData = window.PdfHelpers.getFor(itemId);
+                const html = window.PdfHelpers.renderActions(itemId, pdfData.pdfs, lang);
+                if (html) pdfActions = `<div class="pin-pdf-actions">${html}</div>`;
+            }
             pinCard = `
                 <div class="pin-card">
                     <div class="pin-card-header">
@@ -309,6 +317,7 @@
                         <p class="pin-card-info">${escapeAttr(info)}</p>
                         ${comment}
                         ${mapLink}
+                        ${pdfActions}
                     </div>
                 </div>
             `;
