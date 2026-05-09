@@ -599,9 +599,10 @@ const TRANSLATIONS = {
     "pdfs.deleteFailed": "刪除失敗：",
     "pdfs.field.url": "Google 雲端硬碟連結",
     "pdfs.field.urlHelp": "在雲端硬碟打開檔案 → 共用 → 「知道連結的所有人」 → 複製連結，貼上即可。",
-    "pdfs.field.label": "標籤",
     "pdfs.field.person": "人物",
     "pdfs.field.personHint": "可選；留空表示共用",
+    "pdfs.shared": "共用",
+    "pdfs.docFallback": "文件",
 
     "settings-display-mode-label": "預算顯示模式",
     "settings-display-mode-hint": "在預算頁切換團體總額與每人金額。只儲存於此裝置。",

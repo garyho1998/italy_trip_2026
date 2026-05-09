@@ -156,18 +156,25 @@
         const auth = (window.fbAuthState && window.fbAuthState()) || { signedIn: false };
         const safe = safeId(itemId);
 
+        // Chip text: prefer person, then legacy label, else generic "View".
+        // For multi-doc the chip becomes "Tickets (N)".
+        const chipFor = (p) =>
+            (p.person && p.person.trim()) ||
+            t(p.label, lang) ||
+            tr('pdfs.view', lang, 'View');
+
         const out = [];
         if (pdfs.length === 1 && !auth.signedIn) {
             // Single doc, public viewer — direct link
             const p = pdfs[0];
-            const label = t(p.label, lang) || tr('pdfs.view', lang, 'View');
+            const label = chipFor(p);
             out.push(
                 `<a class="bk-action bk-action-doc" href="${escapeAttr(p.url)}" target="_blank" rel="noopener" title="${escapeAttr(label)}">📎 ${escapeAttr(label)}</a>`
             );
         } else if (pdfs.length >= 1) {
             // Multi-doc OR signed-in (so they can edit) — open viewer modal
             const labelText = pdfs.length === 1
-                ? (t(pdfs[0].label, lang) || tr('pdfs.view', lang, 'View'))
+                ? chipFor(pdfs[0])
                 : tr('pdfs.tickets', lang, 'Tickets ({n})').replace('{n}', String(pdfs.length));
             out.push(
                 `<button type="button" class="bk-action bk-action-doc" data-pdf-list="${escapeAttr(safe)}">📎 ${escapeAttr(labelText)}</button>`
@@ -202,10 +209,6 @@
                         <span class="pdf-field-label" id="pdf-url-label">Google Drive share link</span>
                         <input type="url" id="pdf-url-input" placeholder="https://drive.google.com/file/d/..." required>
                         <span class="pdf-field-help" id="pdf-url-help">Open the file in Drive → Share → "Anyone with the link" → Copy link → paste here.</span>
-                    </label>
-                    <label class="pdf-field">
-                        <span class="pdf-field-label" id="pdf-label-label">Label</span>
-                        <input type="text" id="pdf-label-input" placeholder="e.g. Cathay CX293 ticket" required>
                     </label>
                     <label class="pdf-field">
                         <span class="pdf-field-label" id="pdf-person-label">Person <span class="pdf-field-hint">(optional, blank = shared)</span></span>
@@ -259,8 +262,6 @@
         document.getElementById('pdf-url-help').textContent =
             tr('pdfs.field.urlHelp', lang,
                'Open the file in Drive → Share → "Anyone with the link" → Copy link → paste here.');
-        document.getElementById('pdf-label-label').textContent =
-            tr('pdfs.field.label', lang, 'Label');
         const personEl = document.getElementById('pdf-person-label');
         const personHint = ` <span class="pdf-field-hint">(${tr('pdfs.field.personHint', lang, 'optional, blank = shared')})</span>`;
         personEl.innerHTML = escapeAttr(tr('pdfs.field.person', lang, 'Person')) + personHint;
@@ -327,14 +328,11 @@
 
         // Prefill (edit mode)
         const urlInput = document.getElementById('pdf-url-input');
-        const labelInput = document.getElementById('pdf-label-input');
         const personInput = document.getElementById('pdf-person-input');
         if (opts.prefill) {
             urlInput.value = opts.prefill.url || '';
-            labelInput.value = t(opts.prefill.label, lang) || '';
             personInput.value = opts.prefill.person || '';
-            // URL editable in edit mode but not required (keep existing if blank)
-            urlInput.required = false;
+            urlInput.required = false;   // keep existing URL if user leaves blank
         } else {
             urlInput.required = true;
         }
@@ -371,18 +369,10 @@
         const editId = form.dataset.editId;
 
         const urlInput = document.getElementById('pdf-url-input');
-        const labelInput = document.getElementById('pdf-label-input');
         const personInput = document.getElementById('pdf-person-input');
         const urlStr = normalizeDriveUrl(urlInput.value.trim());
-        const labelStr = labelInput.value.trim();
         const personStr = personInput.value.trim();
 
-        if (!labelStr) {
-            errorEl.textContent = 'Label required';
-            errorEl.hidden = false;
-            submitBtn.disabled = false;
-            return;
-        }
         if (mode === 'create' && !urlStr) {
             errorEl.textContent = 'Link required';
             errorEl.hidden = false;
@@ -406,7 +396,6 @@
                 if (idx === -1) throw new Error('Entry not found');
                 pdfs[idx] = {
                     ...pdfs[idx],
-                    label: { en: labelStr, zh: labelStr },
                     person: personStr,
                     // Only overwrite URL if user provided a new one
                     ...(urlStr ? { url: urlStr } : {})
@@ -415,7 +404,6 @@
                 pdfs.push({
                     id: 'p-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
                     person: personStr,
-                    label: { en: labelStr, zh: labelStr },
                     url: urlStr,
                     addedAt: new Date().toISOString(),
                     addedBy: ((window.fbAuthState && window.fbAuthState().uid) || '')
@@ -469,9 +457,14 @@
             list.innerHTML = `<li class="pdf-list-empty">${escapeAttr(tr('pdfs.empty', lang, 'No documents.'))}</li>`;
             return;
         }
-        list.innerHTML = pdfs.map(p => {
-            const labelText = t(p.label, lang) || '(untitled)';
-            const personText = p.person || '';
+        const sharedLabel = tr('pdfs.shared', lang, 'Shared');
+        list.innerHTML = pdfs.map((p, idx) => {
+            const personText = (p.person && p.person.trim()) || '';
+            // Row primary text: person, then legacy label, else "Document N"
+            const primary = personText
+                || t(p.label, lang)
+                || `${tr('pdfs.docFallback', lang, 'Document')} ${idx + 1}`;
+            const isShared = !personText;
             const adminBtns = auth.signedIn ? `
                 <button class="pdf-row-icon" type="button" data-pdf-edit="${escapeAttr(p.id)}" title="${escapeAttr(editLabel)}" aria-label="${escapeAttr(editLabel)}">✏️</button>
                 <button class="pdf-row-icon" type="button" data-pdf-delete="${escapeAttr(p.id)}" title="${escapeAttr(deleteLabel)}" aria-label="${escapeAttr(deleteLabel)}">🗑️</button>
@@ -479,8 +472,7 @@
             return `
                 <li class="pdf-row" data-pdf-id="${escapeAttr(p.id)}">
                     <div class="pdf-row-meta">
-                        ${personText ? `<span class="pdf-row-person">${escapeAttr(personText)}</span>` : ''}
-                        <span class="pdf-row-label">${escapeAttr(labelText)}</span>
+                        <span class="pdf-row-person${isShared ? ' pdf-row-shared' : ''}">${escapeAttr(isShared ? sharedLabel : primary)}</span>
                     </div>
                     <a class="pdf-row-open" href="${escapeAttr(p.url)}" target="_blank" rel="noopener">${escapeAttr(openLabel)} →</a>
                     ${adminBtns}
@@ -504,7 +496,7 @@
             time: ctx.time,
             mode: 'edit',
             editId: id,
-            prefill: { label: entry.label, person: entry.person, url: entry.url },
+            prefill: { person: entry.person, url: entry.url },
             onSaved: () => {
                 if (ctx.onChanged) ctx.onChanged();
                 // Re-open viewer with updated list
