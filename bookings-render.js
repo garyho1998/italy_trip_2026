@@ -433,23 +433,19 @@
 
         // Action links
         const bookCta = tr('bookings.bookCta', lang, 'book →');
-        const itinLabel = (lang === 'zh' ? `行程：第 ${entry.dayNumber} 天` : `Itinerary: Day ${entry.dayNumber}`);
-        const dirLabel = tr('bookings.directions', lang, 'Directions');
 
         const actions = [];
         if (item.link && item.link.url) {
             actions.push(`<a class="bk-action bk-action-book" href="${escapeAttr(item.link.url)}" target="_blank" rel="noopener">${escapeAttr(bookCta)}</a>`);
         }
-        actions.push(`<a class="bk-action bk-action-itin" href="itinerary.html#day-${entry.dayNumber}">${escapeAttr(itinLabel)} ↗</a>`);
-        const mapsUrl = buildMapsUrl(item.location);
-        if (mapsUrl) {
-            actions.push(`<a class="bk-action bk-action-dir" href="${escapeAttr(mapsUrl)}" target="_blank" rel="noopener">📍 ${escapeAttr(dirLabel)}</a>`);
-        }
-        // PDF actions (view / upload) — pdf.js provides the action HTML
+        // PDF actions (view / upload) — pdf.js provides the action HTML.
+        // These live in `.bk-pdf-actions` inside `.bk-body` so they remain
+        // visible on mobile (the legacy `.bk-right` column is hidden ≤768px).
+        let pdfActionsHtml = '';
         if (window.PdfHelpers) {
             const pdfData = window.PdfHelpers.getFor(id);
             const pdfHtml = window.PdfHelpers.renderActions(id, pdfData.pdfs, lang);
-            if (pdfHtml) actions.push(pdfHtml);
+            if (pdfHtml) pdfActionsHtml = `<div class="bk-pdf-actions">${pdfHtml}</div>`;
         }
 
         // Title is always wrapped in an anchor to the matching itinerary day.
@@ -474,6 +470,7 @@
                     <h3 class="bk-title ${catClass}">${titleAnchorOpen}${titleHtml}${titleAnchorClose}</h3>
                     ${hint ? `<p class="bk-hint">${escapeAttr(hint)}</p>` : ''}
                     ${mobilePriceHtml}
+                    ${pdfActionsHtml}
                 </div>
                 <div class="bk-right">
                     ${priceHtml}

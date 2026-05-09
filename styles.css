@@ -4823,6 +4823,13 @@ button.bk-action-doc { line-height: 1; }
     margin-top: 6px;
 }
 
+/* PDF actions on bookings card (inside .bk-body so they survive mobile,
+   where the .bk-right column is hidden). */
+.bk-pdf-actions {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 8px;
+}
+
 /* ===== Modals ===== */
 .pdf-overlay {
     position: fixed; inset: 0;
