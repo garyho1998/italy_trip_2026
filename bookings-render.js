@@ -418,18 +418,12 @@
         const titleHtml = escapeAttr(t(item.activity, lang));
         const hint = b.hint ? t(b.hint, lang) : '';
 
-        // Price (right column on desktop; CSS toggles which copy is visible)
-        let priceHtml = '';
-        let mobilePriceHtml = '';
-        if (item.price) {
-            const amount = escapeAttr(item.price.amount || '');
-            const perPerson = item.price.perPerson
-                ? `<span class="bk-price-pp">${lang === 'zh' ? '每人' : 'per person'}</span>`
-                : '';
-            priceHtml = `<div class="bk-price"><span class="bk-price-amount">${amount}</span>${perPerson}</div>`;
-            // Compact mobile-only mirror (slots into .bk-body grid via CSS).
-            mobilePriceHtml = `<span class="bk-mobile-price">${amount}</span>`;
-        }
+        // Price intentionally NOT rendered on the bookings page — prices live
+        // exclusively on the budget page where they have proper formatting,
+        // dual-currency display, and per-person/total toggle. Keeping the
+        // variables empty so the existing template slots produce nothing.
+        const priceHtml = '';
+        const mobilePriceHtml = '';
 
         // Action links
         const bookCta = tr('bookings.bookCta', lang, 'book →');
